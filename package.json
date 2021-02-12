@@ -1,0 +1,22 @@
+{
+  "name": "bow-mvp",
+  "version": "0.1.0",
+  "description": "bow mvp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Scorpio750/bow-mvp.git"
+  },
+  "author": "Sascha Wu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Scorpio750/bow-mvp/issues"
+  },
+  "homepage": "https://github.com/Scorpio750/bow-mvp#readme",
+  "dependencies": {
+    "create-react-app": "^4.0.2"
+  }
+}
