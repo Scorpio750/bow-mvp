@@ -2,6 +2,9 @@
   text-align: center;
   height: 100vh;
   background-color: gainsboro;
+  color: black;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .App-logo {
@@ -11,7 +14,8 @@
 
 .home-nav {
   position: absolute;
-  left: 0;
+  left: 10px;
+  top: 10px;
 }
 
 .App-header {
@@ -22,6 +26,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-body {
+  flex: 10 0 80vh;
+  padding: 0vh 7vw;
 }
 
 .App-link {

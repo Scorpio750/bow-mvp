@@ -8,14 +8,14 @@ import {
 } from "react-router-dom";
 import { LoremIpsum } from 'lorem-ipsum';
 
-import icon from './assets/BoW-home-icon.png';
+import icon from './assets/home-icon.png';
 import Home from './containers/Home/Home';
+import Login from './containers/Login/Login';
 
 const App = () => {
   return (
     <Router>
       <div className="App">
-        <Link className="home-nav" to="/"><img style={{ height: '10vmin' }} src={icon} /></Link>
 
         {/*
           A <Switch> looks through all its children <Route>
@@ -24,32 +24,40 @@ const App = () => {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/FAQ">
-            <FAQ />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/tandc">
-            <TandC />
-          </Route>
-          <Route path="/privacy">
-            <Privacy />
-          </Route>
-          <Route path="/donations">
-            <Donations />
-          </Route>
-          <Route path="/mailing">
-            <MailingList />
-          </Route>
-        </Switch>
+        <header className="App-header">
+          <Link className="home-nav" to="/"><img style={{ height: '10vmin' }} src={icon} /></Link>
+        </header>
+        <section className="App-body">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/FAQ">
+              <FAQ />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/tandc">
+              <TandC />
+            </Route>
+            <Route path="/privacy">
+              <Privacy />
+            </Route>
+            <Route path="/donations">
+              <Donations />
+            </Route>
+            <Route path="/mailing">
+              <MailingList />
+            </Route>
+          </Switch>
+        </section>
 
         <footer>
           <ul>

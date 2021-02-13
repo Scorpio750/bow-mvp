@@ -1,17 +1,19 @@
 import React from 'react';
-import logo from '../../assets/body of workers.png';
+import { Link } from 'react-router-dom';
+
+import styles from './Home.module.css';
+
+import logo from '../../assets/main-logo.png';
 
 export const Home = props => (
   <header className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link className="App-link" to="/login">
       Enter.
-    </a>
+    </Link>
+    <p className={styles.disclaimer}>
+      This website contains content that is only for users over 18 years of age.
+    </p>
   </header>
 );
 
