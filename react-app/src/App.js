@@ -53,25 +53,25 @@ const App = () => {
 
         <footer>
           <ul>
-            <li>
+            <li className="footer-link">
               <Link to="/about">ABOUT</Link>
             </li>
-            <li>
+            <li className="footer-link">
               <Link to="/faq">FAQ</Link>
             </li>
-            <li>
+            <li className="footer-link">
               <Link to="/contact">CONTACT</Link>
             </li>
-            <li>
+            <li className="footer-link">
               <Link to="/tandc">TERMS AND CONDITIONS</Link>
             </li>
-            <li>
+            <li className="footer-link">
               <Link to="/privacy">PRIVACY</Link>
             </li>
-            <li>
+            <li className="footer-link">
               <Link to="/donations">DONATIONS</Link>
             </li>
-            <li>
+            <li className="footer-link">
               <Link to="/mailing">MAILING LIST</Link>
             </li>
           </ul>

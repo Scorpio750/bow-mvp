@@ -11,7 +11,6 @@
 
 .home-nav {
   position: absolute;
-  height: 10vmin;
   left: 0;
 }
 
@@ -38,4 +37,9 @@ ul {
   flex-flow: row;
   justify-content: space-around;
   list-style-type: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
