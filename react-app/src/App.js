@@ -8,12 +8,15 @@ import {
 } from "react-router-dom";
 import { LoremIpsum } from 'lorem-ipsum';
 
+import icon from './assets/BoW-home-icon.png';
 import Home from './containers/Home/Home';
 
 const App = () => {
   return (
     <Router>
       <div className="App">
+        <Link className="home-nav" to="/"><img style={{ height: '10vmin' }} src={icon} /></Link>
+
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -71,9 +74,9 @@ const App = () => {
             <li>
               <Link to="/mailing">MAILING LIST</Link>
             </li>
-    </ul>
-    </footer>
-    </div>
+          </ul>
+        </footer>
+      </div>
     </Router>
   );
 }

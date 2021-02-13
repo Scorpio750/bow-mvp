@@ -9,6 +9,12 @@
   pointer-events: none;
 }
 
+.home-nav {
+  position: absolute;
+  height: 10vmin;
+  left: 0;
+}
+
 .App-header {
   display: flex;
   height: 90vh;
@@ -24,7 +30,6 @@
   font-size: 3rem;
   color: black;
 }
-
 
 ul {
   font-size: 1.2rem;
