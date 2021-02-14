@@ -20,6 +20,7 @@ export const Login = () => {
           placeholder="Username"
           ref={register({ required: true })}
         />
+        {errors.username && <span className={styles.error}>This field is required</span>}
 
         {/* include validation with required or other standard HTML validation rules */}
         <input
@@ -29,7 +30,7 @@ export const Login = () => {
           ref={register({ required: true })}
         />
         {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span className={styles.error}>This field is required</span>}
+        {errors.password && <span className={styles.error}>This field is required</span>}
 
         <input className={styles.submit} type="submit" />
       </form>
