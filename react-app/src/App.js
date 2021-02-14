@@ -10,6 +10,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 
 import icon from './assets/home-icon.png';
 import Home from './containers/Home/Home';
+import Feed from './containers/Feed/Feed';
 import Login from './containers/Login/Login';
 
 const App = () => {
@@ -31,6 +32,9 @@ const App = () => {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/feed">
+              <Feed />
             </Route>
             <Route path="/login">
               <Login />

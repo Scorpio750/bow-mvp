@@ -8,7 +8,7 @@ import logo from '../../assets/main-logo.png';
 export const Home = props => (
   <header className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
-    <Link className="App-link" to="/login">
+    <Link className="App-link" to="/feed">
       Enter.
     </Link>
     <p className={styles.disclaimer}>
