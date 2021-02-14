@@ -1,0 +1,46 @@
+.formContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 70vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  cursor: default;
+  font-size: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.input {
+  padding: 1rem;
+  width: 20vw;
+  background: none;
+  border: 0;
+  outline: 0;
+  transition: .1s linear;
+  font-size: 1.1rem;
+}
+
+.input:focus {
+  font-size: 1.3rem;
+}
+
+.error {
+  background-color: crimson;
+  color: white;
+}
+
+.submit {
+  border: none;
+  background: none;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 1rem;
+}

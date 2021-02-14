@@ -1,5 +1,7 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+
+import styles from './Login.module.css';
 
 export const Login = () => {
   const { register, handleSubmit, watch, errors } = useForm();
@@ -8,17 +10,30 @@ export const Login = () => {
   console.log(watch("example")); // watch input value by passing the name of it
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-    {/* register your input into the hook by invoking the "register" function */}
-      <input name="example" defaultValue="test" ref={register} />
+    <div className={styles.formContainer}>
+      <h1 className={styles.header}>Login</h1>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        {/* register your input into the hook by invoking the "register" function */}
+        <input
+          name="username"
+          className={styles.input}
+          placeholder="Username"
+          ref={register({ required: true })}
+        />
 
-      {/* include validation with required or other standard HTML validation rules */}
-      <input name="exampleRequired" ref={register({ required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
+        {/* include validation with required or other standard HTML validation rules */}
+        <input
+          name="password"
+          className={styles.input}
+          placeholder="Password"
+          ref={register({ required: true })}
+        />
+        {/* errors will return when field validation fails  */}
+        {errors.exampleRequired && <span className={styles.error}>This field is required</span>}
 
-      <input type="submit" />
-    </form>
+        <input className={styles.submit} type="submit" />
+      </form>
+    </div>
   );
 }
 
