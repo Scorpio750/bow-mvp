@@ -15,11 +15,20 @@
 
 .home-nav {
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 15px;
+  top: 15px;
+}
+
+.login-nav {
+  margin: 3vh 2vw;
+  font-size: 1.5rem;
+  transition: .1s linear;
 }
 
 .App-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
 }
 
 .App-body {
@@ -37,6 +46,12 @@ ul {
 }
 
 a {
-  color: black;
+  color: #666;
   text-decoration: none;
+  transition: .1s linear;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
 }

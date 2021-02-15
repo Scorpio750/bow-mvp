@@ -27,7 +27,7 @@ const App = () => {
         */}
         <header className="App-header">
           <Link className="home-nav" to="/feed"><img style={{ height: '10vmin' }} src={icon} /></Link>
-          <Link to="/login">Login</Link>
+          <Link className="login-nav" to="/login">login</Link>
         </header>
         <section className="App-body">
           <Switch>
