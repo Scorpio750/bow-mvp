@@ -4,15 +4,19 @@ import { connect } from 'react-redux';
 
 import { getAllPosts } from '../../store/actions/posts';
 
+import Post from '../Post/Post';
+
 import styles from './Feed.module.css';
 
 export const renderPostPreviews = (posts, colIndex) => {
-  posts = ['hi', 'hi', 'hi', 'hi', 'kinky'];
+  posts = Array(90).fill({ title: 'hi' });
   const moddedPosts = posts.reduce((modList, post, index) => {
     if (index % 3 === colIndex) modList.push(post);
     return modList;
   }, []);
-  const renderedPosts = moddedPosts.map(post => <li key={Math.random()}>{post}</li>);
+  const renderedPosts = moddedPosts.map(
+    post => <Post title={post.title} image={post.image} />
+  );
   return renderedPosts;
 };
 

@@ -65,7 +65,7 @@ const App = () => {
         </section>
 
         <footer>
-          <ul>
+          <ul className="footer-link-list">
             <li className="footer-link">
               <Link to="/about">ABOUT</Link>
             </li>
