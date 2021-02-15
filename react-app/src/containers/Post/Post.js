@@ -1,20 +1,55 @@
 import React from 'react';
 import { PropTypes as p } from 'prop-types';
+import Modal from 'react-modal';
 
 import placeholder from '../../assets/sexy_placeholder.jpg';
 import styles from './Post.module.css';
 
+
+Modal.setAppElement('#root');
+
+export const handleClick = openModal => {
+  openModal();
+}
+
 export const Post = props => {
-  return (
+  const [modalIsOpen,setIsOpen] = React.useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+
+  const renderPost = () => (
     <div className={styles.postContainer}>
       <img
         className={styles.artwork}
         src={props.image || placeholder}
         alt='pretend there is some art here'
+        onClick={() => handleClick(openModal)}
       />
       <h3 className={styles.title}>{props.title || 'hello i am sascha and this website is my art piece'}</h3>
       <div style={{ marginBottom: '2.5rem' }}></div>
     </div>
+  );
+
+  //TODO: this is not scalable we should put modal at root but having trouble invoking render through higher order components
+  return (
+    <React.Fragment>
+      {renderPost()}
+
+      <Modal
+        className={styles.modal}
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="test"
+      >
+        {renderPost()}
+      </Modal>
+    </React.Fragment>
   )
 }
 
@@ -42,6 +77,7 @@ Post.propTypes = {
   press: p.string,
   distributor: p.string,
   tags: p.array,
+  onClick: p.func,
 }
 
 export default Post;
