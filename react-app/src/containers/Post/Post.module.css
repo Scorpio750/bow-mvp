@@ -23,6 +23,13 @@
   z-index: 10000;
 }
 
+.artistLink {
+  position: absolute;
+  bottom: 42vh;
+  right: 30vw;
+  color: white;
+}
+
 .closeBtn {
   cursor: pointer;
   color: white;

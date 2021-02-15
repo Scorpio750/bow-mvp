@@ -8,23 +8,23 @@ import Post from '../Post/Post';
 
 import styles from './Feed.module.css';
 
-export const renderPostPreviews = (posts, colIndex) => {
-  posts = Array(200).fill({ title: 'hello i am a sexy art' });
-  const moddedPosts = posts.reduce((modList, post, index) => {
-    if (index % 3 === colIndex) modList.push(post);
-    return modList;
-  }, []);
-  const renderedPosts = moddedPosts.map(
-    post =>
-      <Post
-        title={post.title}
-        image={post.image}
-      />
-  );
-  return renderedPosts;
-};
-
 export const Feed = props => {
+  const renderPostPreviews = (posts, colIndex, number = 200) => {
+    posts = Array(props.dummyNumber || number).fill({ title: 'hello i am a sexy art' });
+    const moddedPosts = posts.reduce((modList, post, index) => {
+      if (index % 3 === colIndex) modList.push(post);
+      return modList;
+    }, []);
+    const renderedPosts = moddedPosts.map(
+      post =>
+        <Post
+          title={post.title}
+          image={post.image}
+        />
+    );
+    return renderedPosts;
+  };
+
   return (
     <div className={styles.feedContainer}>
       <div className={styles.feedColumn1}>
@@ -57,6 +57,7 @@ const mapDispatchToProps = {
 Feed.propTypes = {
   getAllPosts: p.func,
   posts: p.array,
+  dummyNumber: p.number,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

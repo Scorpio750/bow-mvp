@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes as p } from 'prop-types';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 
 import placeholder from '../../assets/sexy_placeholder.jpg';
 import styles from './Post.module.css';
@@ -49,6 +50,7 @@ export const Post = props => {
         contentLabel="test"
       >
         {renderPost()}
+        <Link className={styles.artistLink} to="/artist-profile">View Profile</Link>
         <span className={styles.closeBtn} onClick={closeModal}>X</span>
       </Modal>
     </React.Fragment>

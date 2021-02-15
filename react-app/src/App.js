@@ -12,6 +12,7 @@ import icon from './assets/home-icon.png';
 import Welcome from './containers/Welcome/Welcome';
 import Feed from './containers/Feed/Feed';
 import Login from './containers/Login/Login';
+import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
 
 const App = () => {
   return (
@@ -39,6 +40,9 @@ const App = () => {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/artist-profile">
+              <ArtistProfile />
             </Route>
             <Route path="/about">
               <About />

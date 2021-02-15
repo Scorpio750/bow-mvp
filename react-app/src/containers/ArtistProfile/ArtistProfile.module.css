@@ -1,0 +1,38 @@
+.artistProfileContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.artistPicMedia {
+  grid-column: 0 / 4;
+}
+
+.artistPic {
+  height: 30vh;
+}
+
+.mediaContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.mediaThumbnail {
+  height: 28px;
+  margin-right: 1rem;
+}
+
+.artistBio {
+  grid-column: 3 / 8;
+}
+
+.artistWorks {
+  grid-column: 2/ 8;
+  gap: 0;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+}
