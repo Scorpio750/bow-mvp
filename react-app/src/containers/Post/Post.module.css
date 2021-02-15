@@ -14,11 +14,20 @@
 
 .modal {
   inset: 0;
-  background: radial-gradient(maroon, black);
+  background: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9));
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10000;
+}
+
+.closeBtn {
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 30vw;
+  top: 30vh;
+  font-size: 2rem;
 }

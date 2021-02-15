@@ -44,10 +44,12 @@ export const Post = props => {
       <Modal
         className={styles.modal}
         isOpen={modalIsOpen}
+        shouldCloseOnOverlayClick={true}
         onRequestClose={closeModal}
         contentLabel="test"
       >
         {renderPost()}
+        <span className={styles.closeBtn} onClick={closeModal}>X</span>
       </Modal>
     </React.Fragment>
   )
