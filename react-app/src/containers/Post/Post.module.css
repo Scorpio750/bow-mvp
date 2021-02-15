@@ -3,3 +3,11 @@
   flex-flow: column nowrap;
   max-width: 20vw;
 }
+
+.artwork {
+  cursor: pointer;
+}
+
+.title {
+  cursor: default;
+}

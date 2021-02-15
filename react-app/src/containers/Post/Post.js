@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes as p } from 'prop-types';
 
-import placeholder from '../../assets/image_placeholder.png';
+import placeholder from '../../assets/sexy_placeholder.jpg';
 import styles from './Post.module.css';
 
 export const Post = props => {
@@ -12,7 +12,7 @@ export const Post = props => {
         src={props.image || placeholder}
         alt='pretend there is some art here'
       />
-      <h3>{props.title || 'hello i am sascha and this website is my art piece'}</h3>
+      <h3 className={styles.title}>{props.title || 'hello i am sascha and this website is my art piece'}</h3>
       <div style={{ marginBottom: '2.5rem' }}></div>
     </div>
   )
