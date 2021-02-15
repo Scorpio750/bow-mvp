@@ -9,7 +9,7 @@ import {
 import { LoremIpsum } from 'lorem-ipsum';
 
 import icon from './assets/home-icon.png';
-import Home from './containers/Home/Home';
+import Welcome from './containers/Welcome/Welcome';
 import Feed from './containers/Feed/Feed';
 import Login from './containers/Login/Login';
 
@@ -26,12 +26,13 @@ const App = () => {
           of them to render at a time
         */}
         <header className="App-header">
-          <Link className="home-nav" to="/"><img style={{ height: '10vmin' }} src={icon} /></Link>
+          <Link className="home-nav" to="/feed"><img style={{ height: '10vmin' }} src={icon} /></Link>
+          <Link to="/login">Login</Link>
         </header>
         <section className="App-body">
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Welcome />
             </Route>
             <Route path="/feed">
               <Feed />

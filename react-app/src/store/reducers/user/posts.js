@@ -12,7 +12,9 @@ export default function posts(state = defaultPosts, action) {
       return action.posts
     //TODO filter logic
     case GET_ARTIST_POSTS:
-      return;
+      return
+    case ADD_POST:
+      return state.posts
     case REMOVE_POST:
       return state.posts
     default:

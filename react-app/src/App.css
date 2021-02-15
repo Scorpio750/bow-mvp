@@ -2,6 +2,7 @@
   text-align: center;
   height: 100vh;
   background-color: gainsboro;
+  box-sizing: border-box;
   color: black;
   display: flex;
   flex-flow: column nowrap;
@@ -19,24 +20,11 @@
 }
 
 .App-header {
-  display: flex;
-  height: 90vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-body {
   flex: 10 0 80vh;
   padding: 0vh 7vw;
-}
-
-.App-link {
-  margin: 1rem;
-  font-size: 3rem;
-  color: black;
 }
 
 ul {

@@ -8,6 +8,7 @@ export const defaultPosts = []
 //Action Types
 export const GET_ALL_POSTS = 'GET_ALL_POSTS'
 export const GET_ARTIST_POSTS = 'GET_ARTIST_POSTS'
+export const ADD_POST = 'ADD_POST'
 export const REMOVE_POST = 'REMOVE_POST'
 
 //Actions
@@ -16,6 +17,9 @@ export const getAllPosts = () => async dispatch => {
 }
 export const getArtistPosts = () => async dispatch => {
   dispatch({ type :GET_ARTIST_POSTS });
+}
+export const addPost = () => async dispatch => {
+  dispatch(({ type: ADD_POST }));
 }
 export const removePost = () => async dispatch => {
   dispatch(({ type: REMOVE_POST }));
