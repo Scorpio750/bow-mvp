@@ -14,7 +14,7 @@
 
 .modal {
   inset: 0;
-  background: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+  background: radial-gradient(rgba(100,0,0,0.8), rgba(0,0,0,0.9));
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -27,7 +27,8 @@
   position: absolute;
   bottom: 42vh;
   right: 30vw;
-  color: white;
+  color: gainsboro;
+  font-weight: bold;
 }
 
 .closeBtn {
