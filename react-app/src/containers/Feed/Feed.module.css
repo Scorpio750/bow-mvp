@@ -3,6 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 10rem;
 }
 
 .feedColumn1 {
@@ -20,4 +21,5 @@
 .postsList {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
 }

@@ -9,7 +9,7 @@ import Post from '../Post/Post';
 import styles from './Feed.module.css';
 
 export const renderPostPreviews = (posts, colIndex) => {
-  posts = Array(90).fill({ title: 'hi' });
+  posts = Array(90).fill({ title: 'hello i am a sexy art' });
   const moddedPosts = posts.reduce((modList, post, index) => {
     if (index % 3 === colIndex) modList.push(post);
     return modList;

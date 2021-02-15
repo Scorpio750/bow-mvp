@@ -9,10 +9,11 @@ export const Post = props => {
     <div className={styles.postContainer}>
       <img
         className={styles.artwork}
-        src={props.image && placeholder}
+        src={props.image || placeholder}
         alt='pretend there is some art here'
       />
-      <h1>{props.title && 'GENERIC TITLE LOL'}</h1>
+      <h3>{props.title || 'hello i am sascha and this website is my art piece'}</h3>
+      <div style={{ marginBottom: '2.5rem' }}></div>
     </div>
   )
 }
