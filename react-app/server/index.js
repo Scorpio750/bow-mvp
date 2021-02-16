@@ -1,12 +1,16 @@
+require('dotenv').config();
 const express = require('express');
+const session = require('express-session');
+//cors shares resources around multuple sites
+// const cors = require('cors');
 const path = require('path');
 const morgan = require('morgan');
 const compression = require('compression');
-//For potential user sessions and Oauth
-// const session = require('express-session');
+const { db } = require('./db')
 // const passport = require('passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
+
 
 app.use(morgan('dev'));
 
@@ -20,14 +24,26 @@ app.use(compression());
 //Static Middleware
 app.use(express.static(path.join(__dirname, 'build', 'index.html')));
 
+// app.use(cors());
+
+app.use(session({
+  secret: process.env.SESSION_SECRET, // or whatever you like
+  // this option says if you haven't changed anything, don't resave. It is recommended and reduces session concurrency issues
+  resave: false,
+  // this option says if I am new but not modified still save
+  saveUninitialized: true
+}))
+
+db.sync()
+ //For future Auth or Auth routes
+app.use('/api', require('./api'));
+// app.use('/auth', require('./auth'));
+
+
 //api routes
 app.get('/ping', function (req, res) {
   return res.send('pong');
  });
-
- //For future Auth or Auth routes
-// app.use('/api', require('./api'));
-// app.use('/auth', require('./auth'));
 
 
 // any remaining requests with an extension (.js, .css, etc.) send 404

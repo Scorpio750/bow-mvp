@@ -69,6 +69,9 @@ export const App = props => {
             <Route path="/mailing">
               <MailingList />
             </Route>
+            <Route exact path="/feed">
+              <Feed />
+            </Route>
           </Switch>
         </section>
 

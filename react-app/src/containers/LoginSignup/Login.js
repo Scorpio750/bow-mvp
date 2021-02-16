@@ -2,14 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
+import axios from 'axios'
 
 import styles from './LoginSignup.module.css';
 
 Modal.setAppElement('#root');
 
+import styles from './Login.module.css';
 export const Login = () => {
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = async data => {
+    await axios.post('/api/user/login', data)
+  };
 
   const [modalIsOpen,setIsOpen] = React.useState(false);
 
