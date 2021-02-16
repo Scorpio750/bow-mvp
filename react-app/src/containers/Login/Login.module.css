@@ -8,7 +8,7 @@
 
 .header {
   cursor: default;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .form {
@@ -31,7 +31,6 @@
 }
 
 .error {
-
   background-color: crimson;
   color: white;
 }
@@ -44,4 +43,13 @@
   font-size: 1.1rem;
   font-weight: bold;
   margin: 1rem;
+}
+
+.forgotEmail {
+  cursor: pointer;
+  color: grey;
+}
+
+.forgotEmail:hover {
+  text-decoration: underline;
 }

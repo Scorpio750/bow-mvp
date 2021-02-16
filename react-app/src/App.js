@@ -1,5 +1,5 @@
 import './App.css';
-
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +14,7 @@ import Feed from './containers/Feed/Feed';
 import Login from './containers/Login/Login';
 import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
 
-const App = () => {
+export const App = props => {
   return (
     <Router>
       <div className="App">
@@ -110,52 +110,61 @@ const lorem = new LoremIpsum({
 });
 
 const About = () => (
-  <div>
+  <div className="info-page">
     <h1>About</h1>
     <p>{lorem.generateParagraphs(4)}</p>
   </div>
 );
 
 const FAQ = () => (
-  <div>
+  <div className="info-page">
     <h1>FAQ</h1>
     <p>{lorem.generateParagraphs(4)}</p>
   </div>
 );
 
 const Contact = () => (
-  <div>
+  <div className="info-page">
     <h1>Contact</h1>
     <p>{lorem.generateParagraphs(4)}</p>
   </div>
 )
 
 const TandC = () => (
-  <div>
-    <h1>TandC</h1>
-    <p>{lorem.generateParagraphs(4)}</p>
+  <div className="info-page">
+    <h1>Terms and Conditions</h1>
+    <p>DMCA notice:
+
+      Body of Workers complies with the Digital Millennium Copyright Act. If you have a good faith belief that a work on this site is infringing, email the following information to info@bodyofworkers.com: your full name, description of and link to the original work, and link to the infringing work.
+    </p>
   </div>
 );
 
 const Privacy = () => (
-  <div>
+  <div className="info-page">
     <h1>Privacy</h1>
     <p>{lorem.generateParagraphs(4)}</p>
   </div>
 );
 
 const Donations = () => (
-  <div>
+  <div className="info-page">
     <h1>Donations</h1>
     <p>{lorem.generateParagraphs(4)}</p>
   </div>
 );
 
 const MailingList = () => (
-  <div>
+  <div className="info-page">
     <h1>Mailing List</h1>
     <p>{lorem.generateParagraphs(4)}</p>
   </div>
 );
 
-export default App;
+const mapStateToProps = state => ({
+  user: state.user,
+})
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

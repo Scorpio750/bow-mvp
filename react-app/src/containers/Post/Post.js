@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import placeholder from '../../assets/sexy_placeholder.jpg';
 import styles from './Post.module.css';
 
-
 Modal.setAppElement('#root');
 
 export const handleClick = openModal => {

@@ -75,3 +75,7 @@ filter: drop-shadow(0 -10px 10px rgb(0, 0, 0, 0.1));
   width: 100%;
   justify-content: space-around;
 }
+
+.info-page {
+  text-align: left;
+}

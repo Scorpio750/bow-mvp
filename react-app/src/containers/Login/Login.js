@@ -1,11 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Modal from 'react-modal';
 
 import styles from './Login.module.css';
+
+Modal.setAppElement('#root');
 
 export const Login = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = data => console.log(data);
+
+  const [modalIsOpen,setIsOpen] = React.useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
 
   console.log(watch("example")); // watch input value by passing the name of it
 
@@ -33,6 +46,7 @@ export const Login = () => {
         {errors.password && <span className={styles.error}>This field is required</span>}
 
         <input className={styles.submit} type="submit" />
+        <span className={styles.forgotEmail}>Forgot password?</span>
       </form>
     </div>
   );
