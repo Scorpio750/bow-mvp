@@ -11,7 +11,7 @@ Modal.setAppElement('#root');
 export const Login = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = async data => {
-    await axios.post('/api/user/login', data)
+    await axios.post('/auth/login', data)
   };
 
   const [modalIsOpen,setIsOpen] = React.useState(false);
