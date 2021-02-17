@@ -20,6 +20,12 @@ const User = db.define('user', {
       return () => this.getDataValue('password')
     }
   },
+  salt: {
+    type: Sequelize.STRING,
+    get() {
+      return () => this.getDataValue('salt')
+    }
+  },
   userType: {
     type: Sequelize.ENUM(['PATRON', 'ARTIST', 'ADMIN', 'OWNER']),
     allowNull: false,

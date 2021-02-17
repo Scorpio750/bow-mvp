@@ -19,10 +19,9 @@ const strategy = new LocalStrategy(
 
 passport.use(strategy);
 
-router.post('/login', passport.authenticate('local', { failureRedirect: '/login', successRedirect: '/feed' }), (err, req, res, next) => {
+router.post('/login', passport.authenticate('local', { failureRedirect: '/login', successRedirect: 'api/user/login' }), (err, req, res, next) => {
   if (err) next(err);
-  //does work
-  console.log('You are logged in!');
+  //else it does work
 });
 
 router.post('/logout', (req, res) => {

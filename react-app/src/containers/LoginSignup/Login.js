@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 
-import axios from 'axios'
 import styles from '../../common/Form.module.css';
+import { authUser } from '../../store/actions/user';
+import { connect } from 'react-redux'
 
 Modal.setAppElement('#root');
 
-export const Login = () => {
+export const Login = ({login}) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = async data => {
-    await axios.post('/auth/login', data)
+    login(data)
   };
 
   const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -62,4 +63,8 @@ export const Login = () => {
   );
 }
 
-export default Login;
+const mapDispatch = dispatch => ({
+  login: credentials => dispatch(authUser(credentials))
+})
+
+export default connect(null, mapDispatch)(Login);

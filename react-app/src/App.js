@@ -37,10 +37,10 @@ export const App = props => {
             <Route exact path="/">
               <Welcome />
             </Route>
-            <Route path="/feed">
+            <Route exact path="/feed">
               <Feed />
             </Route>
-            <Route path="/login">
+            <Route exact path="/login">
               <Login />
             </Route>
             <Route path="/signup">
@@ -72,9 +72,6 @@ export const App = props => {
             </Route>
             <Route path="/mailing">
               <MailingList />
-            </Route>
-            <Route exact path="/feed">
-              <Feed />
             </Route>
           </Switch>
         </section>
