@@ -68,3 +68,12 @@
 .promptContainer {
   margin-top: 1rem;
 }
+
+.forgotEmail {
+  cursor: pointer;
+  color: grey;
+}
+
+.forgotEmail:hover {
+  text-decoration: underline;
+}
