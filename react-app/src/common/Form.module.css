@@ -7,9 +7,27 @@ label {
 .formContainer {
   display: flex;
   flex-flow: column nowrap;
-  height: 80vh;
+  min-height: 80vh;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10rem;
+}
+
+.formSectionWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.previewContainer {
+  max-width: 100%;
+}
+
+.formSection {
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .inputSection {
@@ -25,10 +43,16 @@ label {
 .form {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
+}
+
+.filepicker {
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .input {
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0;
   width: 20vw;
   background: none;
   border: 0;
@@ -39,6 +63,12 @@ label {
 
 .input:focus {
   font-size: 1.3rem;
+  color: black;
+}
+
+.textarea {
+  margin: 1rem 0;
+  background: beige;
 }
 
 .error {
@@ -61,13 +91,13 @@ label {
   border-top: 2px solid rgba(0,0,0,0.1);
 }
 
-.forgotEmail {
+.actionPrompt {
   margin-top: 3rem;
   cursor: pointer;
   color: grey;
 }
 
-.forgotEmail:hover {
+.actionPrompt:hover {
   text-decoration: underline;
 }
 
