@@ -18,6 +18,7 @@ label {
   flex-flow: row nowrap;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .previewContainer {
@@ -75,11 +76,6 @@ label {
   color: white;
 }
 
-.writtenWorkBodyContainer {
-  margin: 1rem 0;
-  width: 70%;
-}
-
 .submit {
   border: none;
   background: none;
@@ -95,13 +91,13 @@ label {
   border-top: 2px solid rgba(0,0,0,0.1);
 }
 
-.forgotEmail {
+.actionPrompt {
   margin-top: 3rem;
   cursor: pointer;
   color: grey;
 }
 
-.forgotEmail:hover {
+.actionPrompt:hover {
   text-decoration: underline;
 }
 

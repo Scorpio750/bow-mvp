@@ -21,7 +21,6 @@ export const ArtworkIntake = props => {
     let reader = new FileReader();
 
     reader.onloadend = () => setImagePreview(reader.result);
-
     e.target.files[0] && reader.readAsDataURL(e.target.files[0])
   };
 
@@ -201,7 +200,12 @@ export const ArtworkIntake = props => {
         <input className={formStyles.submit} type="submit" />
       </form>
       <div className={formStyles.additionalActionsContainer}>
-        <p>Upload another work</p>
+        <span
+          className={formStyles.actionPrompt}
+          onClick={() => window.location.reload()}
+        >
+          Upload another work
+        </span>
       </div>
     </div>
   );

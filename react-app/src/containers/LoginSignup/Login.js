@@ -52,7 +52,7 @@ export const Login = () => {
         <input className={styles.submit} type="submit" />
       </form>
       <div className={styles.additionalActionsContainer}>
-        <span className={styles.forgotEmail}>Forgot password?</span>
+        <span className={styles.actionPrompt}>Forgot password?</span>
         <div className={styles.promptContainer}>
           <span>Don't have an account? </span>
           <Link to="/signup">Sign up here</Link>
