@@ -14,6 +14,7 @@ import Feed from './containers/Feed/Feed';
 import Login from './containers/LoginSignup/Login';
 import Signup from './containers/LoginSignup/Signup';
 import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
+import ArtworkIntake from './containers/ArtworkIntake/ArtworkIntake';
 
 export const App = props => {
   return (
@@ -47,6 +48,9 @@ export const App = props => {
             </Route>
             <Route path="/artist-profile">
               <ArtistProfile />
+            </Route>
+            <Route path="/artwork-intake">
+              <ArtworkIntake />
             </Route>
             <Route path="/about">
               <About />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 
-import styles from './LoginSignup.module.css';
+import styles from '../../common/Form.module.css';
 
 Modal.setAppElement('#root');
 
