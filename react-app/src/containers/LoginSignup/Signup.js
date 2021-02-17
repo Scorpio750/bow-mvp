@@ -31,7 +31,8 @@ export const Signup = () => {
       <h1 className={styles.header}>Signup</h1>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
-        <section className={styles.inputSection}>
+        <div className={styles.formSectionWrapper}>
+        <section className={styles.formSection}>
           <input
             name="username"
             className={styles.input}
@@ -42,6 +43,7 @@ export const Signup = () => {
 
           <input
             name="email"
+            type="email"
             className={styles.input}
             placeholder="Email"
             ref={register({ required: true })}
@@ -57,8 +59,7 @@ export const Signup = () => {
           />
           {/* errors will return when field validation fails  */}
           {errors.password && <span className={styles.error}>This field is required</span>}
-        </section>
-        <section className={styles.inputSection}>
+
           <input
             name="pronouns"
             className={styles.input}
@@ -66,7 +67,8 @@ export const Signup = () => {
             ref={register({ required: true })}
           />
           {errors.pronouns && <span className={styles.error}>This field is required</span>}
-
+        </section>
+        <section className={styles.formSection}>
           <input
             name="city"
             className={styles.input}
@@ -88,18 +90,19 @@ export const Signup = () => {
             ref={register()}
           />
         </section>
+      </div>
 
-        <input className={styles.submit} type="submit" />
-      </form>
-      <div className={styles.additionalActionsContainer}>
-        <span>Are you an artist? </span>
-        <a href="https://airtable.com/shrrBn8znt6ir1kdF">Sign up with our Artist Intake form</a>
-        <div className={styles.promptContainer}>
-          <span>Already have an account? </span>
-          <Link to="/login">Log in here</Link>
-        </div>
+      <input className={styles.submit} type="submit" />
+    </form>
+    <div className={styles.additionalActionsContainer}>
+      <span>Are you an artist? </span>
+      <a href="https://airtable.com/shrrBn8znt6ir1kdF">Sign up with our Artist Intake form</a>
+      <div className={styles.promptContainer}>
+        <span>Already have an account? </span>
+        <Link to="/login">Log in here</Link>
       </div>
     </div>
+  </div>
   );
 }
 
