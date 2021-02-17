@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 
-import styles from './Login.module.css';
+import styles from './LoginSignup.module.css';
 
 Modal.setAppElement('#root');
 
@@ -46,8 +47,14 @@ export const Login = () => {
         {errors.password && <span className={styles.error}>This field is required</span>}
 
         <input className={styles.submit} type="submit" />
-        <span className={styles.forgotEmail}>Forgot password?</span>
       </form>
+      <div className={styles.additionalActionsContainer}>
+        <span className={styles.forgotEmail}>Forgot password?</span>
+        <div className={styles.promptContainer}>
+          <span>Don't have an account? </span>
+          <Link to="/signup">Sign up here</Link>
+        </div>
+      </div>
     </div>
   );
 }

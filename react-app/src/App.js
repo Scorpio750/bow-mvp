@@ -11,7 +11,8 @@ import { LoremIpsum } from 'lorem-ipsum';
 import icon from './assets/home-icon.png';
 import Welcome from './containers/Welcome/Welcome';
 import Feed from './containers/Feed/Feed';
-import Login from './containers/Login/Login';
+import Login from './containers/LoginSignup/Login';
+import Signup from './containers/LoginSignup/Signup';
 import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
 
 export const App = props => {
@@ -40,6 +41,9 @@ export const App = props => {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
             </Route>
             <Route path="/artist-profile">
               <ArtistProfile />

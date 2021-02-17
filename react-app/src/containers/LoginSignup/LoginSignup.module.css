@@ -1,9 +1,14 @@
 .formContainer {
   display: flex;
   flex-flow: column nowrap;
-  height: 70vh;
+  height: 80vh;
   align-items: center;
   justify-content: center;
+}
+
+.inputSection {
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .header {
@@ -42,14 +47,24 @@
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
-  margin: 1rem;
+}
+
+.additionalActionsContainer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(0,0,0,0.1);
 }
 
 .forgotEmail {
+  margin-top: 3rem;
   cursor: pointer;
   color: grey;
 }
 
 .forgotEmail:hover {
   text-decoration: underline;
+}
+
+.promptContainer {
+  margin-top: 1rem;
 }
