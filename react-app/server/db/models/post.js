@@ -9,10 +9,13 @@ const Post = db.define('post', {
       notEmpty: true,
     }
   },
-  image: Sequelize.BLOB,
+  media: Sequelize.BLOB,
   sequence: Sequelize.INTEGER,
   // artistFK: Sequelize.INTEGER,
-  privacy: Sequelize.INTEGER,
+  privacy: {
+    type: Sequelize.INTEGER,
+    defaultValue: 4
+  },
   //if majority says ok, pending bridget res
   canMarket: {
     type: Sequelize.BOOLEAN,
@@ -22,20 +25,22 @@ const Post = db.define('post', {
     type: Sequelize.BOOLEAN,
     defaultValue: false
   },
-  caption: Sequelize.STRING,
+  caption: Sequelize.TEXT,
   price: Sequelize.FLOAT,
-  year: Sequelize.DATE,
+  bowAgreements: Sequelize.BOOLEAN,
+  benefiting: Sequelize.STRING,
+  year: Sequelize.STRING,
   medium: Sequelize.STRING,
-
   materials: Sequelize.STRING,
   dimensions: Sequelize.STRING,
   location: Sequelize.STRING,
   geo: Sequelize.STRING,
   genre: Sequelize.STRING,
   subset: Sequelize.STRING,
-  language: Sequelize.STRING,
+  references: Sequelize.STRING,
+  languages: Sequelize.STRING,
   credits: Sequelize.STRING,
-  press: Sequelize.STRING,
+  pressLink: Sequelize.STRING,
   distributor: Sequelize.STRING,
   tags: Sequelize.ARRAY(Sequelize.STRING),
 }
