@@ -10,16 +10,16 @@ const Post = db.define('post', {
     }
   },
   image: Sequelize.BLOB,
-  sequence: Sequelize.INT,
-  // artistFK: Sequelize.INT,
-  privacy: Sequelize.INT,
+  sequence: Sequelize.INTEGER,
+  // artistFK: Sequelize.INTEGER,
+  privacy: Sequelize.INTEGER,
   //if majority says ok, pending bridget res
   canMarket: {
-    type: Sequelize.BOOL,
+    type: Sequelize.BOOLEAN,
     defaultValue: false
   },
   sfw: {
-    type: Sequelize.BOOL,
+    type: Sequelize.BOOLEAN,
     defaultValue: false
   },
   caption: Sequelize.STRING,
