@@ -3,6 +3,12 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
+  publicName: {
+    type: Sequelize.STRING,
+  },
+  pronouns: {
+    type: Sequelize.STRING
+  },
   email: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -12,7 +18,6 @@ const User = db.define('user', {
   },
   username: {
     type: Sequelize.STRING,
-    allowNull: false
   },
   password: {
     type: Sequelize.STRING,
@@ -30,7 +35,27 @@ const User = db.define('user', {
     type: Sequelize.ENUM(['PATRON', 'ARTIST', 'ADMIN', 'OWNER']),
     allowNull: false,
     defaultValue: 'PATRON'
-  }
+  },
+  instagram: Sequelize.STRING,
+  twitter: Sequelize.STRING,
+  microBio: Sequelize.TEXT,
+  identityTags: Sequelize.STRING,
+  city: Sequelize.STRING,
+  region: Sequelize.STRING,
+  country: Sequelize.STRING,
+  marketingConsent: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  liability: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  communityAgreements: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+
 })
 
 module.exports = User
