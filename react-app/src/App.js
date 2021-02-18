@@ -1,4 +1,6 @@
+import React from 'react';
 import './App.css';
+import p from 'prop-types';
 import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
@@ -7,6 +9,8 @@ import {
   Link
 } from "react-router-dom";
 import { LoremIpsum } from 'lorem-ipsum';
+
+import { logout } from './store/actions/user';
 
 import icon from './assets/home-icon.png';
 import Welcome from './containers/Welcome/Welcome';
@@ -18,6 +22,11 @@ import ArtworkIntake from './containers/ArtworkIntake/ArtworkIntake';
 
 export const App = props => {
   const isLoggedIn = Object.keys(props.user).length > 0;
+  const handleLogout = e => {
+    e.preventDefault();
+    props.logout();
+  };
+
   return (
     <Router>
       <div className="App">
@@ -33,7 +42,10 @@ export const App = props => {
           <Link className="home-nav" to="/feed"><img style={{ height: '10vmin' }} src={icon} /></Link>
         { !isLoggedIn ?
           <Link className="login-nav" to="/login">login</Link> :
-          <Link className="login-nav">Logout</Link>
+          <React.Fragment>
+            <span className="user-greeting"> hello {props.user.username}</span>
+            <a className="login-nav" onClick={handleLogout}>logout</a>
+          </React.Fragment>
         }
         </header>
         <section className="App-body">
@@ -250,10 +262,17 @@ const MailingList = () => (
   </div>
 );
 
+App.propTypes = {
+  user: p.object,
+  logout: p.func,
+};
+
 const mapStateToProps = state => ({
   user: state.user,
-})
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(logout()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

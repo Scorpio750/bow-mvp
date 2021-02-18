@@ -46,7 +46,8 @@ function createApp() {
   app.use(compression());
 
   //static Middleware
-  app.use(express.static(path.join('build')));
+  // app.use(express.static(path.join(__dirname, 'build', 'index.html')));
+  // app.use(express.static(path.join('build')));
 
   // session middleware with passport
   app.use(session({
@@ -73,9 +74,9 @@ function createApp() {
   app.use('/api', require('./api'));
 
   // sends index.html
-  app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'build/index.html'))
-  })
+  // app.use('*', (req, res) => {
+  //   res.sendFile(path.join(__dirname, '..', 'build/index.html'))
+  // })
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {

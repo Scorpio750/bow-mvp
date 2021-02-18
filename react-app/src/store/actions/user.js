@@ -18,7 +18,7 @@ export const removeUser = () => ({ type: REMOVE_USER })
 //for authorization
 export const authUser = (credentials) => async dispatch => {
   try{
-    // await axios.post('/auth/login', credentials)
+    await axios.post('/auth/login', credentials)
     dispatch(fetchUser())
   }
   catch(err) {
@@ -29,8 +29,8 @@ export const authUser = (credentials) => async dispatch => {
 //for the user object
 export const fetchUser = () => async dispatch => {
   try{
-    // const { data } = await axios.get('/api/user/login')
-    dispatch(getUser({user: 'user'}))
+    const { data } = await axios.get('/api/user/login')
+    dispatch(getUser(data))
     history.push('/feed')
   }
   catch(err) {
