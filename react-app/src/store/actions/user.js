@@ -30,7 +30,7 @@ export const authUser = (credentials) => async dispatch => {
 export const fetchUser = () => async dispatch => {
   try{
     const { data } = await axios.get('/api/user/login')
-    dispatch(getUser(data))
+    dispatch(getUser(data || defaultUser))
     history.push('/feed')
   }
   catch(err) {
