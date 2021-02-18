@@ -15,6 +15,11 @@ const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+
+// for emergency use
+// app.use(express.static('build'));
+// app.listen(PORT);
+
 // passport registration
 //if successful, serialization creates req.user
 passport.serializeUser((user, done) => done(null, user.id))
@@ -41,11 +46,11 @@ function createApp() {
   app.use(compression());
 
   //static Middleware
-  app.use(express.static(path.join(__dirname, 'build', 'index.html')));
+  app.use(express.static(path.join('build')));
 
   // session middleware with passport
   app.use(session({
-    secret: process.env.SESSION_SECRET, // or whatever you like
+    secret: process.env.SESSION_SECRET || 'why are you punishing me', // or whatever you like
     // this option says if you haven't changed anything, don't resave. It is recommended and reduces session concurrency issues
     resave: false,
     store: sessionStore,
@@ -54,12 +59,10 @@ function createApp() {
     cookie: {
       maxAge: 3600000 // 1 hour
     }
-
   }))
 
   //was using with passport-jwt variations
   // app.use(cookieParser(process.env.ACCESS_TOKEN_SECRET));
-
 
   app.use(passport.initialize())
   app.use(passport.session())
@@ -68,6 +71,11 @@ function createApp() {
   app.use('/auth/', require('./auth'));
   //api routes
   app.use('/api', require('./api'));
+
+  // sends index.html
+  app.use('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'build/index.html'))
+  })
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
@@ -79,12 +87,6 @@ function createApp() {
       next()
     }
   })
-
-  // sends index.html
-  app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public/index.html'))
-  })
-
   // error handling endware
   app.use((err, req, res, next) => {
     console.error(err)
