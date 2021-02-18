@@ -40,8 +40,7 @@
 }
 
 .App-body {
-  /* flex: 10 0 100vh; */
-  padding: 10vh 9vw;
+  flex: 10 0 80vh;
   overflow: scroll;
   background-color: gainsboro;
 }
@@ -90,4 +89,5 @@ filter: drop-shadow(0 -10px 10px rgb(0, 0, 0, 0.1));
 
 .info-page {
   text-align: left;
+  padding: 0vh 9vw 15vh 9vw;
 }
