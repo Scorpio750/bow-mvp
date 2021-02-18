@@ -17,6 +17,7 @@ import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
 import ArtworkIntake from './containers/ArtworkIntake/ArtworkIntake';
 
 export const App = props => {
+  const isLoggedIn = Object.keys(props.user).length > 0;
   return (
     <Router>
       <div className="App">
@@ -30,7 +31,10 @@ export const App = props => {
         */}
         <header className="App-header">
           <Link className="home-nav" to="/feed"><img style={{ height: '10vmin' }} src={icon} /></Link>
-          <Link className="login-nav" to="/login">login</Link>
+        { !isLoggedIn ?
+          <Link className="login-nav" to="/login">login</Link> :
+          <Link className="login-nav">Logout</Link>
+        }
         </header>
         <section className="App-body">
           <Switch>

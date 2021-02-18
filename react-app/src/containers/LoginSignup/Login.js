@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 
@@ -9,10 +9,11 @@ import { connect } from 'react-redux'
 
 Modal.setAppElement('#root');
 
-export const Login = ({login}) => {
+export const Login = props => {
   const { register, handleSubmit, watch, errors } = useForm();
+  const isLoggedIn = Object.keys(props.user).length > 0;
   const onSubmit = async data => {
-    login(data)
+    props.login(data);
   };
 
   const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -28,6 +29,7 @@ export const Login = ({login}) => {
   console.log(watch("example")); // watch input value by passing the name of it
 
   return (
+    isLoggedIn ? <Redirect to='/feed' /> :
     <div className={styles.formContainer}>
       <h1 className={styles.header}>Login</h1>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -67,4 +69,8 @@ const mapDispatch = dispatch => ({
   login: credentials => dispatch(authUser(credentials))
 })
 
-export default connect(null, mapDispatch)(Login);
+const mapState = state => ({
+  user: state.user
+})
+
+export default connect(mapState, mapDispatch)(Login);
