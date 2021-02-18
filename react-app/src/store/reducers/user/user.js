@@ -1,7 +1,7 @@
 import {
   GET_USER,
   REMOVE_USER,
-  defaultUser
+  defaultUser,
 } from '../../actions/user'
 
 
@@ -11,6 +11,7 @@ export default function user(state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
+
     default:
       return state
   }
