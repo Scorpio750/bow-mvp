@@ -50,6 +50,7 @@ export const Post = props => {
       >
         {renderPost()}
         <Link className={styles.artistLink} to="/artist-profile">View Profile</Link>
+        <Link to="/artwork">View More Info</Link>
         <span className={styles.closeBtn} onClick={closeModal}>X</span>
       </Modal>
     </React.Fragment>

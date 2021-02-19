@@ -24,13 +24,34 @@ const lorem = new LoremIpsum({
   }
 });
 
-export const ArtistProfile = props => {
+export const ArtistGallery = () => {
+  return ( <div>
+    <section className={styles.artistBio}>
+    <p>{lorem.generateParagraphs(4)}</p>
+  </section>
+  <section className={styles.artistWorks}>
+    <Feed dummyNumber={20} />
+  </section>
+  </div>
+  )
+}
+
+export const ArtistPage = props => {
   useEffect(() => {
     props.getUser(props.artist.id);
   });
+    return (
+      <div className={styles.artistProfileContainer}>
+        <ArtistProfile {...props}/>
+        <ArtistGallery />
+      </div>
+    )
+}
+
+export const ArtistProfile = props => {
 
   return (
-    <div className={styles.artistProfileContainer}>
+    <div>
       <section className={styles.artistPicMedia}>
         <img
           className={styles.artistPic}
@@ -62,17 +83,12 @@ export const ArtistProfile = props => {
           </div>
         }
       </section>
-      <section className={styles.artistBio}>
-        <p>{lorem.generateParagraphs(4)}</p>
-      </section>
-      <section className={styles.artistWorks}>
-        <Feed dummyNumber={20} />
-      </section>
     </div>
   )
 };
 
-ArtistProfile.defaultProps = {
+
+ArtistPage.defaultProps = {
   artist: {
     id: 0,
     media: {
@@ -84,7 +100,8 @@ ArtistProfile.defaultProps = {
   },
 }
 
-ArtistProfile.propTypes = {
+
+ArtistPage.propTypes = {
   artist: p.object,
   getUser: p.func,
 }
@@ -97,4 +114,4 @@ const mapDispatchToProps = {
   getUser,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArtistProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage);

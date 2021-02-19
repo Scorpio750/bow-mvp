@@ -19,6 +19,7 @@ import Login from './containers/LoginSignup/Login';
 import Signup from './containers/LoginSignup/Signup';
 import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
 import ArtworkIntake from './containers/ArtworkIntake/ArtworkIntake';
+import Artwork from './containers/Post/ArtworkView';
 
 export const App = props => {
   const isLoggedIn = Object.keys(props.user).length > 0;
@@ -64,6 +65,9 @@ export const App = props => {
             </Route>
             <Route path="/artist-profile">
               <ArtistProfile />
+            </Route>
+            <Route path="/artwork">
+              <Artwork/>
             </Route>
             <Route path="/artwork-intake">
               <ArtworkIntake />
