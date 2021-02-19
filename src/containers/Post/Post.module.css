@@ -5,6 +5,10 @@
   grid-auto-rows: minmax(100px, auto);
 }
 
+.mediaContainer {
+  grid-column: 3 / 8;
+}
+
 .postContainer {
   display: flex;
   flex-flow: column nowrap;
@@ -32,8 +36,8 @@
 
 .artistLink {
   position: absolute;
-  bottom: 42vh;
-  right: 30vw;
+  bottom: 38vh;
+  right: 35vw;
   color: gainsboro;
   font-weight: bold;
 }
