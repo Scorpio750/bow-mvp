@@ -67,6 +67,17 @@ User.prototype.correctPassword = function(candidatePwd) {
   return User.hashPassword(candidatePwd, this.salt()) === this.password()
 }
 
+User.prototype.privacyLevel = function() {
+  switch(this.userType) {
+    case 'PATRON':
+      return 2
+    case 'ARTIST':
+      return 3
+    default:
+      return 1
+  }
+}
+
 /**
  * classMethods
  */
