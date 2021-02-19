@@ -72,6 +72,10 @@ export const App = props => {
             <Route path="/artwork-intake">
               <ArtworkIntake />
             </Route>
+
+            <Route path="/eyebeam">
+              <Eyebeam />
+            </Route>
             <Route path="/about">
               <About />
             </Route>
@@ -81,26 +85,20 @@ export const App = props => {
             <Route path="/contact">
               <Contact />
             </Route>
-            <Route path="/tandc">
-              <TandC />
+            <Route path="/legals">
+              <Legals />
             </Route>
             <Route path="/privacy">
               <Privacy />
-            </Route>
-            <Route path="/donations">
-              <Donations />
-            </Route>
-            <Route path="/mailing">
-              <MailingList />
-            </Route>
-            <Route path="/eyebeam">
-              <Eyebeam />
             </Route>
           </Switch>
         </section>
 
         <footer>
           <ul className="footer-link-list">
+            <li className="footer-link">
+              <Link to="/eyebeam">EYEBEAM LAUNCH</Link>
+            </li>
             <li className="footer-link">
               <Link to="/about">ABOUT</Link>
             </li>
@@ -111,16 +109,10 @@ export const App = props => {
               <Link to="/contact">CONTACT</Link>
             </li>
             <li className="footer-link">
-              <Link to="/tandc">TERMS AND CONDITIONS</Link>
+              <Link to="/legals">LEGALS</Link>
             </li>
             <li className="footer-link">
               <Link to="/privacy">PRIVACY</Link>
-            </li>
-            <li className="footer-link">
-              <Link to="/donations">DONATIONS</Link>
-            </li>
-            <li className="footer-link">
-              <Link to="/mailing">MAILING LIST</Link>
             </li>
           </ul>
         </footer>
@@ -238,7 +230,7 @@ const Contact = () => (
   </div>
 )
 
-const TandC = () => (
+const Legals = () => (
   <div className="info-page">
     <div className="TOS-section">
     <h1>Terms and Conditions</h1>
@@ -300,20 +292,6 @@ const TandC = () => (
 const Privacy = () => (
   <div className="info-page">
     <h1>Privacy</h1>
-    <p>{lorem.generateParagraphs(4)}</p>
-  </div>
-);
-
-const Donations = () => (
-  <div className="info-page">
-    <h1>Donations</h1>
-    <p>{lorem.generateParagraphs(4)}</p>
-  </div>
-);
-
-const MailingList = () => (
-  <div className="info-page">
-    <h1>Mailing List</h1>
     <p>{lorem.generateParagraphs(4)}</p>
   </div>
 );
