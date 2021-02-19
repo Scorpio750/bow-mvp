@@ -47,7 +47,7 @@ function createApp() {
 
   //static Middleware
   // app.use(express.static(path.join(__dirname, 'build', 'index.html')));
-  // app.use(express.static(path.join('build')));
+  app.use(express.static(path.join('build')));
 
   // session middleware with passport
   app.use(session({
