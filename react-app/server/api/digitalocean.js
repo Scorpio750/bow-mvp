@@ -2,13 +2,13 @@ require('dotenv').config();
 const AWS = require('aws-sdk');
 //if we app a router, this is mounted on /api/do
 
-//This configuration allows us to reach the required endpoint. nyc2 is our Region
+//This configuration allows us to reach the required endpoint. nyc3 is our Region
 const artistEndpoint = new AWS.Endpoint('https://nyc3.digitaloceanspaces.com');
 const s3 = new AWS.S3({
   endpoint: artistEndpoint,
   //We need both a key and secret to access any endpoint
-  accessKeyId: process.env.DIGITAL_OCEANS_PUBLIC_KEY,
-  secretAccessKey: process.env.DIGITAL_OCEANS_SECRET
+  accessKeyId: process.env.DO_SPACES_PUBLIC,
+  secretAccessKey: process.env.DO_SPACES_SECRET
 });
 
 
