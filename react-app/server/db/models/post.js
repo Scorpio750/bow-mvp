@@ -9,7 +9,9 @@ const Post = db.define('post', {
       notEmpty: true,
     }
   },
-  media: Sequelize.BLOB,
+  fileName: Sequelize.STRING,
+  fileType: Sequelize.STRING,
+  externalUrl: Sequelize.STRING,
   sequence: Sequelize.INTEGER,
   // artistFK: Sequelize.INTEGER,
   privacy: {
@@ -42,6 +44,7 @@ const Post = db.define('post', {
   credits: Sequelize.STRING,
   pressLink: Sequelize.STRING,
   distributor: Sequelize.STRING,
+  techSpecs: Sequelize.STRING,
   tags: Sequelize.ARRAY(Sequelize.STRING),
 }
 
