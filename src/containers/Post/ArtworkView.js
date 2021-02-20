@@ -33,7 +33,6 @@ class Artwork extends React.Component {
     return dummyTags.map(tag => tag+' ' )
   }
   render() {
-
   if(!this.props.singlePost.id) return <div>Loading</div>
 
   return (<div className={styles.artistProfileContainer}>
