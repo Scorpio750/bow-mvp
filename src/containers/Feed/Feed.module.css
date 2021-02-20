@@ -1,25 +1,8 @@
 .feedContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  margin-bottom: 10rem;
-}
-
-.feedColumn1 {
-  grid-column: 1;
-}
-
-.feedColumn2 {
-  grid-column: 2;
-}
-
-.feedColumn3 {
-  grid-column: 3;
-}
-
-.postsList {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
+  height: 80vh;
   align-items: center;
+  max-width: 80vw;;
 }
+

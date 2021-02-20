@@ -35,21 +35,7 @@ class Feed extends React.Component {
 
   return (
     <div className={styles.feedContainer}>
-      <div className={styles.feedColumn1}>
-        <ul className={styles.postsList}>
-          {renderPostPreviews(this.props.posts, 0)}
-        </ul>
-      </div>
-      <div className={styles.feedColumn2}>
-        <ul className={styles.postsList}>
-          {renderPostPreviews(this.props.posts, 1)}
-        </ul>
-      </div>
-      <div className={styles.feedColumn3}>
-        <ul className={styles.postsList}>
-          {renderPostPreviews(this.props.posts, 2)}
-        </ul>
-      </div>
+      {renderPostPreviews(this.props.posts)}
     </div>
   )
   }
@@ -68,16 +54,6 @@ class Feed extends React.Component {
           )}
         </ul>
       </div>
-      {/* <div className={styles.feedColumn2}>
-        <ul className={styles.postsList}>
-          {renderPostPreviews(this.props.posts, 1)}
-        </ul>
-      </div>
-      <div className={styles.feedColumn3}>
-        <ul className={styles.postsList}>
-          {renderPostPreviews(this.props.posts, 2)}
-        </ul>
-      </div> */}
     </div>
   )
 
