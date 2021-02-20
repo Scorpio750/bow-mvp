@@ -54,13 +54,13 @@ class App extends React.Component{
         */}
         <header className="App-header">
           <Link className="home-nav" to="/feed"><img style={{ height: '10vmin' }} src={icon} /></Link>
-        { !this.props.user.id ?
-          <Link className="login-nav" to="/login">login</Link> :
+        {/* { !this.props.user.id ? */}
+          <Link className="login-nav" to="/">Home</Link>
           <React.Fragment>
             <span className="user-greeting"> hello {this.props.user.username}</span>
-            <a className="login-nav" onClick={() => this.handleLogout()}>logout</a>
+            {/* <a className="login-nav" onClick={() => this.handleLogout()}>logout</a> */}
           </React.Fragment>
-        }
+        {/* } */}
         </header>
         <section className="App-body">
           <Switch>
@@ -70,12 +70,12 @@ class App extends React.Component{
             <Route exact path="/feed">
               <Feed />
             </Route>
-            <Route exact path="/login">
+            {/* <Route exact path="/login">
               <Login />
-            </Route>
-            <Route path="/signup">
+            </Route> */}
+            {/* <Route path="/signup">
               <Signup />
-            </Route>
+            </Route> */}
             <Route path="/artist-profile">
               <ArtistProfile />
             </Route>
@@ -85,10 +85,10 @@ class App extends React.Component{
             <Route path="/artwork-intake">
               <ArtworkIntake />
             </Route>
-
+{/*
             <Route path="/eyebeam">
               <Eyebeam />
-            </Route>
+            </Route> */}
             <Route path="/about">
               <About />
             </Route>
@@ -109,9 +109,9 @@ class App extends React.Component{
 
         <footer>
           <ul className="footer-link-list">
-            <li className="footer-link">
+            {/* <li className="footer-link">
               <Link to="/eyebeam">EYEBEAM LAUNCH</Link>
-            </li>
+            </li> */}
             <li className="footer-link">
               <Link to="/about">ABOUT</Link>
             </li>
