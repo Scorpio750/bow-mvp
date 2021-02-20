@@ -2,15 +2,23 @@ import React, { useEffect } from 'react';
 import { PropTypes as p } from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getAllPosts } from '../../store/actions/posts';
+import { fetchPost } from '../../store/actions/posts';
 
 import Post from '../Post/Post';
 
 import styles from './Feed.module.css';
 
-export const Feed = props => {
+class Feed extends React.Component {
+
+  componentDidMount() {
+    this.props.getAllPosts()
+  }
+
+  render() {
+
+  if(!this.props.posts.length) {
   const renderPostPreviews = (posts, colIndex, number = 200) => {
-    posts = Array(props.dummyNumber || number).fill({ title: 'hello i am a sexy art' });
+    posts = Array(this.props.dummyNumber || number).fill({ title: 'hello i am a sexy art' });
     const moddedPosts = posts.reduce((modList, post, index) => {
       if (index % 3 === colIndex) modList.push(post);
       return modList;
@@ -29,30 +37,60 @@ export const Feed = props => {
     <div className={styles.feedContainer}>
       <div className={styles.feedColumn1}>
         <ul className={styles.postsList}>
-          {renderPostPreviews(props.posts, 0)}
+          {renderPostPreviews(this.props.posts, 0)}
         </ul>
       </div>
       <div className={styles.feedColumn2}>
         <ul className={styles.postsList}>
-          {renderPostPreviews(props.posts, 1)}
+          {renderPostPreviews(this.props.posts, 1)}
         </ul>
       </div>
       <div className={styles.feedColumn3}>
         <ul className={styles.postsList}>
-          {renderPostPreviews(props.posts, 2)}
+          {renderPostPreviews(this.props.posts, 2)}
         </ul>
       </div>
     </div>
   )
+  }
+  return (
+    <div className={styles.feedContainer}>
+      <div className={styles.feedColumn1}>
+        <ul className={styles.postsList}>
+          {this.props.posts.map(
+            post => (
+              <Post key={post.id}
+                title={post.title}
+                image={post.image}
+              />
+            )
+          )}
+        </ul>
+      </div>
+      {/* <div className={styles.feedColumn2}>
+        <ul className={styles.postsList}>
+          {renderPostPreviews(this.props.posts, 1)}
+        </ul>
+      </div>
+      <div className={styles.feedColumn3}>
+        <ul className={styles.postsList}>
+          {renderPostPreviews(this.props.posts, 2)}
+        </ul>
+      </div> */}
+    </div>
+  )
+
+}
+
 }
 
 const mapStateToProps = state => ({
   posts: state.posts,
 });
 
-const mapDispatchToProps = {
-  getAllPosts
-};
+const mapDispatchToProps = dispatch => ({
+  getAllPosts: () => dispatch(fetchPost())
+});
 
 Feed.propTypes = {
   getAllPosts: p.func,

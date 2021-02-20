@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { Post, User } = require('../db')
 //middleware to protect the route for launch
 const isAdmin = require('./admin')
-const { findAllPublic, findOnePublic, findAllUser, findOneUser } = require('./postPermission')
+const { findAllPublic, findOnePublic, findAllPatron, findOnePatron } = require('./postPermission')
 module.exports = router
 
 // Get (/api/post/)
@@ -16,7 +16,7 @@ try {
     return res.send(post)
   }
   //logged in users
-  let post = await findAllUser(req.user.id, artwork)
+  let post = await findAllPatron(req.user.id, artwork)
     return res.send(post)
 
   } catch(err) {
@@ -37,7 +37,7 @@ router.get('/:postId', async (req, res, next) => {
       let post = await findOnePublic(artwork)
       return res.send(post)
     }
-    let post = await findOneUser(req.user.id, artwork)
+    let post = await findOnePatron(req.user.id, artwork)
     return res.send(post)
 
   } catch(err) {

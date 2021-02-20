@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import { LoremIpsum } from 'lorem-ipsum';
 import placeholder from './assets/sexy_placeholder.jpg';
-import { logout } from './store/actions/user';
+import { fetchUser, logout } from './store/actions/user';
 
 import icon from './assets/home-icon.png';
 import Welcome from './containers/Welcome/Welcome';
@@ -21,12 +21,24 @@ import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
 import ArtworkIntake from './containers/ArtworkIntake/ArtworkIntake';
 import Artwork from './containers/Post/ArtworkView';
 
-export const App = props => {
-  const isLoggedIn = Object.keys(props.user).length > 0;
-  const handleLogout = e => {
-    e.preventDefault();
-    props.logout();
+class App extends React.Component{
+  // const isLoggedIn = Object.keys(props.user).length > 0;
+  constructor(props) {
+    super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+
+  }
+
+  componentDidMount() {
+    this.props.fetchUser()
+  }
+
+  handleLogout(e) {
+    // e.preventDefault();
+    this.props.logout();
   };
+
+  render() {
 
   return (
     <Router>
@@ -41,11 +53,11 @@ export const App = props => {
         */}
         <header className="App-header">
           <Link className="home-nav" to="/feed"><img style={{ height: '10vmin' }} src={icon} /></Link>
-        { !isLoggedIn ?
+        { !this.props.user.id ?
           <Link className="login-nav" to="/login">login</Link> :
           <React.Fragment>
-            <span className="user-greeting"> hello {props.user.username}</span>
-            <a className="login-nav" onClick={handleLogout}>logout</a>
+            <span className="user-greeting"> hello {this.props.user.username}</span>
+            <a className="login-nav" onClick={() => this.handleLogout()}>logout</a>
           </React.Fragment>
         }
         </header>
@@ -119,6 +131,7 @@ export const App = props => {
       </div>
     </Router>
   );
+      }
 }
 
 const lorem = new LoremIpsum({
@@ -417,6 +430,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
+  fetchUser: () => dispatch(fetchUser())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

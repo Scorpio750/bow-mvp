@@ -3,4 +3,3 @@ module.exports = router;
 // '/api'
 router.use('/user', require('./user'))
 router.use('/post', require('./post'))
-router.use('/do', require('./digitalOcean'))

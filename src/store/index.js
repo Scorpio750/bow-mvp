@@ -3,12 +3,12 @@ import thunkMiddleware from 'redux-thunk'
 import {createLogger} from 'redux-logger'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import  user from './reducers/user/user'
-
+import {posts, singlePost} from './reducers/post'
 let reducer = combineReducers({
   user,
   //Potential additions
-  // posts,
-  // singlePost,
+  posts,
+  singlePost,
   // tags,
   //search
 })
