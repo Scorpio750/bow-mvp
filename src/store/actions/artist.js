@@ -6,9 +6,9 @@ import history from '../../history'
 export const defaultUser = {}
 
 //Action Types
-export const GET_USER = 'GET_USER'
-export const REMOVE_USER = 'REMOVE_USER'
-export const UPDATE_USER = 'UPDATE_USER'
+export const GET_ARTIST = 'GET_ARTIST'
+export const REMOVE_ARTIST = 'REMOVE_ARTIST'
+export const UPDATE_ARTIST = 'UPDATE_ARTIST'
 
 //Actions
 export const getUser = user => ({ type: GET_USER, user })
@@ -37,6 +37,7 @@ export const fetchUser = () => async dispatch => {
     console.log(err)
   }
 }
+
 export const logout = () => async dispatch => {
   try{
     await axios.post('/auth/logout')
@@ -45,29 +46,5 @@ export const logout = () => async dispatch => {
   }
   catch(err) {
     console.err(err)
-  }
-}
-
-export const signUp = (userObj) => async dispatch => {
-  try{
-    const { data } = await axios.post(`/auth/signup`, userObj)
-    // dispatch(authUser(data || defaultUser))
-    // ()
-    dispatch(getUser(data || defaultUser))
-
-    history.push('/login')
-  }
-  catch(err) {
-    console.error(err)
-  }
-}
-
-
-export const me = () => async dispatch => {
-  try {
-    const res = await axios.get('/auth/me')
-    dispatch(getUser(res.data || defaultUser))
-  } catch (err) {
-    console.error(err)
   }
 }

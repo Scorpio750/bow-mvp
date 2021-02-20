@@ -62,6 +62,7 @@ class Feed extends React.Component {
               <Post key={post.id}
                 title={post.title}
                 image={post.image}
+                artwork={post}
               />
             )
           )}

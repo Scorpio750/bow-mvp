@@ -1,17 +1,18 @@
 import React from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 
 import styles from '../../common/Form.module.css';
+import { signUp } from '../../store/actions/user';
+import { connect } from 'react-redux';
 
 Modal.setAppElement('#root');
 
-export const Signup = () => {
+export const Signup = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = async data => {
-    await axios.post('/api/user/signup', data)
+   props.signUp(data)
   };
 
   const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -25,7 +26,7 @@ export const Signup = () => {
   }
 
   console.log(watch("example")); // watch input value by passing the name of it
-
+  if( Object.keys(props.user).length > 0) return <Redirect to='/feed' />
   return (
     <div className={styles.formContainer}>
       <h1 className={styles.header}>Signup</h1>
@@ -106,4 +107,12 @@ export const Signup = () => {
   );
 }
 
-export default Signup;
+const mapState = state => ({
+  user: state.user
+})
+
+const mapDispatch = dispatch => ({
+  signUp: (userObj) => dispatch(signUp(userObj))
+});
+
+export default connect(mapState, mapDispatch)(Signup);

@@ -5,6 +5,8 @@ const databaseName = pkg.name
 
 const db = new Sequelize(
   'bow', 'bow_admin', 'kinkyboots',
-  { dialect: 'postgresql' }
+  { dialect: 'postgresql',
+    logging: false
+ }
 )
 module.exports = db

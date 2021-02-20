@@ -79,6 +79,11 @@ function createApp() {
   // })
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
+  app.get('/login', (req, res, next) => {
+    console.log(req, 'lll')
+    res.redirect(307,'/api/user/login')
+  })
+
   app.use((req, res, next) => {
     if (path.extname(req.path).length) {
       const err = new Error('Not found')
