@@ -1,7 +1,5 @@
 const {params, s3 } = require('./digitalOcean')
 async function findAllPublic(artwork) {
-
-
   const post = artwork.map((currPost) => {
 
 
@@ -54,16 +52,6 @@ async function findAllPublic(artwork) {
 
       params.Key = fileName
 
-      const res = s3.getObject(params, function (err, data) {
-        if(err) console.log(err, err.stack);
-        else {
-          //this is the data we must put somewhere.
-          console.log(data.ContentType, data.Body)
-
-        }
-      })
-
-      console.log(res)
 
       return newFile
 
