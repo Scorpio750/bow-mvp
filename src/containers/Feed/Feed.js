@@ -18,7 +18,7 @@ class Feed extends React.Component {
 
   if(!this.props.posts.length) {
   const renderPostPreviews = (posts, colIndex, number = 200) => {
-    posts = Array(this.props.dummyNumber || number).fill({ title: 'hello i am a sexy art' });
+    posts = Array(this.props.dummyNumber || number).fill({ title: 'KinkOut Presents Bodies of Workers' });
     const moddedPosts = posts.reduce((modList, post, index) => {
       if (index % 3 === colIndex) modList.push(post);
       return modList;
@@ -28,6 +28,7 @@ class Feed extends React.Component {
         <Post
           title={post.title}
           image={post.image}
+          id={post.id}
         />
     );
     return renderedPosts;

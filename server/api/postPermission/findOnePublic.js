@@ -1,10 +1,14 @@
 async function findOnePublic(artwork) {
 
-  if(artwork.privacy === 1) return artwork;
+  if(artwork.privacy === 1 && artwork.fileType === 'Image' ) return artwork;
+  let site = 'https://bodyofworkers.nyc3.digitaloceanspaces.com/'
+
 
   let {
+      id,
       title,
       sequence,
+      fileName,
       caption,
       instagram,
       twitter,
@@ -23,8 +27,12 @@ async function findOnePublic(artwork) {
       pressLink,
       tags
     } = artwork;
+    let path = `${site}${fileName}`
+
     let scrubbed = {
+      id,
       title,
+      path,
       sequence,
       caption,
       instagram,

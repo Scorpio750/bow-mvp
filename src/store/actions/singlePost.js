@@ -9,8 +9,8 @@ export const CREATE_SINGLE_POST = 'CREATE_POST'
 export const REMOVE_SINGLE_POST = 'REMOVE_POST'
 
 //Actions
-export const setSinglePost = (singlePost) => async dispatch => {
-  dispatch({ type :GET_SINGLE_POST, singlePost });
+export const setSinglePost = singlePost => async dispatch => {
+  dispatch({ type: GET_SINGLE_POST, singlePost });
 }
 export const addSinglePost = (artwork) => async dispatch => {
   dispatch(({ type: CREATE_SINGLE_POST, artwork }));
@@ -20,10 +20,11 @@ export const removeSinglePost = (id) => async dispatch => {
 }
 
 //Thunks
-export const fetchSinglePost = (id) => async dispatch => {
+export const fetchSinglePost = (postId) => async dispatch => {
   try{
-    const { data } = await axios.get(`/api/post/${id}`)
-    dispatch(setSinglePost(data || defaultPost))
+    const { data } = await axios.get(`/api/post/${postId}`)
+    console.log(data)
+    dispatch(setSinglePost(data))
   }
   catch(err) {
     console.log(err)

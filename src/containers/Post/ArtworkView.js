@@ -7,43 +7,62 @@ import placeholder from '../../assets/sexy_placeholder.jpg';
 import styles from './Post.module.css';
 
 import { ArtistProfile } from '../ArtistProfile/ArtistProfile';
+import { fetchSinglePost } from '../../store/actions/singlePost';
+import { connect } from 'react-redux'
 Modal.setAppElement('#root');
 
-export const Artwork = props => {
-  const tags = props.tags
-  const dummyTags = Array(3).fill('tags')
-  const getTags = () => {
+class Artwork extends React.Component {
+  constructor(props){
+    super(props)
+  this.getDummyTags = this.getDummyTags.bind(this)
+  this.getTags = this.getTags.bind(this)
+  }
+
+  componentDidMount() {
+    let id = this.props.match.params.postId
+    this.props.getPost(id)
+  }
+  getTags() {
+    const tags = this.props.artwork.tags
+
     return tags.map(tag => tag+' ')
   }
-  const getDummyTags = () => {
+  getDummyTags() {
+    const dummyTags = Array(3).fill('tags')
+
     return dummyTags.map(tag => tag+' ' )
   }
-  return <div className={styles.artistProfileContainer}>
-    <ArtistProfile {...props} />
+  render() {
+    console.log(this.props)
+  if(!this.props.singlePost.id) return <div>Loading</div>
+
+  return (<div className={styles.artistProfileContainer}>
+    <ArtistProfile {...this.props} />
     <section className={styles.mediaContainer}>
     <img
         className={styles.artwork}
-        src={props.image || placeholder}
-        alt='pretend there is some art here'
+        src={`https://bodyofworkers.nyc3.digitaloceanspaces.com/${this.props.singlePost.fileName}` || placeholder}
+        alt='single artwork view'
       />
-     <h3 className={styles.mediaTitle}>{props.title || 'hello i am sascha and this website is my art piece'}, {props.medium || 'Digital'}, {props.date || 'Feb 18 2021'}</h3>
+     <h3 className={styles.mediaTitle}>{this.props.title || 'Body of Workers'}, {this.props.singlePost.medium || 'Digital'}, {this.props.singlePost.date || 'Feb 18 2021'}</h3>
      <p>
-     {props.caption || 'CAPTION - media description'}
+     {this.props.singlePost.caption || 'CAPTION - N/A'}
      </p>
      <p>
-     {props.credits || 'CREDITS - Me, Kiana'}
+     {this.props.singlePost.credits || 'CREDITS - N/A'}
      </p>
      <p>
-     {props.distributor || 'distribution.com '}
-     {props.language || ' Language Here'}
+     {this.props.singlePost.distributor || 'No current distributor'}
+     {this.props.singlePost.language || ' Language'}
      </p>
-
+{/*
      <p>
-     {tags.length > 0  ? getTags() : getDummyTags()}
-     </p>
+     {!this.props.singlePost.tags  ? this.getTags() : this.getDummyTags()}
+     </p> */}
     </section>
 
-  </div>
+  </div>)
+  }
 }
 
 Artwork.defaultProps = {
@@ -59,4 +78,13 @@ Artwork.defaultProps = {
   tags: []
 }
 
-export default Artwork;
+const mapState = state => ({
+  singlePost: state.singlePost
+})
+
+const mapDispatch = dispatch => ({
+  getPost: (id) => dispatch(fetchSinglePost(id))
+})
+
+
+export default connect(mapState, mapDispatch)(Artwork);

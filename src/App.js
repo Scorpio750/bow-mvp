@@ -20,6 +20,7 @@ import Signup from './containers/LoginSignup/Signup';
 import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
 import ArtworkIntake from './containers/ArtworkIntake/ArtworkIntake';
 import Artwork from './containers/Post/ArtworkView';
+import Privacy from './containers/Privacy/Privacy'
 
 class App extends React.Component{
   // const isLoggedIn = Object.keys(props.user).length > 0;
@@ -78,8 +79,8 @@ class App extends React.Component{
             <Route path="/artist-profile">
               <ArtistProfile />
             </Route>
-            <Route path="/artwork">
-              <Artwork/>
+            <Route path="/artwork/:postId" component={Artwork}>
+
             </Route>
             <Route path="/artwork-intake">
               <ArtworkIntake />
@@ -302,21 +303,15 @@ const Legals = () => (
   </div>
 );
 
-const Privacy = () => (
-  <div className="info-page">
-    <h1>Privacy</h1>
-    <p>{lorem.generateParagraphs(4)}</p>
-  </div>
-);
-
 const Eyebeam = () => (
   <div className="info-page">
     <h1>Eyebeam</h1>
     <div>
     <h3> LOW ART/HIGH STANDARDS: PROGRAM COPY</h3>
     <img
-      src={placeholder}
-      alt='Banner Image Here'
+      src='https://bodyofworkers.nyc3.digitaloceanspaces.com/BoW_Promo_Panel_Twitter.png'
+      alt='watch the panel at fromtherupture.eyebeam.org'
+      width="50%"
     />
 
     <h5>An Artistic Panel produced by Veil Machine and Kink Out:</h5>

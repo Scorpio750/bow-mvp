@@ -15,6 +15,7 @@ async function findAllPatron(id, artwork) {
 
     else {
       let {
+        id,
         title,
         sequence,
         caption,
@@ -36,6 +37,7 @@ async function findAllPatron(id, artwork) {
         tags
       } = currPost;
       let scrubbed = {
+        id,
         title,
         sequence,
         caption,

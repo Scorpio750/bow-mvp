@@ -9,7 +9,7 @@ import {
 export default function singlePost(state = defaultPost, action) {
   switch (action.type) {
     case GET_SINGLE_POST:
-      return action.artwork
+      return action.singlePost
     case CREATE_SINGLE_POST:
       return action.artwork
     case REMOVE_SINGLE_POST:

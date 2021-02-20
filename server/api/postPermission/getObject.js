@@ -1,4 +1,6 @@
-export const res = s3.getObject(params, function (err, data) {
+const { params, s3 } = require('./digitalOcean')
+
+export const res = s3.getObject( params, function (err, data) {
   if(err) console.log(err, err.stack);
   else {
     //this is the data we must put somewhere.
@@ -7,4 +9,4 @@ export const res = s3.getObject(params, function (err, data) {
   }
 })
 
-module.exports res;
+module.exports = res;

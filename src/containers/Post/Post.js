@@ -27,8 +27,8 @@ export const Post = props => {
     <div className={styles.postContainer}>
       <img
         className={styles.artwork}
-        src={props.image || placeholder}
-        alt={'pretend there is some art here'}
+        src={props.artwork.path || placeholder}
+        alt={props.artwork.title}
         onClick={() => handleClick(openModal)}
       />
       <h3 className={styles.title}>{props.title || 'hello i am sascha and this website is my art piece'}</h3>
@@ -50,7 +50,10 @@ export const Post = props => {
       >
         {renderPost()}
         <Link className={styles.artistLink} to={`/artist-profile/`}>View Profile</Link>
-        <Link to="/artwork">View More Info</Link>
+        <Link  to={{
+          pathname: `/artwork/${props.artwork.id}`,
+          state: props.artwork
+        }}>View More Info</Link>
         <span className={styles.closeBtn} onClick={closeModal}>X</span>
       </Modal>
     </React.Fragment>

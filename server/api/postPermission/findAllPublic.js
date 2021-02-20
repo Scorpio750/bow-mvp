@@ -3,8 +3,11 @@ async function findAllPublic(artwork) {
   const post = artwork.map((currPost) => {
 
 
-    if(currPost.privacy === 1) {
+    if(currPost.privacy === 1 && currPost.fileType === 'Image' ) {
+      let site = 'https://bodyofworkers.nyc3.digitaloceanspaces.com/'
+
       let {
+        id,
         title,
         sequence,
         fileName,
@@ -26,10 +29,12 @@ async function findAllPublic(artwork) {
         pressLink,
         tags
       } = currPost;
+      let path = `${site}${fileName}`
       let newFile = {
+        id,
         title,
         fileName,
-        //file
+        path,
         sequence,
         caption,
         instagram,
