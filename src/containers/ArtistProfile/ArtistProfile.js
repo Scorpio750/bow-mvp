@@ -56,32 +56,32 @@ export const ArtistProfile = props => {
         <img
           className={styles.artistPic}
           src={props.artist.img || personPlaceholder}
-          alt='pretend there is an incredibly flattering portrait here'
+          alt='an incredibly flattering portrait'
         />
         {props.artist.media.instagram &&
           <div className={styles.mediaContainer}>
             <img className={styles.mediaThumbnail} src={instagram} />
-            <p>{props.artist.media.instagram}</p>
+            <p>{props.singlePost.user.instagram}</p>
           </div>
         }
-        {props.artist.media.facebook &&
+        {/* {props.artist.media.facebook &&
           <div className={styles.mediaContainer}>
             <img className={styles.mediaThumbnail} src={facebook} />
             <p>{props.artist.media.facebook}</p>
           </div>
-        }
+        } */}
         {props.artist.media.twitter &&
           <div className={styles.mediaContainer}>
             <img className={styles.mediaThumbnail} src={twitter} />
-            <p>{props.artist.media.twitter}</p>
+            <p>{props.singlePost.user.twitter}</p>
           </div>
         }
-        {props.artist.media.website &&
+        {/* {props.artist.media.website &&
           <div className={styles.mediaContainer}>
             <p >website:</p>
             <p>{props.artist.media.website}</p>
           </div>
-        }
+        } */}
       </section>
     </div>
   )
@@ -92,10 +92,10 @@ ArtistPage.defaultProps = {
   artist: {
     id: 0,
     media: {
-      instagram: '@ello',
-      facebook: '@ello',
-      twitter: '@ello',
-      website: 'ellodeary.com',
+      instagram: '@instagram',
+      facebook: '@facebook',
+      twitter: '@twitter',
+      website: 'bodyofworkers.com',
     }
   },
 }

@@ -13,9 +13,9 @@ let reducer = combineReducers({
   //search
 })
 
-const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
-)
+const middleware =
+  applyMiddleware(thunkMiddleware)
+
 
 const store = createStore(reducer, middleware)
 

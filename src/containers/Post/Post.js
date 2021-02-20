@@ -49,8 +49,10 @@ export const Post = props => {
         contentLabel="test"
       >
         {renderPost()}
-        <Link className={styles.artistLink} to={`/artist-profile/`}>View Profile</Link>
-        <Link  to={{
+
+        {/* <Link className={styles.artistLink} to={`/artist-profile/`}>View Profile</Link> */}
+
+        <Link  style={{color: 'black'}}to={{
           pathname: `/artwork/${props.artwork.id}`,
           state: props.artwork
         }}>View More Info</Link>

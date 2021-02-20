@@ -23,7 +23,6 @@ export const removeSinglePost = (id) => async dispatch => {
 export const fetchSinglePost = (postId) => async dispatch => {
   try{
     const { data } = await axios.get(`/api/post/${postId}`)
-    console.log(data)
     dispatch(setSinglePost(data))
   }
   catch(err) {

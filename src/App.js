@@ -240,9 +240,19 @@ const FAQ = () => (
 const Contact = () => (
   <div className="info-page">
     <h1>Contact</h1>
-    <p>{lorem.generateParagraphs(4)}</p>
+    <div><p>
+Please email all inquiries to: <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com</a></p>
+      </div>
+    <h4>Follow</h4>
+    <div>
+    <p>We will launch Body of Workers social media accounts later this year. In the meantime, please feel free to follow us:</p>
+
+<p>Kink Out on <a href="https://www.instagram.com/kinkoutevents">Instagram</a>, <a href="https://twitter.com/kinkoutevents">Twitter</a>, and <a href="https://www.facebook.com/kinkoutevents">Facebook</a><br/>
+Veil Machine on <a href="https://www.instagram.com/veilmachine">Instagram</a> and <a href="https://twitter.com/veil_machine">Twitter</a></p>
+
+    </div>
   </div>
-)
+);
 
 const Legals = () => (
   <div className="info-page">
