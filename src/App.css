@@ -70,15 +70,15 @@ a:hover {
 }
 
 footer {
-position: absolute;
-display: flex;
-align-items: center;
-width: 100vw;
-height: 10vh;
-background-color: gainsboro;
-bottom: 0;
-z-index: 100;
-filter: drop-shadow(0 -10px 10px rgb(0, 0, 0, 0.1));
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  background-color: gainsboro;
+  bottom: 0;
+  z-index: 100;
+  filter: drop-shadow(0 -10px 10px rgb(0, 0, 0, 0.1));
 }
 
 .footer-link-list {
@@ -86,6 +86,11 @@ filter: drop-shadow(0 -10px 10px rgb(0, 0, 0, 0.1));
   width: 100%;
   justify-content: space-around;
 }
+
+@media only screen and (max-width: 600px) {
+  font-size: 16px;
+}
+
 
 .info-page {
   text-align: left;
