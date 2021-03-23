@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 //Initial State
-export const defaultPosts = []
+export const defaultPosts = Array(100).fill({});
 
 //Action Types
 export const GET_ALL_POSTS = 'GET_ALL_POSTS'

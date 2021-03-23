@@ -85,10 +85,6 @@ class App extends React.Component{
             <Route path="/artwork-intake">
               <ArtworkIntake />
             </Route>
-{/*
-            <Route path="/eyebeam">
-              <Eyebeam />
-            </Route> */}
             <Route path="/about">
               <About />
             </Route>
@@ -109,9 +105,6 @@ class App extends React.Component{
 
         <footer>
           <ul className="footer-link-list">
-            {/* <li className="footer-link">
-              <Link to="/eyebeam">EYEBEAM LAUNCH</Link>
-            </li> */}
             <li className="footer-link">
               <Link to="/about">ABOUT</Link>
             </li>
