@@ -54,10 +54,7 @@ class Artwork extends React.Component {
      {this.props.singlePost.distributor || 'No current distributor'}
      {this.props.singlePost.language || ' Language'}
      </p>
-{/*
-     <p>
-     {!this.props.singlePost.tags  ? this.getTags() : this.getDummyTags()}
-     </p> */}
+     {/* <p> {!this.props.singlePost.tags  ? this.getTags() : this.getDummyTags()} </p> */}
     </section>
 
   </div>)

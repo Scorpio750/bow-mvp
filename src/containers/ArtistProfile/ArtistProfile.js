@@ -70,12 +70,6 @@ export const ArtistProfile = props => {
               <a href={user.instagram}>{parseSocialMediaLinks(user.instagram)}</a>
             </div>
           }
-          {/* {props.artist.media.facebook &&
-          <div className={styles.mediaContainer}>
-            <img className={styles.mediaThumbnail} src={facebook} />
-            <p>{props.artist.media.facebook}</p>
-            </div>
-          } */}
           {user.twitter &&
             <div className={styles.mediaContainer}>
               <TwitterIcon className={styles.mediaThumbnail} />
