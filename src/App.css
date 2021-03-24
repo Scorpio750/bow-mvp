@@ -77,7 +77,6 @@ footer {
   height: 10vh;
   background-color: gainsboro;
   bottom: 0;
-  z-index: 100;
   filter: drop-shadow(0 -10px 10px rgb(0, 0, 0, 0.1));
 }
 

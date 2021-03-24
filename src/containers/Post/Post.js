@@ -23,7 +23,33 @@ export const Post = props => {
     setIsOpen(false);
   }
 
-  const renderPost = () => (
+  const renderSubtext = () => (
+    <h4 className={styles.title}>
+      {props.title || 'hello i am sascha and this website is my art piece'}
+    </h4>
+  );
+
+  const renderModalSubtext = () => (
+    <React.Fragment>
+      <h2 className={styles.modalTitle}>
+        {props.title || 'hello i am sascha and this website is my art piece'}
+      </h2>
+      <div className={styles.infoContainer}>
+        <span>{props.artwork.medium}</span>
+        <span> • </span>
+        <Link
+          style={{color: 'black'}}
+          to={{
+            pathname: `/artwork/${props.artwork.id}`,
+            state: props.artwork
+          }}>
+            View More Info
+          </Link>
+        </div>
+      </React.Fragment>
+  )
+
+  const renderPost = isModal => (
     <div className={styles.postContainer}>
       <img
         className={styles.artwork}
@@ -31,7 +57,10 @@ export const Post = props => {
         alt={props.artwork.title}
         onClick={() => handleClick(openModal)}
       />
-      <h3 className={styles.title}>{props.title || 'hello i am sascha and this website is my art piece'}</h3>
+      {isModal
+          ? renderModalSubtext()
+          : renderSubtext()
+      }
       <div style={{ marginBottom: '2.5rem' }}></div>
     </div>
   );
@@ -48,14 +77,8 @@ export const Post = props => {
         onRequestClose={closeModal}
         contentLabel="test"
       >
-        {renderPost()}
+        {renderPost(true)}
 
-        {/* <Link className={styles.artistLink} to={`/artist-profile/`}>View Profile</Link> */}
-
-        <Link  style={{color: 'black'}}to={{
-          pathname: `/artwork/${props.artwork.id}`,
-          state: props.artwork
-        }}>View More Info</Link>
         <span className={styles.closeBtn} onClick={closeModal}>X</span>
       </Modal>
     </React.Fragment>

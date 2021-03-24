@@ -41,14 +41,49 @@
 
 
 .modal {
-  inset: 0;
-  background: radial-gradient(rgba(100,0,0,0.5), rgba(0,0,0,0.9));
+  background: rgba(27, 18, 18, 0.8);
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10000;
+}
+
+.modal img {
+  max-height: 85vh;
+}
+
+.modal .postContainer {
+  min-width: 30vw;
+}
+
+.modalTitle {
+  color: gainsboro;
+  font-family: courier;
+  font-weight: 100;
+  text-align: center;
+}
+
+.infoContainer {
+  margin-top: .5rem;
+  color: gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoContainer span:nth-child(1) {
+  cursor: default;
+}
+
+.infoContainer span:nth-child(2) {
+  padding: 0 1rem;
+}
+
+.infoContainer a {
+  color: gainsboro !important;
+  text-decoration: underline;
 }
 
 .artistLink {
