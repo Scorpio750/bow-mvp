@@ -55,7 +55,6 @@ class App extends React.Component{
         <header className="App-header">
           <Link className="home-nav" to="/feed"><img style={{ height: '10vmin' }} src={icon} /></Link>
         {/* { !this.props.user.id ? */}
-          <Link className="login-nav" to="/">Home</Link>
           <React.Fragment>
             <span className="user-greeting"> hello {this.props.user.username}</span>
             {/* <a className="login-nav" onClick={() => this.handleLogout()}>logout</a> */}
