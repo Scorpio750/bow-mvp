@@ -5,27 +5,46 @@
   grid-auto-rows: minmax(100px, auto);
 }
 
+.artistProfile {
+  margin-left: 1rem;
+}
+
 .artistPicMedia {
   grid-column: 0 / 4;
 }
 
+.artistName {
+  font-size: 2rem;
+}
+
 .artistPic {
-  height: 30vh;
+  height: 25vh;
+  border-radius: 100%;
+}
+
+.mediaLinksSection {
+  margin-top: 1rem;
 }
 
 .mediaContainer {
+  padding: 5px 0;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
 }
 
 .mediaThumbnail {
-  height: 28px;
-  margin-right: 1rem;
+  margin: 0 1rem;
 }
 
 .artistBio {
   grid-column: 3 / 8;
+}
+
+.artistLocation {
+  text-align: left;
+  color: dimgrey;
+  cursor: default;
 }
 
 .artistWorks {

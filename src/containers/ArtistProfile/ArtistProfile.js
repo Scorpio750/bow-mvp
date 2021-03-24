@@ -6,12 +6,15 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { getUser } from '../../store/actions/user';
 
 import personPlaceholder from '../../assets/person-placeholder.png';
-import instagram from '../../assets/instagram.png';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LocationIcon from '@material-ui/icons/LocationOn';
 import facebook from '../../assets/facebook.png';
 import twitter from '../../assets/twitter.png';
 import styles from './ArtistProfile.module.css';
-
 import Feed from '../Feed/Feed';
+
+import { parseSocialMediaLinks } from '../../utils';
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -49,39 +52,46 @@ export const ArtistPage = props => {
 }
 
 export const ArtistProfile = props => {
+  const { singlePost: { user } } = props;
 
   return (
-    <div>
+    <div className={styles.artistProfile}>
+      <h1 className={styles.artistName}>{user.publicName}</h1>
       <section className={styles.artistPicMedia}>
         <img
           className={styles.artistPic}
           src={props.artist.img || personPlaceholder}
           alt='an incredibly flattering portrait'
         />
-        {props.artist.media.instagram &&
-          <div className={styles.mediaContainer}>
-            <img className={styles.mediaThumbnail} src={instagram} />
-            <p>{props.singlePost.user.instagram}</p>
-          </div>
-        }
-        {/* {props.artist.media.facebook &&
+        <section className={styles.mediaLinksSection}>
+          {user.instagram &&
+            <div className={styles.mediaContainer}>
+              <InstagramIcon className={styles.mediaThumbnail} />
+              <a href={user.instagram}>{parseSocialMediaLinks(user.instagram)}</a>
+            </div>
+          }
+          {/* {props.artist.media.facebook &&
           <div className={styles.mediaContainer}>
             <img className={styles.mediaThumbnail} src={facebook} />
             <p>{props.artist.media.facebook}</p>
-          </div>
-        } */}
-        {props.artist.media.twitter &&
-          <div className={styles.mediaContainer}>
-            <img className={styles.mediaThumbnail} src={twitter} />
-            <p>{props.singlePost.user.twitter}</p>
-          </div>
-        }
-        {/* {props.artist.media.website &&
-          <div className={styles.mediaContainer}>
-            <p >website:</p>
-            <p>{props.artist.media.website}</p>
-          </div>
-        } */}
+            </div>
+          } */}
+          {user.twitter &&
+            <div className={styles.mediaContainer}>
+              <TwitterIcon className={styles.mediaThumbnail} />
+              <a href={user.twitter}>{parseSocialMediaLinks(user.twitter)}</a>
+            </div>
+          }
+          {user.city &&
+            <div className={styles.mediaContainer}>
+              <LocationIcon className={styles.mediaThumbnail} />
+              <span className={styles.artistLocation}>
+                {user.city}
+                {user.country && `, ${user.country}`}
+              </span>
+            </div>
+          }
+        </section>
       </section>
     </div>
   )
