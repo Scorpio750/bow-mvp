@@ -32,32 +32,40 @@ class Artwork extends React.Component {
 
     return dummyTags.map(tag => tag+' ' )
   }
+
   render() {
-  if(!this.props.singlePost.id) return <div>Loading</div>
+    const { singlePost } = this.props;
 
-  return (<div className={styles.artistProfileContainer}>
-    <ArtistProfile {...this.props} />
-    <section className={styles.mediaContainer}>
-    <img
-        className={styles.artwork}
-        src={`https://bodyofworkers.nyc3.digitaloceanspaces.com/${this.props.singlePost.fileName}` || placeholder}
-        alt='single artwork view'
-      />
-     <h3 className={styles.mediaTitle}>{this.props.title || 'Body of Workers'}, {this.props.singlePost.medium || 'Digital'}, {this.props.singlePost.date || 'Feb 18 2021'}</h3>
-     <p>
-     {this.props.singlePost.caption || 'CAPTION - N/A'}
-     </p>
-     <p>
-     {this.props.singlePost.credits || 'CREDITS - N/A'}
-     </p>
-     <p>
-     {this.props.singlePost.distributor || 'No current distributor'}
-     {this.props.singlePost.language || ' Language'}
-     </p>
-     {/* <p> {!this.props.singlePost.tags  ? this.getTags() : this.getDummyTags()} </p> */}
-    </section>
+    if(!singlePost.id) return <div>Loading</div>
 
-  </div>)
+    return (
+      <div className={styles.artistProfileContainer}>
+        <ArtistProfile {...this.props} />
+        <section className={styles.mediaContainer}>
+          <img
+            className={styles.artwork}
+            style={{ cursor: 'default' }}
+            src={`https://bodyofworkers.nyc3.digitaloceanspaces.com/${singlePost.fileName}` || placeholder}
+            alt='single artwork view'
+          />
+          <section className={styles.artworkDescription}>
+            <h3 className={styles.mediaTitle}>{singlePost.title || 'Body of Workers'}</h3>
+            <h4>{singlePost.medium || 'Digital'}, {singlePost.date || 'Feb 18 2021'}</h4>
+            <p>
+              {singlePost.caption || 'CAPTION - N/A'}
+            </p>
+            <p>
+              {singlePost.credits || 'CREDITS - N/A'}
+            </p>
+            <p>
+              {singlePost.distributor || 'No current distributor'}
+              {singlePost.language}
+            </p>
+            {/* <p> {!singlePost.tags  ? this.getTags() : this.getDummyTags()} </p> */}
+          </section>
+        </section>
+      </div>
+    )
   }
 }
 
