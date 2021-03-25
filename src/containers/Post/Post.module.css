@@ -29,6 +29,11 @@
   .artwork {
     max-height: 70vh;
   }
+
+  .closeBtn {
+    right: 3vw !important;
+    top: 1vh !important;
+  }
 }
 
 .artwork {
