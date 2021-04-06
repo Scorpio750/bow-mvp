@@ -1,4 +1,4 @@
-const {params, s3 } = require('./digitalOcean')
+const { params, s3 } = require('./digitalOcean')
 async function findAllPublic(artwork) {
   const post = artwork.map((currPost) => {
 

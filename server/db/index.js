@@ -1,5 +1,5 @@
 const db = require('./db')
-const {User, Post } = require('./models')
+const { User, Post } = require('./models')
 
 Post.belongsTo(User);
 // Media.belongsTo(User);
