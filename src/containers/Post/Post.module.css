@@ -12,8 +12,27 @@
 
 .postContainer {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-flow: column nowrap;
-  max-width: 20vw;
+  padding-top: 2em;
+  padding-left: 1em;
+}
+
+.title {
+  width: 75%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+.artworkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  background-color: rgba(145, 145, 146, 0.452)
 }
 
 @media only screen and (max-width: 600px) {
@@ -38,7 +57,8 @@
 
 .artwork {
   cursor: pointer;
-  max-height: 70vh;
+  max-height: 90%;
+  max-width: 90%;
 }
 
 .artworkDescription {

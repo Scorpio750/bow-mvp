@@ -51,12 +51,14 @@ export const Post = props => {
 
   const renderPost = isModal => (
     <div className={styles.postContainer}>
+      <div className={styles.artworkContainer}>
       <img
         className={styles.artwork}
         src={props.artwork.path || placeholder}
         alt={props.artwork.title}
         onClick={() => handleClick(openModal)}
       />
+      </div>
       {isModal
           ? renderModalSubtext()
           : renderSubtext()
