@@ -23,23 +23,25 @@ import Artwork from './containers/Post/ArtworkView';
 import Privacy from './containers/Privacy/Privacy'
 
 class App extends React.Component{
-  // const isLoggedIn = Object.keys(props.user).length > 0;
   constructor(props) {
     super(props);
+
     this.handleLogout = this.handleLogout.bind(this);
 
   }
 
   componentDidMount() {
-    // this.props.fetchUser()
+    this.props.fetchUser()
   }
 
   handleLogout(e) {
-    // e.preventDefault();
+    e.preventDefault();
     this.props.logout();
   };
 
   render() {
+
+    const isLoggedIn = Object.keys(this.props.user).length > 0;
 
   return (
     <Router>
@@ -54,12 +56,13 @@ class App extends React.Component{
         */}
         <header className="App-header">
           <Link className="home-nav" to="/feed"><img style={{ height: '10vmin' }} src={icon} /></Link>
-        {/* { !this.props.user.id ? */}
+          { !this.props.user.id ?
+          <Link className="login-nav" to="/login">login</Link> :
           <React.Fragment>
             <span className="user-greeting"> hello {this.props.user.username}</span>
-            {/* <a className="login-nav" onClick={() => this.handleLogout()}>logout</a> */}
+            <a className="login-nav" onClick={() => this.handleLogout()}>logout</a>
           </React.Fragment>
-        {/* } */}
+          }
         </header>
         <section className="App-body">
           <Switch>
@@ -69,12 +72,12 @@ class App extends React.Component{
             <Route exact path="/feed">
               <Feed />
             </Route>
-            {/* <Route exact path="/login">
+             <Route exact path="/login">
               <Login />
-            </Route> */}
-            {/* <Route path="/signup">
+            </Route>
+            <Route path="/signup">
               <Signup />
-            </Route> */}
+            </Route>
             <Route path="/artist-profile">
               <ArtistProfile />
             </Route>

@@ -5,7 +5,6 @@ async function findAllPatron(id, artwork) {
   const currUser = await User.findByPk(id)
   let level = await currUser.privacyLevel()
 
-
   const post = artwork.map((currPost) => {
     let userId = currPost.user.dataValues.id
 
