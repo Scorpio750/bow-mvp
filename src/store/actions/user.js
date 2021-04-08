@@ -18,6 +18,7 @@ export const removeUser = () => ({ type: REMOVE_USER })
 //for authorization
 export const authUser = (credentials) => async dispatch => {
   try{
+    console.log('sending ', credentials)
     await axios.post('/auth/login', credentials)
     dispatch(fetchUser())
   }

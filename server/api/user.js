@@ -8,7 +8,7 @@ router.get('/me', (req, res, next) => {
 
 router.get('/login', async (req, res, next) =>  {
   try {
-
+    console.log('hi user login', req.params, 'req user', req.user )
     let user = await User.findByPk(req.user.id)
     return res.send(user)
 

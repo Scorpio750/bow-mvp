@@ -45,6 +45,7 @@ export const Login = props => {
         {/* include validation with required or other standard HTML validation rules */}
         <input
           name="password"
+          type="password"
           className={styles.input}
           placeholder="Password"
           ref={register({ required: true })}

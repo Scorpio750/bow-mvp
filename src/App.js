@@ -35,7 +35,7 @@ class App extends React.Component{
   }
 
   handleLogout(e) {
-    e.preventDefault();
+    // e.preventDefault();
     this.props.logout();
   };
 
@@ -62,7 +62,7 @@ class App extends React.Component{
             <span className="user-greeting"> hello {this.props.user.username}</span>
             <a className="login-nav" onClick={() => this.handleLogout()}>logout</a>
           </React.Fragment>
-          }
+            }
         </header>
         <section className="App-body">
           <Switch>
