@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import placeholder from '../../assets/sexy_placeholder.jpg';
 import styles from './Post.module.css';
 
-import { ArtistProfile } from '../ArtistProfile/ArtistProfile';
+import { ArtistProfile } from '../ArtistPage/ArtistPage';
 import { fetchSinglePost } from '../../store/actions/singlePost';
 import { connect } from 'react-redux'
 Modal.setAppElement('#root');

@@ -11,7 +11,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import LocationIcon from '@material-ui/icons/LocationOn';
 import facebook from '../../assets/facebook.png';
 import twitter from '../../assets/twitter.png';
-import styles from './ArtistProfile.module.css';
+import styles from './ArtistPage.module.css';
 import Feed from '../Feed/Feed';
 
 import { parseSocialMediaLinks } from '../../utils';
