@@ -17,7 +17,7 @@ import Welcome from './containers/Welcome/Welcome';
 import Feed from './containers/Feed/Feed';
 import Login from './containers/LoginSignup/Login';
 import Signup from './containers/LoginSignup/Signup';
-import ArtistProfile from './containers/ArtistProfile/ArtistProfile';
+import ArtistPage from './containers/ArtistPage/ArtistPage';
 import ArtworkIntake from './containers/ArtworkIntake/ArtworkIntake';
 import Artwork from './containers/Post/ArtworkView';
 import Privacy from './containers/Privacy/Privacy'
@@ -79,7 +79,7 @@ class App extends React.Component{
               <Signup />
             </Route>
             <Route path="/artist-profile">
-              <ArtistProfile />
+              <ArtistPage />
             </Route>
             <Route path="/artwork/:postId" component={Artwork}>
 
