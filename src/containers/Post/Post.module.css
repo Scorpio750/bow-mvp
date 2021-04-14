@@ -20,6 +20,8 @@
 }
 
 .title {
+  height: 25%;
+  word-wrap: break-word;
   width: 75%;
   padding-left: 10px;
   padding-right: 10px;
@@ -32,32 +34,13 @@
   align-items: center;
   width: 400px;
   height: 400px;
+  padding: 10px;
   background-color: rgba(145, 145, 146, 0.452)
-}
-
-@media only screen and (max-width: 600px) {
-  .postContainer {
-    display: flex;
-    flex-flow: column nowrap;
-    max-width: none;
-  }
-  .title {
-    font-size: 20px;
-  }
-
-  .artwork {
-    max-height: 70vh;
-  }
-
-  .closeBtn {
-    right: 3vw !important;
-    top: 1vh !important;
-  }
 }
 
 .artwork {
   cursor: pointer;
-  max-height: 90%;
+  max-height: 330px;
   max-width: 90%;
 }
 
@@ -83,11 +66,20 @@
 }
 
 .modal img {
-  max-height: 85vh;
+  min-height: 10vh;
+  max-height: 60vh;
+}
+
+.modal .artworkContainer {
+  height: 50%;
+  width: 50%;
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
 
 .modal .postContainer {
   min-width: 30vw;
+  padding-top: 60px;
 }
 
 .modalTitle {
@@ -130,7 +122,37 @@
   cursor: pointer;
   color: white;
   position: absolute;
-  right: 30vw;
-  top: 30vh;
+  left: 90%;
+  bottom: 80%;
   font-size: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .postContainer {
+    overflow: scroll;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: none;
+  }
+
+  .modal .artworkContainer {
+    min-width: 80%;
+    min-height: 50%;
+    max-width: 100vh;
+    max-height: 60vh;
+  }
+
+  .modal .postContainer {
+    display: flex;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .closeBtn {
+    right: 3vw !important;
+    top: 1vh !important;
+  }
 }
