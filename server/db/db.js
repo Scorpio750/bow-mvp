@@ -7,7 +7,7 @@ const db = new Sequelize(
   'bow', 'bow_admin', 'kinkyboots',
   {
     dialect: 'postgresql',
-    logging: false
+    logging: false,
   }
 )
 module.exports = db

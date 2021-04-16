@@ -2,20 +2,33 @@ import {
   GET_ALL_POSTS,
   ADD_POST,
   REMOVE_POST,
-  defaultPosts
+  GET_ARTIST_POSTS,
+  defaultFeedPosts,
+  defaultArtistPosts,
 } from '../../actions/posts'
 
 
-export default function posts(state = defaultPosts, action) {
+export const feedPosts = (state = defaultFeedPosts, action) => {
   switch (action.type) {
     case GET_ALL_POSTS:
-      return action.artwork
+      return action.artworks
     //TODO filter logic
     case ADD_POST:
       return [...state, action.artwork]
     case REMOVE_POST:
-      return defaultPosts
+      return defaultFeedPosts
     default:
       return state
   }
 }
+
+export const artistPosts = (state = defaultArtistPosts, action) => {
+  switch (action.type) {
+    case GET_ARTIST_POSTS:
+      return action.artworks
+    //TODO filter logic
+    default:
+      return state
+  }
+}
+

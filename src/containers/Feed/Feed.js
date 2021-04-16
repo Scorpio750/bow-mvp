@@ -16,64 +16,64 @@ class Feed extends React.Component {
 
   render() {
 
-  if(!this.props.posts.length) {
-  const renderPostPreviews = (posts, colIndex, number = 200) => {
-    posts = Array(this.props.dummyNumber || number).fill({ title: 'KinkOut Presents Bodies of Workers' });
-    const moddedPosts = posts.reduce((modList, post, index) => {
-      if (index % 3 === colIndex) modList.push(post);
-      return modList;
-    }, []);
-    const renderedPosts = moddedPosts.map(
-      post =>
-        <Post
-          title={post.title}
-          image={post.image}
-          id={post.id}
-        />
-    );
-    return renderedPosts;
-  };
+    if(!this.props.posts.length) {
+      const renderPostPreviews = (posts, colIndex, number = 200) => {
+        posts = Array(this.props.dummyNumber || number).fill({ title: 'KinkOut Presents Bodies of Workers' });
+        const moddedPosts = posts.reduce((modList, post, index) => {
+          if (index % 3 === colIndex) modList.push(post);
+          return modList;
+        }, []);
+        const renderedPosts = moddedPosts.map(
+          post =>
+            <Post
+              key={post.id}
+              title={post.title}
+              image={post.image}
+              id={post.id}
+            />
+        );
+        return renderedPosts;
+      };
 
-  return (
-    <div className={styles.feedContainer}>
-      {renderPostPreviews(this.props.posts)}
-    </div>
-  )
-  }
-  return (
-    <div className={styles.feedContainer}>
-      <div className={styles.feedColumn1}>
-        <ul className={styles.postsList}>
-          {this.props.posts.map(
-            post => (
-              <Post key={post.id}
-                title={post.title}
-                image={post.image}
-                artwork={post}
-              />
-            )
-          )}
-        </ul>
+      return (
+        <div className={styles.feedContainer}>
+          {renderPostPreviews(this.props.posts)}
+        </div>
+      )
+    }
+    return (
+      <div className={styles.feedContainer}>
+        <div className={styles.feedColumn1}>
+          <ul className={styles.postsList}>
+            {this.props.posts.map(
+              post => (
+                <Post
+                  key={post.id}
+                  title={post.title}
+                  image={post.image}
+                  artwork={post}
+                />
+              )
+            )}
+          </ul>
+        </div>
       </div>
-    </div>
-  )
-
+    )
+  }
 }
-
-}
-
-const mapStateToProps = state => ({
-  posts: state.posts,
-});
-
-const mapDispatchToProps = dispatch => ({
-  getAllPosts: () => dispatch(fetchPost())
-});
 
 Feed.propTypes = {
   getAllPosts: p.func,
   posts: p.array,
   dummyNumber: p.number,
 };
+
+const mapStateToProps = state => ({
+  posts: state.feedPosts,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getAllPosts: () => dispatch(fetchPost())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

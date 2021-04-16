@@ -20,9 +20,9 @@ export const removeSinglePost = (id) => async dispatch => {
 }
 
 //Thunks
-export const fetchSinglePost = (postId) => async dispatch => {
+export const fetchSinglePost = (postId, artistId) => async dispatch => {
   try{
-    const { data } = await axios.get(`/api/post/${postId}`)
+    const { data } = await axios.get(`/api/post/${artistId}/${postId}`)
     dispatch(setSinglePost(data))
   }
   catch(err) {

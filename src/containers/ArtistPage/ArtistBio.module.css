@@ -1,0 +1,9 @@
+.artistBio {
+  font-family: monaco;
+  text-align: left;
+  justify-self: center;
+  margin: 12vh 15vh 10vh 15vh;
+  padding-bottom: 5vh;
+  line-height: 2rem;
+  border-bottom: 2px dotted rgba(0, 0, 0, 0.5);
+}

@@ -1,58 +1,38 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import p from 'prop-types';
-import { LoremIpsum } from 'lorem-ipsum';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import p from 'prop-types'
 
-import { getUser } from '../../store/actions/user';
+import { getUser } from '../../store/actions/user'
 
-import personPlaceholder from '../../assets/person-placeholder.png';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LocationIcon from '@material-ui/icons/LocationOn';
-import facebook from '../../assets/facebook.png';
-import twitter from '../../assets/twitter.png';
-import styles from './ArtistPage.module.css';
-import Feed from '../Feed/Feed';
+import personPlaceholder from '../../assets/person-placeholder.png'
+import InstagramIcon from '@material-ui/icons/Instagram'
+import TwitterIcon from '@material-ui/icons/Twitter'
+import LocationIcon from '@material-ui/icons/LocationOn'
+import facebook from '../../assets/facebook.png'
+import twitter from '../../assets/twitter.png'
+import styles from './ArtistPage.module.css'
 
-import { parseSocialMediaLinks } from '../../utils';
+import ArtistGallery from './ArtistGallery'
+import ArtistBio from './ArtistBio'
 
-const lorem = new LoremIpsum({
-  sentencesPerParagraph: {
-    max: 8,
-    min: 4
-  },
-  wordsPerSentence: {
-    max: 16,
-    min: 4
-  }
-});
 
-export const ArtistGallery = () => {
-  return ( <div>
-    <section className={styles.artistBio}>
-    <p>{lorem.generateParagraphs(4)}</p>
-  </section>
-  <section className={styles.artistWorks}>
-    <Feed dummyNumber={20} />
-  </section>
-  </div>
+import { parseSocialMediaLinks } from '../../utils'
+
+export const ArtistPage = props => {
+  const { location: { state: { user } } } = props
+  return (
+    <div className={styles.artistProfileContainer}>
+      <ArtistProfile {...props} />
+      <section className={styles.rightSection}>
+        <ArtistBio user={user} />
+        <ArtistGallery user={user} />
+      </section>
+    </div>
   )
 }
 
-export const ArtistPage = props => {
-  useEffect(() => {
-    props.getUser(props.artist.id);
-  });
-    return (
-      <div className={styles.artistProfileContainer}>
-        <ArtistProfile {...props}/>
-        <ArtistGallery />
-      </div>
-    )
-}
-
 export const ArtistProfile = props => {
-  const { singlePost: { user } } = props;
+  const { location: { state: { user } } } = props
 
   return (
     <div className={styles.artistProfile}>
@@ -60,7 +40,7 @@ export const ArtistProfile = props => {
       <section className={styles.artistPicMedia}>
         <img
           className={styles.artistPic}
-          src={props.artist.img || personPlaceholder}
+          src={personPlaceholder}
           alt='an incredibly flattering portrait'
         />
         <section className={styles.mediaLinksSection}>
@@ -89,33 +69,45 @@ export const ArtistProfile = props => {
       </section>
     </div>
   )
-};
+}
 
 
 ArtistPage.defaultProps = {
-  artist: {
-    id: 0,
-    media: {
-      instagram: '@instagram',
-      facebook: '@facebook',
-      twitter: '@twitter',
-      website: 'bodyofworkers.com',
-    }
+  location: {
+    state: {
+      artwork: {
+        user: {
+          id: 0,
+        },
+      },
+    },
+  },
+}
+
+ArtistPage.propTypes = {
+  location: p.object,
+  getUser: p.func,
+}
+
+ArtistPage.defaultProps = {
+  location: {
+    state: {
+      artwork: {
+        user: {
+          id: 0,
+        },
+      },
+    },
   },
 }
 
 
-ArtistPage.propTypes = {
-  artist: p.object,
-  getUser: p.func,
-}
-
 const mapStateToProps = state => ({
   artist: state.artist,
-});
+})
 
 const mapDispatchToProps = {
   getUser,
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage)

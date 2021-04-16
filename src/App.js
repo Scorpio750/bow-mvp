@@ -78,12 +78,8 @@ class App extends React.Component{
             <Route path="/signup">
               <Signup />
             </Route>
-            <Route path="/artist-profile">
-              <ArtistPage />
-            </Route>
-            <Route path="/artwork/:postId" component={Artwork}>
-
-            </Route>
+            <Route path="/artist-page/:postId" component={ArtistPage} />
+            <Route path="/artwork/:postId" component={Artwork} />
             <Route path="/artwork-intake">
               <ArtworkIntake />
             </Route>

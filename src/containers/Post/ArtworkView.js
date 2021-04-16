@@ -1,85 +1,83 @@
-import React from 'react';
-import { PropTypes as p } from 'prop-types';
-import Modal from 'react-modal';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import p from 'prop-types'
+import Modal from 'react-modal'
+import { Link } from 'react-router-dom'
+import { get } from 'lodash'
 
-import placeholder from '../../assets/sexy_placeholder.jpg';
-import styles from './Post.module.css';
+import placeholder from '../../assets/sexy_placeholder.jpg'
+import styles from './Post.module.css'
 
-import { ArtistProfile } from '../ArtistPage/ArtistPage';
-import { fetchSinglePost } from '../../store/actions/singlePost';
+import { ArtistProfile } from '../ArtistPage/ArtistPage'
+import { fetchSinglePost } from '../../store/actions/singlePost'
 import { connect } from 'react-redux'
-Modal.setAppElement('#root');
+Modal.setAppElement('#root')
 
-class Artwork extends React.Component {
-  constructor(props){
-    super(props)
-  this.getDummyTags = this.getDummyTags.bind(this)
-  this.getTags = this.getTags.bind(this)
-  }
+export const Artwork = props => {
+  useEffect(() => {
+    const { postId } = get(props, 'match.params');
+    const artistId = get(props, 'location.state.user.id')
+    props.getPost(postId, artistId)
+  }, [])
 
-  componentDidMount() {
-    let id = this.props.match.params.postId
-    this.props.getPost(id)
-  }
-  getTags() {
-    const tags = this.props.artwork.tags
+  const getTags = () => {
+    const tags = props.artwork.tags
 
     return tags.map(tag => tag+' ')
   }
-  getDummyTags() {
+  const getDummyTags = () => {
     const dummyTags = Array(3).fill('tags')
 
     return dummyTags.map(tag => tag+' ' )
   }
 
-  render() {
-    const { singlePost } = this.props;
+  const { singlePost } = props
 
-    if(!singlePost.id) return <div>Loading</div>
+  if(!singlePost.id) return <div>Loading</div>
 
-    return (
-      <div className={styles.artistProfileContainer}>
-        <ArtistProfile {...this.props} />
-        <section className={styles.mediaContainer}>
-          <img
-            className={styles.artwork}
-            style={{ cursor: 'default' }}
-            src={`https://bodyofworkers.nyc3.digitaloceanspaces.com/${singlePost.fileName}` || placeholder}
-            alt='single artwork view'
-          />
-          <section className={styles.artworkDescription}>
-            <h3 className={styles.mediaTitle}>{singlePost.title || 'Body of Workers'}</h3>
-            <h4>{singlePost.medium || 'Digital'}, {singlePost.date || 'Feb 18 2021'}</h4>
-            <p>
-              {singlePost.caption || 'CAPTION - N/A'}
-            </p>
-            <p>
-              {singlePost.credits || 'CREDITS - N/A'}
-            </p>
-            <p>
-              {singlePost.distributor || 'No current distributor'}
-              {singlePost.language}
-            </p>
-            {/* <p> {!singlePost.tags  ? this.getTags() : this.getDummyTags()} </p> */}
-          </section>
+  return (
+    <div className={styles.artistProfileContainer}>
+      <ArtistProfile {...props} />
+      <section className={styles.mediaContainer}>
+        <img
+          className={styles.artwork}
+          style={{ cursor: 'default' }}
+          src={`https://bodyofworkers.nyc3.digitaloceanspaces.com/${singlePost.fileName}` || placeholder}
+          alt='single artwork view'
+        />
+        <Link className={styles.artworkCloseBtn} to={{
+          pathname: `/artist-page/${get(props ,'singlePost.user.id')}`,
+          state: { user: get(props, 'singlePost.user') },
+          }}>x</Link>
+        <section className={styles.artworkDescription}>
+          <h3 className={styles.mediaTitle}>{singlePost.title || 'Body of Workers'}</h3>
+          <h4>{singlePost.medium || 'Digital'}, {singlePost.date || 'Feb 18 2021'}</h4>
+          <p>
+            {singlePost.caption || 'CAPTION - N/A'}
+          </p>
+          <p>
+            {singlePost.credits || 'CREDITS - N/A'}
+          </p>
+          <p>
+            {singlePost.distributor || 'No current distributor'}
+            {singlePost.language}
+          </p>
+          {/* <p> {!singlePost.tags  ? getTags() : getDummyTags()} </p> */}
         </section>
-      </div>
-    )
-  }
+      </section>
+    </div>
+  )
+}
+
+Artwork.propTypes = {
+  match: p.object,
+  location: p.object,
+  tags: p.array,
 }
 
 Artwork.defaultProps = {
-  artist: {
-    id: 0,
-    media: {
-      instagram: '@ello',
-      facebook: '@ello',
-      twitter: '@ello',
-      website: 'ellodeary.com',
-    }
-  },
-  tags: []
+  match: { params: { postId: 0 } },
+  location: { state: { user: { id: 0 } } },
+  tags: [],
 }
 
 const mapState = state => ({
@@ -87,8 +85,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  getPost: (id) => dispatch(fetchSinglePost(id))
+  getPost: (postId, artistId) => dispatch(fetchSinglePost(postId, artistId))
 })
 
 
-export default connect(mapState, mapDispatch)(Artwork);
+export default connect(mapState, mapDispatch)(Artwork)

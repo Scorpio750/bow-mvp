@@ -97,11 +97,12 @@
   align-items: center;
 }
 
+
 .infoContainer span:nth-child(1) {
   cursor: default;
 }
 
-.infoContainer span:nth-child(2) {
+.divider {
   padding: 0 1rem;
 }
 
@@ -124,6 +125,16 @@
   position: absolute;
   left: 90%;
   bottom: 80%;
+  font-size: 2rem;
+}
+
+.artworkCloseBtn {
+  text-decoration: none !important;
+  font-weight: 400;
+  color: maroon;
+  position: absolute;
+  left: 90%;
+  bottom: 85%;
   font-size: 2rem;
 }
 

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-template-rows: auto;
 }
 
 .artistProfile {
@@ -33,25 +33,13 @@
   align-items: center;
 }
 
-.mediaThumbnail {
-  margin: 0 1rem;
-}
-
-.artistBio {
-  grid-column: 3 / 8;
-}
-
 .artistLocation {
   text-align: left;
   color: dimgrey;
   cursor: default;
 }
 
-.artistWorks {
-  grid-column: 2/ 8;
-  gap: 0;
-  grid-row: 2;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(100px, auto);
+.rightSection {
+  grid-column: 2 / 8;
+  grid-row: 1;
 }

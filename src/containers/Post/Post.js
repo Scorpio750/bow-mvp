@@ -2,11 +2,10 @@ import React from 'react';
 import { PropTypes as p } from 'prop-types';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
+import { get } from 'lodash';
 
 import placeholder from '../../assets/sexy_placeholder.jpg';
 import styles from './Post.module.css';
-
-Modal.setAppElement('#root');
 
 export const handleClick = openModal => {
   openModal();
@@ -36,14 +35,23 @@ export const Post = props => {
       </h2>
       <div className={styles.infoContainer}>
         <span>{props.artwork.medium}</span>
-        <span> • </span>
+        <span className={styles.divider}> • </span>
         <Link
           style={{color: 'black'}}
           to={{
             pathname: `/artwork/${props.artwork.id}`,
-            state: props.artwork
+            state: { user: get(props, 'artwork.user') }
           }}>
             View More Info
+          </Link>
+        <span className={styles.divider}> • </span>
+        <Link
+          style={{color: 'black'}}
+          to={{
+            pathname: `/artist-page/${get(props ,'artwork.user.id')}`,
+            state: { user: get(props, 'artwork.user') },
+          }}>
+            View Artist Profile
           </Link>
         </div>
       </React.Fragment>
@@ -55,6 +63,7 @@ export const Post = props => {
       <img
         className={styles.artwork}
         src={props.artwork.path || placeholder}
+        st
         alt={props.artwork.title}
         onClick={() => handleClick(openModal)}
       />
@@ -85,6 +94,12 @@ export const Post = props => {
       </Modal>
     </React.Fragment>
   )
+}
+
+Post.defaultProps = {
+  artwork: {
+    user: { id: 0 }
+  },
 }
 
 Post.propTypes = {
