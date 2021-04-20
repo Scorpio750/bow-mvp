@@ -32,7 +32,8 @@ export const fetchUser = () => async dispatch => {
   try{
     const { data } = await axios.get('/api/user/login')
     dispatch(getUser(data || defaultUser))
-    history.push('/feed')
+    // removed to help us handle the 404 page
+    // history.push('/feed')
   }
   catch(err) {
     console.log(err)

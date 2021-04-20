@@ -21,6 +21,7 @@ import ArtistPage from './containers/ArtistPage/ArtistPage';
 import ArtworkIntake from './containers/ArtworkIntake/ArtworkIntake';
 import Artwork from './containers/Post/ArtworkView';
 import Privacy from './containers/Privacy/Privacy'
+import NotFound from './containers/NotFound/404';
 
 class App extends React.Component{
   constructor(props) {
@@ -66,41 +67,20 @@ class App extends React.Component{
         </header>
         <section className="App-body">
           <Switch>
-            <Route exact path="/">
-              <Welcome />
-            </Route>
-            <Route exact path="/feed">
-              <Feed />
-            </Route>
-             <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route path="/signup">
-              <Signup />
-            </Route>
+            <Route exact path="/"component={Welcome}/>
+            <Route exact path="/feed" component={Feed}/>
+            <Route exact path="/login" component={Login}/>
+            <Route path="/signup" component={Signup}/>
             <Route path="/artist-page/:postId" component={ArtistPage} />
             <Route path="/artwork/:postId" component={Artwork} />
-            <Route path="/artwork-intake">
-              <ArtworkIntake />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/FAQ">
-              <FAQ />
-            </Route>
-            <Route path="/contact">
-              <Contact />
-            </Route>
-            <Route path="/donate">
-              <Donate />
-            </Route>
-            <Route path="/legals">
-              <Legals />
-            </Route>
-            <Route path="/privacy">
-              <Privacy />
-            </Route>
+            <Route path="/artwork-intake" component={ArtworkIntake} />
+            <Route path="/about" component={About} />
+            <Route path="/FAQ" component={FAQ} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/donate" component={Donate} />
+            <Route path="/legals" component={Legals} />
+            <Route path="/privacy" component={Privacy} />
+            <Route path="/:any" component={NotFound}/>
           </Switch>
         </section>
 
