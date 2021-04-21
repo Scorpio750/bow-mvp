@@ -7,8 +7,8 @@ import { get } from 'lodash'
 import placeholder from '../../assets/sexy_placeholder.jpg'
 import styles from './Post.module.css'
 
-import { ArtistProfile } from '../ArtistPage/ArtistPage'
-import { fetchSinglePost } from '../../store/actions/singlePost'
+import { ArtistProfile } from '../ArtistPage/ArtistPage';
+import { fetchSinglePost, removeSinglePost } from '../../store/actions/singlePost';
 import { connect } from 'react-redux'
 Modal.setAppElement('#root')
 
@@ -17,6 +17,8 @@ export const Artwork = props => {
     const { postId } = get(props, 'match.params');
     const artistId = get(props, 'location.state.user.id')
     props.getPost(postId, artistId)
+
+    return props.removePost(postId)
   }, [])
 
   const getTags = () => {
@@ -41,7 +43,7 @@ export const Artwork = props => {
         <img
           className={styles.artwork}
           style={{ cursor: 'default' }}
-          src={`https://bodyofworkers.nyc3.digitaloceanspaces.com/${singlePost.fileName}` || placeholder}
+          src={singlePost.path || placeholder}
           alt='single artwork view'
         />
         <Link className={styles.artworkCloseBtn} to={{
@@ -81,11 +83,13 @@ Artwork.defaultProps = {
 }
 
 const mapState = state => ({
-  singlePost: state.singlePost
+  singlePost: state.singlePost,
+  user: state.user
 })
 
 const mapDispatch = dispatch => ({
-  getPost: (postId, artistId) => dispatch(fetchSinglePost(postId, artistId))
+  getPost: (id) => dispatch(fetchSinglePost(id)),
+  removePost: (id) => dispatch(removeSinglePost(id))
 })
 
 

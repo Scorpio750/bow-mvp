@@ -1,10 +1,8 @@
 async function findOnePublic(artwork) {
-
-  if(artwork.privacy === 1 && artwork.fileType === 'Image' ) return artwork;
   let site = 'https://bodyofworkers.nyc3.digitaloceanspaces.com/'
 
-
-  let {
+  if(artwork.privacy === 1 && artwork.fileType === 'Image' ) {
+    let {
       id,
       title,
       sequence,
@@ -25,7 +23,8 @@ async function findOnePublic(artwork) {
       credits,
       distributor,
       pressLink,
-      tags
+      tags,
+      privacy
     } = artwork;
     let path = `${site}${fileName}`
 
@@ -50,7 +49,61 @@ async function findOnePublic(artwork) {
       credits,
       distributor,
       pressLink,
-      tags
+      tags,
+      privacy
+    }
+    return scrubbed
+  };
+
+  let {
+      id,
+      title,
+      sequence,
+      fileName,
+      caption,
+      instagram,
+      twitter,
+      microBio,
+      location,
+      geo,
+      user,
+      medium,
+      materials,
+      dimensions,
+      genre,
+      languages,
+      references,
+      credits,
+      distributor,
+      pressLink,
+      tags,
+      privacy
+    } = artwork;
+    let path = undefined
+
+    let scrubbed = {
+      id,
+      title,
+      path,
+      sequence,
+      caption,
+      instagram,
+      twitter,
+      microBio,
+      location,
+      geo,
+      user,
+      medium,
+      materials,
+      dimensions,
+      genre,
+      languages,
+      references,
+      credits,
+      distributor,
+      pressLink,
+      tags,
+      privacy
     }
     return scrubbed
 }

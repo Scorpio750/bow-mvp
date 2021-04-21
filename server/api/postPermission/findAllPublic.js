@@ -1,4 +1,3 @@
-const { params, s3 } = require('./digitalOcean')
 async function findAllPublic(artwork) {
   const post = artwork.map((currPost) => {
 
@@ -27,7 +26,9 @@ async function findAllPublic(artwork) {
         credits,
         distributor,
         pressLink,
-        tags
+        tags,
+        privacy
+
       } = currPost;
       let path = `${site}${fileName}`
       let newFile = {
@@ -52,11 +53,10 @@ async function findAllPublic(artwork) {
         credits,
         distributor,
         pressLink,
-        tags
+        tags,
+        privacy
+
       }
-
-      params.Key = fileName
-
 
       return newFile
 
@@ -64,6 +64,7 @@ async function findAllPublic(artwork) {
 
     else {
       let {
+        id,
         title,
         sequence,
         caption,
@@ -82,9 +83,12 @@ async function findAllPublic(artwork) {
         credits,
         distributor,
         pressLink,
-        tags
+        tags,
+        privacy
+
       } = currPost;
       let scrubbed = {
+        id,
         title,
         sequence,
         caption,
@@ -103,7 +107,10 @@ async function findAllPublic(artwork) {
         credits,
         distributor,
         pressLink,
-        tags
+        tags,
+        path: undefined,
+        privacy
+
       }
       return scrubbed
     }

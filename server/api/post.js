@@ -16,7 +16,6 @@ router.get('/', async (req, res, next) => {
 try {
   //if you haven't been authenticated and logged in
   const artwork = await Post.findAll({include: User})
-
   if(!req.user || isNaN(Number(req.user.id))) {
     let post = await findAllPublic(artwork)
     return res.send(post)
@@ -32,6 +31,9 @@ try {
 
 router.get('/:artistId', async (req, res, next) => {
   try {
+    if(isNaN(Number(req.params.postId))) {
+      return res.sendStatus(404);
+    }
     const posts = await Post.findAll({
       where: {
         userId: get(req, 'params.artistId')
@@ -46,7 +48,6 @@ router.get('/:artistId', async (req, res, next) => {
 
 router.get('/:artistId/:postId', async (req, res, next) => {
   try {
-    console.log('do i get here');
     const artwork = await Post.findOne({
       where: {
         id: req.params.postId

@@ -11,12 +11,11 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.DO_SPACES_SECRET
 });
 
-
 const params = {
   //The Bucket key points to the DO Space that we are using called bodyofworkers
   Bucket: "bodyofworkers",
   //The Key refers to the title of the file/object that we wat to access. Let's think about how to use the Key dynamically
-  // Key: "Domina_Mara_IMG_4036-sm.png"
+  // Key: "Fletcher_Doll2.jpeg"
 };
 
 //fetches a single Object based on the params passed it.
@@ -30,6 +29,13 @@ const params = {
 //   };
 // });
 
+// async function test() {
+//   const url = await s3.getSignedUrl('getObject', params)
+//   console.log('and', url)
+//   return url
+// }
+// const testURL = test()
+// console.log(testURL)
 module.exports = {
   params,
   s3

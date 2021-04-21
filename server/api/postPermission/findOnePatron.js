@@ -1,4 +1,13 @@
 const {User} = require('../../db')
+const AWS = require('aws-sdk');
+const artistEndpoint = new AWS.Endpoint('https://nyc3.digitaloceanspaces.com');
+
+const s3 = new AWS.S3({
+  endpoint: artistEndpoint,
+  //We need both a key and secret to access any endpoint
+  accessKeyId: process.env.DO_SPACES_PUBLIC,
+  secretAccessKey: process.env.DO_SPACES_SECRET
+});
 
 async function findOnePatron(uniqueId, artwork) {
 
@@ -6,14 +15,75 @@ async function findOnePatron(uniqueId, artwork) {
   let level = await currUser.privacyLevel()
   let userId = artwork.user.dataValues.id
 
-
-  if(artwork.privacy === 4 && uniqueId === userId) return artwork
-  if(level === artwork.privacy) return artwork
-
-  if(artwork.privacy === 1) return artwork;
   let {
+    id,
+    title,
+    sequence,
+    fileName,
+    caption,
+    instagram,
+    twitter,
+    microBio,
+    location,
+    geo,
+    user,
+    medium,
+    materials,
+    dimensions,
+    genre,
+    languages,
+    references,
+    credits,
+    distributor,
+    pressLink,
+    tags,
+    privacy
+  } = artwork;
+
+  if((level === privacy) || (privacy === 4 && uniqueId === userId)) {
+    // watch out for the unchanging Expires value in the url
+    // this gets us a presigned URL for the private posts
+    let result = s3.getSignedUrl('getObject', {Bucket: 'bodyofworkers', Key: `${fileName}`, Expires: 60})
+
+    let path = result;
+    let newFile = {
       id,
       title,
+      fileName,
+      path,
+      sequence,
+      caption,
+      instagram,
+      twitter,
+      microBio,
+      location,
+      geo,
+      user,
+      medium,
+      materials,
+      dimensions,
+      genre,
+      languages,
+      references,
+      credits,
+      distributor,
+      pressLink,
+      tags,
+      privacy
+    }
+
+    return newFile
+  }
+
+  if(artwork.privacy === 1) {
+    let site = 'https://bodyofworkers.nyc3.digitaloceanspaces.com/';
+
+    let path = `${site}${fileName}`
+    let newFile = {
+      id,
+      title,
+      fileName,
+      path,
       sequence,
       caption,
       instagram,
@@ -32,7 +102,9 @@ async function findOnePatron(uniqueId, artwork) {
       distributor,
       pressLink,
       tags
-    } = artwork;
+    }
+    return newFile;
+  }
     let scrubbed = {
       id,
       title,

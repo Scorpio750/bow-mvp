@@ -1,5 +1,6 @@
 import axios from 'axios'
 import history from '../../history'
+import { fetchPost } from './posts'
 
 
 //Initial State
@@ -43,6 +44,7 @@ export const logout = () => async dispatch => {
   try{
     await axios.post('/auth/logout')
     dispatch(removeUser())
+    dispatch(fetchPost())
     history.push('/')
   }
   catch(err) {
