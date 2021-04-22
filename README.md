@@ -70,3 +70,5 @@ You can also try looking in `/usr/local/var/postgres`, there are a couple option
 6. run`npm start` to run the react dev server (we use CRA)
 
 Our backend is proxied to port 3001 so our frontend dev server can connect to it appropriately.
+
+<span style="color:red">happy coding \o/</span>
