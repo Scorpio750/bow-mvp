@@ -60,14 +60,14 @@ You can also try looking in `/usr/local/var/postgres`, there are a couple option
 2. remove any old instances of Postgres you may have installed before from source. If you have conflicting build processes they will also be fighting for the same resources. Older Postgres versions can also cause issues with your data imports; make sure you are running version `13.2`.
 3. Check `server.log` by running `tail server.log`; this will give you the last few log messages to help you debug any errors that Postgres itself may have raised.
 
-
 ### Application
 1. clone the repo onto your local machine
 2. run `npm install`
 3. run `npm run seed`
-4. set Express to debug mode: `DEBUG=express:*`
-5. run `npm run server` to start the node server
-6. run`npm start` to run the react dev server (we use CRA)
+4. open `psql` and run the commands found in `data/scripts.sql`, making sure to replace the pathname with your own absolute path.
+5. set Express to debug mode: `DEBUG=express:*`
+6. run `npm run server` to start the node server
+7. run`npm start` to run the react dev server (we use CRA)
 
 Our backend is proxied to port 3001 so our frontend dev server can connect to it appropriately.
 
