@@ -1,6 +1,8 @@
 import React from 'react'
-const Privacy = () => (
-  <div >
+import styles from './Privacy.module.css';
+
+export const Privacy = () => (
+  <div className={styles.privacyContainer}>
     <h1>Privacy</h1>
     <p>
       We are committed to building a platform that is safe and accessible to our community.
