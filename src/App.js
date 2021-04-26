@@ -126,21 +126,22 @@ const lorem = new LoremIpsum({
 const About = () => (
   <div className="info-page">
     <h1>About</h1>
-    <h4>What is BOW?</h4>
-    <div><p>
-      <li>BOW is a free (for sex workers) virtual art gallery honoring the artist, content creator, personatrix, and exhibitionist in you </li>
-      <li>BOW is a place to share and archive your practice,to indulge and inspire your community</li>
-      <li>BOW is the locker room behind the curtain, where glitter, ca$h and stale champagne spill over
-      </li>
-      <li>BOW is a record of our underground creativity and resistance
-      </li>
-      <li>BOW is a way for art patrons and curators to find you and interact with your artSwork (should you choose)
-      </li></p>
+    <h4>What is Body of Workers?</h4>
+    <div>
+      <p>
+        <li>BoW is a free (for sex workers) virtual art gallery honoring the artist, content creator, personatrix, and exhibitionist in you</li>
+        <li>BoW is a place to share and archive your practice, to indulge and inspire your community</li>
+        <li>BoW is the locker room behind the curtain, where glitter, ca$h, and stale champagne spill over</li>
+        <li>BoW is a record of our underground creativity and resistance</li>
+        <li>BoW is a way for art patrons and curators to find you and interact with your artSwork (should you choose)</li>
+      </p>
     </div>
     <h4>Who are we?</h4>
     <div>
-      <p>We are a collective of sex workers and allies who believe that decriminalization of sex workers would make the world a safer and more equitable place for women, trans, queer, migrant, and other marginalized workers. We believe in an open and free platform where our artistic contributions can live without fear of censorship.
-    </p>
+      <p>
+        We are a collective of sex workers and allies who believe that the decriminalization of sex work would make the world a safer and more equitable place for women, trans, queer, migrant, and other marginalized workers.
+        We believe in an open and free platform where our artistic contributions can live without fear of censorship.
+      </p>
     </div>
   </div>
 );
@@ -149,68 +150,72 @@ const FAQ = () => (
   <div className="info-page">
     <h1>FAQ</h1>
     <div>
-      <h4>What is BOW all about?</h4>
+      <h4>What is Body of Workers all about?</h4>
       <p>
         Body of Workers is a private gallery created by and for sex worker artists. BoW intends to serve as an art sanctuary for sex workers, an act of resilience against the gentrification of the internet, and a peepshow to the art patron.
-    </p>
+      </p>
     </div>
 
     <div>
-      <h4>Why should I post here instead of Twitter, Instagram, TikTok, Snapchat, etc.? </h4>
+      <h4>Why should I post here instead of Twitter, Instagram, TikTok, Snapchat, etc.?</h4>
       <p>
         Unlike other social media platforms that shadowban and censor our lifestyles, BoW is a celebration of our survival and creative force.
-    </p>
+      </p>
     </div>
 
     <div>
-      <h4>Is this a safe space for sex worker content? </h4>
+      <h4>Is this a safe space for sex worker content?</h4>
       <p>
-        This is a space FOR Sex Worker ART. We must enforce NO advertisement language or links to professional sex trade sites for legal purposes. We also strictly enforce our community standards.
-    </p>
+        This is a space FOR Sex Worker ART.
+        We must enforce NO advertisement language or links to professional sex trade sites for legal purposes.
+        We also strictly enforce our <a href="https://docs.google.com/document/d/1zHqcs2Xht_WO0X4cxKrvBkBJQAxj1J_Jh1KMvDWH1sA/edit" target="_blank" rel="noopener noreferrer">community agreements</a>.
+      </p>
     </div>
 
     <div>
       <h4>Can I post whatever I want on this site?</h4>
       <p>
-        No. We do not accept any art that includes underage persons, coercion, force, beastiality, human trafficking, nor race play. Please consider trigger warnings if your work is, well, triggering. If you’re not sure, just ask us (not your grandma).
-    </p>
+        No. We do not accept any art that includes persons under 18 years of age, coercion, force, beastiality, human trafficking, nor race play.
+        Please consider trigger warnings if your work is, well, triggering. If you’re not sure, just ask us: <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com</a>.
+      </p>
     </div>
 
     <div>
-      <h4>Do I lose rights to my uploaded work if I post here? Will my uploaded content be used to advertise BOW? </h4>
+      <h4>Do I lose rights to my uploaded work if I post here? Will my uploaded content be used to advertise Body of Workers?</h4>
       <p>
-        Your work is completely yours and we will never use your work to advertise BoW unless done with complete consent and compensation to the artist.
-    </p>
+        Your work is completely yours -- you retain the copyright to any uploaded artwork.
+        We will never use your work to advertise Body of Workers without complete consent.
+      </p>
     </div>
 
     <div>
-      <h4>Who needs to have a paid membership to fully access BOW? </h4>
+      <h4>Who needs to have a paid membership to fully access Body of Workers?</h4>
       <p>
-        Anyone who is NOT a sex worker artist must pay for the priviledge of viewing the gallery. If the ticket pricing is problematic for you or if you are a sex worker, but not an artist, please send an inquiry to info@bodyofworkers.com
-    </p>
+        Anyone who is NOT listed as a sex worker artist on the platform must pay for the priviledge of viewing the BoW gallery.
+        If the ticket pricing is problematic for you or if you are a sex worker, but not an artist, please send an inquiry to <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com</a>.
+      </p>
     </div>
 
     <div>
-      <h4>Is there a storage limit for users’ uploaded work? </h4>
+      <h4>Is there a storage limit for users’ uploaded work?</h4>
       <p>
-        Yes
-    </p>
+        Yes. We will post more information about uploading artwork soon.
+      </p>
     </div>
 
     <div>
-      <h4>Am I able to advertise and safely connect with patrons, clients and other interested parties?  </h4>
+      <h4>Am I able to advertise and safely connect with patrons, clients and other interested parties?</h4>
       <p>
-        While there is no advertising allowed for sex work, your art is promoted to patrons and curators and anyone is able to search your work beyond the BoW space.
-    </p>
+        While there is no advertising allowed for sex work, your art is promoted to patrons and curators and website visitors can follow a link to your external website, beyond the Body of Workers platform, if you add one to your profile.
+      </p>
     </div>
 
     <div>
-      <h4>Is my personal information safe with BOW?</h4>
+      <h4>Is my personal information safe with Body of Workers?</h4>
       <p>
-        YES. We would NEVER share your personal information.
-    </p>
+        YES. We would NEVER share your personal information without your consent.
+      </p>
     </div>
-
   </div>
 );
 
@@ -222,10 +227,9 @@ const Contact = () => (
     </div>
     <h4>Follow</h4>
     <div>
-      <p>We will launch Body of Workers social media accounts later this year. In the meantime, please feel free to follow us:</p>
-
-      <p>Kink Out on <a href="https://www.instagram.com/kinkoutevents">Instagram</a>, <a href="https://twitter.com/kinkoutevents">Twitter</a>, and <a href="https://www.facebook.com/kinkoutevents">Facebook</a>
-Veil Machine on <a href="https://www.instagram.com/veilmachine">Instagram</a> and <a href="https://twitter.com/veil_machine">Twitter</a></p>
+      <p>We will launch Body of Workers social media accounts soon. In the meantime, please feel free to follow us:</p>
+      <p><b>Kink Out</b> on <a href="https://www.instagram.com/kinkoutevents">Instagram</a>, <a href="https://twitter.com/kinkoutevents">Twitter</a>, and <a href="https://www.facebook.com/kinkoutevents">Facebook</a></p>
+      <p><b>Veil Machine</b> on <a href="https://www.instagram.com/veilmachine">Instagram</a> and <a href="https://twitter.com/veil_machine">Twitter</a></p>
 
     </div>
   </div>
@@ -235,10 +239,8 @@ const Donate = () => (
   <div className="info-page">
     <h1>Donate</h1>
     <div>
-      <p>Thank you for perusing the prototype of Body of Workers. As we head into further development, BoW needs funds to pay our tech team and community outreach team. Please donate via:</p>
-
+      <p>Thank you for perusing the Body of Workers prototype. As we head into further development, BoW needs funds to pay our tech team and community outreach team. Please donate via:</p>
       <p><strong>Paypal:</strong> <a href="https://www.paypal.com/donate?hosted_button_id=E8V48PXH3B6BY">https://www.paypal.com/donate?hosted_button_id=E8V48PXH3B6BY</a></p>
-
       <p><strong>Venmo:</strong> @Q13LLC</p>
     </div>
 
@@ -254,7 +256,7 @@ const Legals = () => (
     <div className="TOS-section">
       <h1>Terms and Conditions</h1>
       <p>
-        Please read these Terms of Service (“Terms,” “Terms of Service”) carefully before using the Body of Workers website (the “Service” or the “Site”). Please also read the Privacy Policy, which is incorporated into these Terms of Service.
+        Please read these Terms of Service (“Terms,” “Terms of Service”) carefully before using the Body of Workers website (the “Service” or the “Site”). Please also read the <a href="/privacy">Privacy Policy</a>, which is incorporated into these Terms of Service.
       </p>
       <p>
         Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
@@ -276,7 +278,7 @@ const Legals = () => (
         Body of Workers allows for uploading, sharing and general viewing of various types of content by registered users. Some of this content may include adult-oriented content, including sexually explicit images.
       </p>
       <p>
-        Please refer to our Community Agreements to understand what content is prohibited from the Site. We may, in our sole discretion and at any time, remove any content on the Site.
+        Please refer to our <a href="https://docs.google.com/document/d/1zHqcs2Xht_WO0X4cxKrvBkBJQAxj1J_Jh1KMvDWH1sA/edit" target="_blank" rel="noopener noreferrer">Community Agreements</a> to understand what content is prohibited from the Site. We may, in our sole discretion and at any time, remove any content on the Site.
       </p>
       <p>
         You understand and acknowledge that you may be exposed to content that you find offensive, indecent, or objectionable, and you agree to waive, and hereby do waive, any legal or equitable rights or remedies you have or may have against the Site with respect thereto. You agree to indemnify and hold harmless the Site, the site operators, the Site’s  affiliates, licensors, service providers, officers, directors, employees, agents, successors and assigns to the fullest extent allowed by law regarding all matters related to your use of the Site.
@@ -287,13 +289,13 @@ const Legals = () => (
       </p>
       <h4>Contact Us</h4>
       <p>
-        If you have any questions about these Terms, please contact us at info@bodyofworkers.com
+        If you have any questions about these Terms, please contact us at <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com</a>
       </p>
     </div>
     <div className="UserContent-section">
       <h1>Content Licensing</h1>
 
-      <h1>Plain Language Explanation:</h1>
+      <h4>Plain Language Explanation:</h4>
       <p>
         When you upload content to Body of Workers, you retain ownership of any art that you have created. In order for us to run the site, we need your permission to host and display your intellectual property (the photos, writing, videos, and other works that you submit to the site). This license gives us that legal permission. The broad language allows us to create functionality, like our user artwork pages, that features your artwork. The permissions for “derivative works” allow Body of Workers to run various features of the site, such as creating the feed of images that users see upon login, and is not intended to give us the ability to make substantive edits to your artwork.
       </p>
@@ -302,7 +304,7 @@ const Legals = () => (
         In using our services, you agree that you will only upload your own work, and that you have obtained the necessary legal permissions for any third-party contributions to or depictions in your artwork (for instance, obtaining a model release from the subject of a portrait).
       </p>
 
-      <h1>User Content License to Body of Workers: </h1>
+      <h4>User Content License to Body of Workers: </h4>
       <p>
         You retain all ownership rights to your content, but grant Body of Workers the following license:
       </p>
@@ -312,9 +314,10 @@ const Legals = () => (
       <p>
         In providing content to Body of Workers, you represent and warrant that:
       </p>
-      <p>
-        (i) you own or otherwise control all rights, power, and authority necessary to grant the rights to your content described herein
-      </p>
+      <ol type="I">
+        <li>you own or otherwise control all rights, power, and authority necessary to grant the rights to your content described herein</li>
+        <li>the use of your content does not violate our community agreement. Because you bear sole responsibility for your content, posting or sharing content without the necessary rights can expose you to legal liability.</li>
+      </ol>
     </div>
   </div>
 );
