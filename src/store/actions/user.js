@@ -59,7 +59,7 @@ export const signUp = (userObj) => async dispatch => {
     // ()
     dispatch(getUser(data || defaultUser))
 
-    history.push('/login')
+    history.push('/feed')
   }
   catch(err) {
     console.error(err)
