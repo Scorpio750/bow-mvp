@@ -80,7 +80,6 @@ function createApp() {
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.get('/login', (req, res, next) => {
-    console.log('in login', { req })
     res.redirect(307,'/api/user/login')
   })
 

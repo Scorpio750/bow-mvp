@@ -10,13 +10,13 @@ import { connect } from 'react-redux'
 Modal.setAppElement('#root');
 
 export const Login = props => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors} = useForm();
   const isLoggedIn = Object.keys(props.user).length > 0;
   const onSubmit = async data => {
     props.login(data);
   };
 
-  const [modalIsOpen,setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   const openModal = () => {
     setIsOpen(true);
@@ -25,8 +25,6 @@ export const Login = props => {
   const closeModal = () => {
     setIsOpen(false);
   }
-
-  console.log(watch("example")); // watch input value by passing the name of it
 
   return (
     isLoggedIn ? <Redirect to='/feed' /> :
@@ -38,10 +36,9 @@ export const Login = props => {
           name="username"
           className={styles.input}
           placeholder="Username"
-          ref={register({ required: true })}
+          ref={register({ required: 'This field is required' })}
         />
-        {errors.username && <span className={styles.error}>This field is required</span>}
-
+        {errors.username && <span className={styles.error}>{errors.username.message}</span>}
         {/* include validation with required or other standard HTML validation rules */}
         <input
           name="password"
@@ -52,6 +49,7 @@ export const Login = props => {
         />
         {/* errors will return when field validation fails  */}
         {errors.password && <span className={styles.error}>This field is required</span>}
+        {props.response === 401 && errors && <span className={styles.error}>Wrong username or password</span>}
 
         <input className={styles.submit} type="submit" />
       </form>
@@ -67,11 +65,12 @@ export const Login = props => {
 }
 
 const mapDispatch = dispatch => ({
-  login: credentials => dispatch(authUser(credentials))
+  login: credentials => dispatch(authUser(credentials)),
 })
 
 const mapState = state => ({
-  user: state.user
+  user: state.user,
+  response: state.error
 })
 
 export default connect(mapState, mapDispatch)(Login);

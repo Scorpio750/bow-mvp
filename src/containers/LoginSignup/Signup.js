@@ -26,7 +26,7 @@ export const Signup = (props) => {
     setIsOpen(false);
   }
 
-  console.log(watch("example")); // watch input value by passing the name of it
+
   if (Object.keys(props.user).length > 0) return <Redirect to='/feed' />
   return (
     <div className={styles.formContainer}>

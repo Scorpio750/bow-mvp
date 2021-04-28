@@ -10,21 +10,26 @@ export const defaultUser = {}
 export const GET_USER = 'GET_USER'
 export const REMOVE_USER = 'REMOVE_USER'
 export const UPDATE_USER = 'UPDATE_USER'
+export const SET_ERROR = 'SET_ERROR'
+export const SET_OK = 'SET_OK'
+
 
 //Actions
 export const getUser = user => ({ type: GET_USER, user })
 export const removeUser = () => ({ type: REMOVE_USER })
+export const errorOnLogin = (err) => ({type: SET_ERROR, err})
+export const successOnLogin = (status) => ({type: SET_OK, status})
 
 //Thunks
 //for authorization
 export const authUser = (credentials) => async dispatch => {
   try{
-    console.log('sending ', credentials)
     await axios.post('/auth/login', credentials)
     dispatch(fetchUser())
+    dispatch(successOnLogin(200))
   }
   catch(err) {
-    console.log(err)
+    dispatch(errorOnLogin(err.response.status))
   }
 }
 
