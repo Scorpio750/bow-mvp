@@ -5,7 +5,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import  user from './reducers/user/user'
 import { feedPosts, artistPosts } from './reducers/post/posts'
 import singlePost from './reducers/post/singlePost'
-import error from './reducers/user/error'
+import response from './reducers/user/response'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -15,7 +15,7 @@ let reducer = combineReducers({
   feedPosts,
   artistPosts,
   singlePost,
-  error,
+  response,
   // tags,
   //search
 })

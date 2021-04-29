@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, reset } from 'react-hook-form';
 import Modal from 'react-modal';
 
 import styles from '../../common/Form.module.css';
-import { signUp } from '../../store/actions/user';
+import { signUp, resetResponse } from '../../store/actions/user';
 import { connect } from 'react-redux';
 
 Modal.setAppElement('#root');
 
 export const Signup = (props) => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors, reset } = useForm();
 
   const onSubmit = async data => {
      props.signUp(data)
   };
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    reset()
+    props.resetResponse()
+  }, [reset])
 
   const openModal = () => {
     setIsOpen(true);
@@ -62,8 +67,10 @@ export const Signup = (props) => {
             />
             {/* errors will return when field validation fails  */}
             {errors.password && <span className={styles.error}>This field is required</span>}
-            {props.response >= 400 && errors && <span className={styles.error}>Wrong username or password</span>}
-
+            {props.response.status >= 400 &&
+              <span role="alert" className={styles.error}>
+                {`${props.response.statusText}: ${props.response.data}`}
+              </span>}
             {/* <input
             name="pronouns"
             className={styles.input}
@@ -112,11 +119,12 @@ export const Signup = (props) => {
 
 const mapState = state => ({
   user: state.user,
-  response: state.error,
+  response: state.response,
 })
 
 const mapDispatch = dispatch => ({
   signUp: (userObj) => dispatch(signUp(userObj)),
+  resetResponse: () => dispatch(resetResponse()),
 });
 
 export default connect(mapState, mapDispatch)(Signup);

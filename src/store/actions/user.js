@@ -12,26 +12,28 @@ export const REMOVE_USER = 'REMOVE_USER'
 export const UPDATE_USER = 'UPDATE_USER'
 export const SET_ERROR = 'SET_ERROR'
 export const SET_OK = 'SET_OK'
+export const RESET_RESPONSE = 'RESET_RESPONSE'
 
 
 //Actions
 export const getUser = user => ({ type: GET_USER, user })
 export const removeUser = () => ({ type: REMOVE_USER })
-export const errorOnLogin = (err) => ({type: SET_ERROR, err})
-export const successOnLogin = (status) => ({type: SET_OK, status})
-export const errorOnSignup = (err) => ({type: SET_ERROR, err})
-export const successOnSignup = (status) => ({type: SET_OK, status})
+export const errorOnLogin = err => ({ type: SET_ERROR, err })
+export const successOnLogin = status => ({ type: SET_OK, status })
+export const errorOnSignup = err => ({ type: SET_ERROR, err })
+export const successOnSignup = status => ({ type: SET_OK, status })
+export const resetResponse = () => ({ type: RESET_RESPONSE })
 
 //Thunks
 //for authorization
-export const authUser = (credentials) => async dispatch => {
+export const authUser = credentials => async dispatch => {
   try{
     await axios.post('/auth/login', credentials)
     dispatch(fetchUser())
     dispatch(successOnLogin(200))
   }
   catch(err) {
-    dispatch(errorOnLogin(err.response.status))
+    dispatch(errorOnLogin(err.response))
   }
 }
 
@@ -60,7 +62,7 @@ export const logout = () => async dispatch => {
   }
 }
 
-export const signUp = (userObj) => async dispatch => {
+export const signUp = userObj => async dispatch => {
   try{
     const { data } = await axios.post(`/auth/signup`, userObj)
     dispatch(getUser(data || defaultUser))
@@ -69,7 +71,8 @@ export const signUp = (userObj) => async dispatch => {
     history.push('/feed')
   }
   catch(err) {
-    dispatch(errorOnSignup(err.response.status))
+    console.error({ err });
+    dispatch(errorOnSignup(err.response))
   }
 }
 
