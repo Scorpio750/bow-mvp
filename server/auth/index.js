@@ -1,8 +1,7 @@
 const passport = require('passport')
 const router = require('express').Router()
 const LocalStrategy = require('passport-local').Strategy;
-const {User} = require('../db')
-let newId = 100;
+const { User } = require('../db')
 
 const strategy = new LocalStrategy(
   async (username, password, cb) => {
@@ -15,7 +14,6 @@ const strategy = new LocalStrategy(
     catch(err) {
       cb(err)
     }
-
 })
 
 passport.use(strategy);
@@ -25,11 +23,15 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/login'
   //else it does work
 });
 
-//THIS WORKS!
 router.post('/signup', async (req, res, next) => {
   try {
-    newId++
-    let {username, email, password, pronouns, city, region, country} = req.body
+    const newestUser = await User.findAll({
+      attributes: ['id'],
+      limit: 1,
+      order: [[ 'id', 'DESC']],
+    })
+    const newId = ++newestUser[0].dataValues.id;
+    let { username, email, password, pronouns, city, region, country } = req.body
     const user = await User.create({id: newId, username, email, password, pronouns, city, region, country})
     req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {
