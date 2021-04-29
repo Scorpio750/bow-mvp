@@ -62,6 +62,7 @@ export const Signup = (props) => {
             />
             {/* errors will return when field validation fails  */}
             {errors.password && <span className={styles.error}>This field is required</span>}
+            {props.response >= 400 && errors && <span className={styles.error}>Wrong username or password</span>}
 
             {/* <input
             name="pronouns"
@@ -95,7 +96,7 @@ export const Signup = (props) => {
         </section> */}
         </div>
 
-        <input className={styles.submit} type="submit" value="Sign Up" />
+        <input className={styles.submit} type="submit" value="Submit" />
       </form>
       <div className={styles.additionalActionsContainer}>
         <span>Are you an artist? </span>
@@ -110,11 +111,12 @@ export const Signup = (props) => {
 }
 
 const mapState = state => ({
-  user: state.user
+  user: state.user,
+  response: state.error,
 })
 
 const mapDispatch = dispatch => ({
-  signUp: (userObj) => dispatch(signUp(userObj))
+  signUp: (userObj) => dispatch(signUp(userObj)),
 });
 
 export default connect(mapState, mapDispatch)(Signup);

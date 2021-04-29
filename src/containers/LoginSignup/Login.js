@@ -49,7 +49,7 @@ export const Login = props => {
         />
         {/* errors will return when field validation fails  */}
         {errors.password && <span className={styles.error}>This field is required</span>}
-        {props.response === 401 && errors && <span className={styles.error}>Wrong username or password</span>}
+        {props.response >= 400 && errors && <span className={styles.error}>Wrong username or password</span>}
 
         <input className={styles.submit} type="submit" />
       </form>
@@ -64,13 +64,13 @@ export const Login = props => {
   );
 }
 
-const mapDispatch = dispatch => ({
-  login: credentials => dispatch(authUser(credentials)),
-})
-
 const mapState = state => ({
   user: state.user,
-  response: state.error
+  response: state.error,
+})
+
+const mapDispatch = dispatch => ({
+  login: credentials => dispatch(authUser(credentials)),
 })
 
 export default connect(mapState, mapDispatch)(Login);

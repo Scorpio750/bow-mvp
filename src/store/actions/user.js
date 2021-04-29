@@ -19,6 +19,8 @@ export const getUser = user => ({ type: GET_USER, user })
 export const removeUser = () => ({ type: REMOVE_USER })
 export const errorOnLogin = (err) => ({type: SET_ERROR, err})
 export const successOnLogin = (status) => ({type: SET_OK, status})
+export const errorOnSignup = (err) => ({type: SET_ERROR, err})
+export const successOnSignup = (status) => ({type: SET_OK, status})
 
 //Thunks
 //for authorization
@@ -45,6 +47,7 @@ export const fetchUser = () => async dispatch => {
     console.log(err)
   }
 }
+
 export const logout = () => async dispatch => {
   try{
     await axios.post('/auth/logout')
@@ -60,14 +63,13 @@ export const logout = () => async dispatch => {
 export const signUp = (userObj) => async dispatch => {
   try{
     const { data } = await axios.post(`/auth/signup`, userObj)
-    // dispatch(authUser(data || defaultUser))
-    // ()
     dispatch(getUser(data || defaultUser))
+    dispatch(successOnSignup(200))
 
     history.push('/feed')
   }
   catch(err) {
-    console.error(err)
+    dispatch(errorOnSignup(err.response.status))
   }
 }
 
