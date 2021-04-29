@@ -41,12 +41,13 @@ export const authUser = credentials => async dispatch => {
 export const fetchUser = () => async dispatch => {
   try{
     const { data } = await axios.get('/api/user/login')
+    console.log({ data })
     dispatch(getUser(data || defaultUser))
     // removed to help us handle the 404 page
     // history.push('/feed')
   }
   catch(err) {
-    console.log(err)
+    dispatch(errorOnLogin(err.response))
   }
 }
 
@@ -71,7 +72,6 @@ export const signUp = userObj => async dispatch => {
     history.push('/feed')
   }
   catch(err) {
-    console.error({ err });
     dispatch(errorOnSignup(err.response))
   }
 }
