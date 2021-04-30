@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import p from 'prop-types';
+import get from 'lodash';
 import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
@@ -33,7 +34,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser()
+    const cache = JSON.parse(localStorage.getItem('kowtowbitches'))
+    const currentUser = get(cache, 'user')
+    this.setState(currentUser)
   }
 
   handleLogout(e) {

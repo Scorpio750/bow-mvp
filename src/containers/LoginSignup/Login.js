@@ -16,11 +16,11 @@ export const Login = props => {
     props.login(data);
   };
 
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false)
   useEffect(() => {
     reset()
     props.resetResponse()
-  }, [reset])
+  }, [reset, resetResponse])
 
   const openModal = () => {
     setIsOpen(true);
@@ -29,6 +29,8 @@ export const Login = props => {
   const closeModal = () => {
     setIsOpen(false);
   }
+
+  const logOutFlag = localStorage.getItem('bowLogin')
 
   return (
     isLoggedIn ? <Redirect to='/feed' /> :
@@ -53,7 +55,7 @@ export const Login = props => {
         />
         {/* errors will return when field validation fails  */}
         {errors.password && <span className={styles.error}>This field is required</span>}
-        {props.response.status >= 400 && errors &&
+        {props.response.status >= 400 &&
           <span role="alert" className={styles.error}>
             {`${props.response.statusText}: ${props.response.data}`}
           </span>}

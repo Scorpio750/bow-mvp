@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, createStore, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import {createLogger} from 'redux-logger'
+import persistState from 'redux-localstorage';
 import {composeWithDevTools} from 'redux-devtools-extension'
 import  user from './reducers/user/user'
 import { feedPosts, artistPosts } from './reducers/post/posts'
@@ -21,7 +22,15 @@ let reducer = combineReducers({
 })
 
 const enhancer = composeEnhancers(
-  applyMiddleware(thunkMiddleware)
+  applyMiddleware(thunkMiddleware),
+  persistState(
+    [
+      'user',
+    ],
+    {
+      key: 'kowtowbitches',
+    }
+  )
 )
 
 const store = createStore(reducer, enhancer)
