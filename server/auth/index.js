@@ -25,6 +25,13 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/login'
 
 router.post('/signup', async (req, res, next) => {
   try {
+    const existingUser = await User.findAll({ where: { username: req.body.username } })
+    if (existingUser.length) return res.status(403).send('Username already exists')
+  } catch (err) {
+    return res.status(500).send('Error validating new user.')
+  }
+
+  try {
     const newestUser = await User.findAll({
       attributes: ['id'],
       limit: 1,
@@ -37,7 +44,7 @@ router.post('/signup', async (req, res, next) => {
   } catch (err) {
     if (err.name === 'SequelizeUniqueConstraintError') {
 
-      res.status(401).send('User already exists')
+      res.status(403).send('User already exists')
     } else {
       next(err)
     }
