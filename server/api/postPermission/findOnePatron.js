@@ -37,7 +37,8 @@ async function findOnePatron(uniqueId, artwork) {
     distributor,
     pressLink,
     tags,
-    privacy
+    privacy,
+    year
   } = artwork;
 
   if((level === privacy) || (privacy === 4 && uniqueId === userId)) {
@@ -69,7 +70,8 @@ async function findOnePatron(uniqueId, artwork) {
       distributor,
       pressLink,
       tags,
-      privacy
+      privacy,
+      year
     }
 
     return newFile
@@ -101,7 +103,8 @@ async function findOnePatron(uniqueId, artwork) {
       credits,
       distributor,
       pressLink,
-      tags
+      tags,
+      year
     }
     return newFile;
   }
@@ -125,7 +128,8 @@ async function findOnePatron(uniqueId, artwork) {
       credits,
       distributor,
       pressLink,
-      tags
+      tags,
+      year
     }
     return scrubbed
 }

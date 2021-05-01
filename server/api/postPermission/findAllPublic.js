@@ -27,7 +27,8 @@ async function findAllPublic(artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
 
       } = currPost;
       let path = `${site}${fileName}`
@@ -54,7 +55,8 @@ async function findAllPublic(artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
 
       }
 
@@ -84,7 +86,8 @@ async function findAllPublic(artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
 
       } = currPost;
       let scrubbed = {
@@ -109,7 +112,8 @@ async function findAllPublic(artwork) {
         pressLink,
         tags,
         path: undefined,
-        privacy
+        privacy,
+        year
 
       }
       return scrubbed

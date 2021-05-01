@@ -41,7 +41,8 @@ async function findAllPatron(id, artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
 
       } = currPost;
       let scrubbed = {
@@ -65,7 +66,8 @@ async function findAllPatron(id, artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
 
       }
       return scrubbed
@@ -98,7 +100,8 @@ async function findAllPatron(id, artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
       } = currPost;
       let path = `${site}${fileName}`
       let newFile = {
@@ -124,7 +127,8 @@ async function findAllPatron(id, artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
       }
 
       return newFile
@@ -154,7 +158,8 @@ async function findAllPatron(id, artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
 
       } = currPost;
       // watch out for the unchanging Expires value in the url
@@ -185,7 +190,8 @@ async function findAllPatron(id, artwork) {
         distributor,
         pressLink,
         tags,
-        privacy
+        privacy,
+        year
 
       }
 

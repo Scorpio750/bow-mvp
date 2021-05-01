@@ -10,6 +10,7 @@ async function seed() {
 
   const users = [
     {
+      // defaults to Patron users
       email: 'kade@email.com',
       username: 'dirtydork',
       password: '1234567',

@@ -24,7 +24,8 @@ async function findOnePublic(artwork) {
       distributor,
       pressLink,
       tags,
-      privacy
+      privacy,
+      year
     } = artwork;
     let path = `${site}${fileName}`
 
@@ -50,7 +51,8 @@ async function findOnePublic(artwork) {
       distributor,
       pressLink,
       tags,
-      privacy
+      privacy,
+      year
     }
     return scrubbed
   };
@@ -77,7 +79,8 @@ async function findOnePublic(artwork) {
       distributor,
       pressLink,
       tags,
-      privacy
+      privacy,
+      year
     } = artwork;
     let path = undefined
 
@@ -103,7 +106,8 @@ async function findOnePublic(artwork) {
       distributor,
       pressLink,
       tags,
-      privacy
+      privacy,
+      year
     }
     return scrubbed
 }
