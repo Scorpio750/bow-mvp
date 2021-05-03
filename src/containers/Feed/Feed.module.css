@@ -1,3 +1,20 @@
+*:focus {
+  outline: none;
+}
+
+.navOverlayContainer {
+  height: 80px;
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .feedContainer {
   display: flex;
   flex-flow: row wrap;
@@ -6,6 +23,33 @@
   max-width: 80vw;;
 }
 
-.select {
-  margin: 1rem 1rem 0 0;
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid black;
+  padding: 10px 0;
+  width: 400px;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  width: 270px;
+  font-size: 1rem;
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.selector {
+  height: 30px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
 }

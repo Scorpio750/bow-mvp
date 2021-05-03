@@ -8,6 +8,7 @@ import {
 } from '../../../helpers';
 import {
   GET_ALL_POSTS,
+  SET_POSTS,
   ADD_POST,
   REMOVE_POST,
   GET_ARTIST_POSTS,
@@ -26,6 +27,8 @@ export const feedPosts = (state = defaultFeedPosts, action) => {
     case GET_ALL_POSTS:
       return action.artworks;
     //TODO filter logic
+    case SET_POSTS:
+      return [...state, action.payload];
     case ADD_POST:
       return [...state, action.artwork];
     case REMOVE_POST:

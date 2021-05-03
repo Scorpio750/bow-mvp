@@ -1,39 +1,40 @@
+import { get } from 'lodash';
 /**
  * Kade: Adding helper functions for sorting here
  */
 
- export const alphaSort =  (x, y) => {
-  let a = x.title.toUpperCase(),
-      b = y.title.toUpperCase();
+export const alphaSort = (x, y) => {
+  const a = String(get(x, 'title')).toUpperCase(),
+        b = String(get(y, 'title')).toUpperCase();
   return a === b ? 0 : a > b ? 1 : -1;
 }
 
-export const reverseAlphaSort =  (x, y) => {
-  let a = x.title.toUpperCase(),
-      b = y.title.toUpperCase();
+export const reverseAlphaSort = (x, y) => {
+  const a = String(get(x, 'title')).toUpperCase(),
+        b = String(get(y, 'title')).toUpperCase();
   return a === b ? 0 : b > a ? 1 : -1;
 }
 
-export const newestYearSort =  (x, y) => {
-  let a = Number(x.year),
-      b = Number(y.year);
+export const newestYearSort = (x, y) => {
+  const a = String(get(x, 'year')).toUpperCase(),
+        b = String(get(y, 'year')).toUpperCase();
   return a === b ? 0 : b > a ? 1 : -1;
 }
 
-export const oldestYearSort =  (x, y) => {
-  let a = Number(x.year),
-      b = Number(y.year);
+export const oldestYearSort = (x, y) => {
+  const a = String(get(x, 'year')).toUpperCase(),
+        b = String(get(y, 'year')).toUpperCase();
   return a === b ? 0 : a > b ? 1 : -1;
 }
 
-export const artistSort =  (x, y) => {
-  let a = x.user.publicName.toUpperCase(),
-      b = y.user.publicName.toUpperCase();
+export const artistSort = (x, y) => {
+  const a = String(get(x, 'user.publicName')).toUpperCase(),
+        b = String(get(y, 'user.publicName')).toUpperCase();
   return a === b ? 0 : a > b ? 1 : -1;
 }
 
-export const reverseArtistSort =  (x, y) => {
-  let a = x.user.publicName.toUpperCase(),
-      b = y.user.publicName.toUpperCase();
+export const reverseArtistSort = (x, y) => {
+  const a = String(get(x, 'user.publicName')).toUpperCase(),
+        b = String(get(y, 'user.publicName')).toUpperCase();
   return a === b ? 0 : b > a ? 1 : -1;
 }
