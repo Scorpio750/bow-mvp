@@ -1,125 +1,30 @@
 async function findAllPublic(artwork) {
   const post = artwork.map((currPost) => {
+    // Using .get() to only get the instance fields without the extras from sequelize
+    currPost = currPost.get();
 
+    if (currPost.privacy === 1) {
+      let site = 'https://bodyofworkers.nyc3.digitaloceanspaces.com/';
 
-    if(currPost.privacy === 1 && currPost.fileType === 'Image' ) {
-      let site = 'https://bodyofworkers.nyc3.digitaloceanspaces.com/'
-
-      let {
-        id,
-        title,
-        sequence,
-        fileName,
-        caption,
-        instagram,
-        twitter,
-        microBio,
-        location,
-        geo,
-        user,
-        medium,
-        materials,
-        dimensions,
-        genre,
-        languages,
-        references,
-        credits,
-        distributor,
-        pressLink,
-        tags,
-        privacy,
-        year
-
-      } = currPost;
-      let path = `${site}${fileName}`
+      let { fileName, ...fields } = currPost;
+      let path = `${site}${fileName}`;
       let newFile = {
-        id,
-        title,
         fileName,
         path,
-        sequence,
-        caption,
-        instagram,
-        twitter,
-        microBio,
-        location,
-        geo,
-        user,
-        medium,
-        materials,
-        dimensions,
-        genre,
-        languages,
-        references,
-        credits,
-        distributor,
-        pressLink,
-        tags,
-        privacy,
-        year
+        ...fields,
+      };
 
-      }
-
-      return newFile
-
-    }
-
-    else {
-      let {
-        id,
-        title,
-        sequence,
-        caption,
-        instagram,
-        twitter,
-        microBio,
-        location,
-        geo,
-        user,
-        medium,
-        materials,
-        dimensions,
-        genre,
-        languages,
-        references,
-        credits,
-        distributor,
-        pressLink,
-        tags,
-        privacy,
-        year
-
-      } = currPost;
+      return newFile;
+    } else {
+      let { fileName, ...fields } = currPost;
       let scrubbed = {
-        id,
-        title,
-        sequence,
-        caption,
-        instagram,
-        twitter,
-        microBio,
-        location,
-        geo,
-        user,
-        medium,
-        materials,
-        dimensions,
-        genre,
-        languages,
-        references,
-        credits,
-        distributor,
-        pressLink,
-        tags,
         path: undefined,
-        privacy,
-        year
-
-      }
-      return scrubbed
+        ...fields,
+      };
+      return scrubbed;
     }
-  })
-  return post
+  });
+  return post;
 }
 
-module.exports = findAllPublic
+module.exports = findAllPublic;

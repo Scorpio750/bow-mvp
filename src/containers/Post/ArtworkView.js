@@ -33,6 +33,36 @@ export const Artwork = props => {
   }
 
   const { singlePost } = props
+  console.log('what are you', singlePost)
+  const renderPostType = () => {
+    if (singlePost.fileType === 'Video') {
+      return (
+        <video
+          className={styles.artwork}
+          src={singlePost.path || placeholder}
+          title={singlePost.title}
+          controls
+        ></video>
+      );
+    } else if (singlePost.fileType === 'Document') {
+      return (
+          <embed
+            className={styles.artwork}
+            src={singlePost.path || placeholder}
+            type="application/pdf"
+            title={singlePost.title}
+          />
+      );
+    } else {
+      return (
+        <img
+          className={styles.artwork}
+          src={singlePost.path || placeholder}
+          alt={singlePost.title}
+        />
+      );
+    }
+  }
 
   if(!singlePost.id) return <div>Loading</div>
 
@@ -40,12 +70,7 @@ export const Artwork = props => {
     <div className={styles.artistProfileContainer}>
       <ArtistProfile {...props} />
       <section className={styles.mediaContainer}>
-        <img
-          className={styles.artwork}
-          style={{ cursor: 'default' }}
-          src={singlePost.path || placeholder}
-          alt='single artwork view'
-        />
+        {renderPostType()}
         <Link className={styles.artworkCloseBtn} to={{
           pathname: `/artist-page/${get(props ,'singlePost.user.id')}`,
           state: { user: get(props, 'singlePost.user') },

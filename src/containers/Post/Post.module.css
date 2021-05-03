@@ -26,6 +26,7 @@
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .artworkContainer {
@@ -51,7 +52,7 @@
 }
 
 .title {
-  cursor: default;
+  cursor: pointer;
 }
 
 
@@ -160,6 +161,7 @@
 
   .title {
     font-size: 20px;
+    cursor: pointer;
   }
 
   .closeBtn {

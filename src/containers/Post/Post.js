@@ -7,74 +7,104 @@ import { get } from 'lodash';
 import placeholder from '../../assets/sexy_placeholder.jpg';
 import styles from './Post.module.css';
 
-export const handleClick = openModal => {
+export const handleClick = (openModal) => {
   openModal();
-}
+};
 
-export const Post = props => {
-  const [modalIsOpen,setIsOpen] = React.useState(false);
+export const Post = (props) => {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
   const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
   const renderSubtext = () => (
-    <h4 className={styles.title}>
-      {props.title || 'hello i am sascha and this website is my art piece'}
+    <h4 className={styles.title} onClick={() => handleClick(openModal)}>
+      {props.title || ''}
     </h4>
   );
 
   const renderModalSubtext = () => (
     <React.Fragment>
-      <h2 className={styles.modalTitle}>
-        {props.title || 'hello i am sascha and this website is my art piece'}
-      </h2>
+      <h2 className={styles.modalTitle}>{props.title || ''}</h2>
       <div className={styles.infoContainer}>
         <span>{props.artwork.medium}</span>
         <span className={styles.divider}> • </span>
         <Link
-          style={{color: 'black'}}
+          style={{ color: 'black' }}
           to={{
             pathname: `/artwork/${props.artwork.id}`,
-            state: { user: get(props, 'artwork.user') }
-          }}>
-            View More Info
-          </Link>
+            state: {
+              user: get(props, 'artwork.user')
+            },
+          }}
+        >
+          View More Info
+        </Link>
         <span className={styles.divider}> • </span>
         <Link
-          style={{color: 'black'}}
+          style={{ color: 'black' }}
           to={{
-            pathname: `/artist-page/${get(props ,'artwork.user.id')}`,
-            state: { user: get(props, 'artwork.user') },
-          }}>
-            View Artist Profile
-          </Link>
-        </div>
-      </React.Fragment>
-  )
-
-  const renderPost = isModal => (
-    <div className={styles.postContainer}>
-      <div className={styles.artworkContainer}>
-      <img
-        className={styles.artwork}
-        src={props.artwork.path || placeholder}
-        st
-        alt={props.artwork.title}
-        onClick={() => handleClick(openModal)}
-      />
+            pathname: `/artist-page/${get(props, 'artwork.user.id')}`,
+            state: {
+              user: get(props, 'artwork.user'),
+            },
+          }}
+        >
+          View Artist Profile
+        </Link>
       </div>
-      {isModal
-          ? renderModalSubtext()
-          : renderSubtext()
-      }
+    </React.Fragment>
+  );
+
+  const renderPost = (isModal) => (
+    <div className={styles.postContainer}>
+      <div className={styles.artworkContainer}>{renderPostType()}</div>
+      {isModal ? renderModalSubtext() : renderSubtext()}
       <div style={{ marginBottom: '2.5rem' }}></div>
     </div>
   );
+
+  function renderPostType() {
+    if (props.artwork.fileType === 'Video') {
+      return (
+        <video
+          className={styles.artwork}
+          src={props.artwork.path || placeholder}
+          title={props.artwork.title}
+          onClick={() => handleClick(openModal)}
+          controls
+        ></video>
+      );
+    } else if (props.artwork.fileType === 'Document') {
+      return (
+        <div onClick={() => handleClick(openModal)}>
+          {/* this iframe sends the user to another page */}
+          {/* <iframe src={`https://docs.google.com/gview?url=https://path.com/to/your/pdf.pdf&embedded=true`} className={styles.artwork} frameborder="0" title={props.artwork.title}></iframe> */}
+
+          <embed
+            className={styles.artwork}
+            src={props.artwork.path || placeholder}
+            type="application/pdf"
+            title={props.artwork.title}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <img
+          className={styles.artwork}
+          src={props.artwork.path || placeholder}
+          alt={props.artwork.title}
+          onClick={() => handleClick(openModal)}
+        />
+      );
+    }
+  }
 
   //TODO: this is not scalable we should put modal at root but having trouble invoking render through higher order components
   return (
@@ -90,17 +120,19 @@ export const Post = props => {
       >
         {renderPost(true)}
 
-        <span className={styles.closeBtn} onClick={closeModal}>X</span>
+        <span className={styles.closeBtn} onClick={closeModal}>
+          X
+        </span>
       </Modal>
     </React.Fragment>
-  )
-}
+  );
+};
 
 Post.defaultProps = {
   artwork: {
-    user: { id: 0 }
+    user: { id: 0 },
   },
-}
+};
 
 Post.propTypes = {
   title: p.string,
@@ -127,6 +159,6 @@ Post.propTypes = {
   distributor: p.string,
   tags: p.array,
   onClick: p.func,
-}
+};
 
 export default Post;

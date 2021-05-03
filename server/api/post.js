@@ -15,7 +15,10 @@ module.exports = router
 router.get('/', async (req, res, next) => {
 try {
   //if you haven't been authenticated and logged in
-  const artwork = await Post.findAll({include: User})
+  const artwork = await Post.findAll({include: User,
+    attributes: {
+      exclude: ['externalUrl', 'canMarket', 'sfw', 'bowAgreements', 'benefiting','price', 'techSpecs', 'createdAt', 'updatedAt' ]
+    }})
   if(!req.user || isNaN(Number(req.user.id))) {
     let post = await findAllPublic(artwork)
     return res.send(post)
@@ -37,6 +40,9 @@ router.get('/:artistId', async (req, res, next) => {
     const posts = await Post.findAll({
       where: {
         userId: get(req, 'params.artistId')
+      },
+      attributes: {
+        exclude: ['externalUrl', 'canMarket', 'sfw', 'bowAgreements', 'benefiting','price', 'techSpecs', 'createdAt', 'updatedAt' ]
       }
     });
     return res.send(posts)
@@ -52,9 +58,11 @@ router.get('/:artistId/:postId', async (req, res, next) => {
       where: {
         id: req.params.postId
       },
-      include: User
+      include: User,
+      attributes: {
+        exclude: ['externalUrl', 'canMarket', 'sfw', 'bowAgreements', 'benefiting','price', 'techSpecs', 'createdAt', 'updatedAt' ]
+      }
     })
-    console.log({ artwork });
 
     if(!req.user || isNaN(Number(req.user.id))) {
       let post = await findOnePublic(artwork)
