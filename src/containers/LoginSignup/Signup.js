@@ -97,7 +97,7 @@ export const Signup = (props) => {
           </section>
         </div>
 
-        <input className={styles.submit} type="submit" value="Submit" />
+        <input className={styles.submit} type="submit" value="Submit." />
       </form>
       <div className={styles.additionalActionsContainer}>
         <span>Are you an artist? </span>

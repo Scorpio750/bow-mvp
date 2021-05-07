@@ -60,7 +60,7 @@ export const Login = props => {
             {`${props.response.statusText}: ${props.response.data}`}
           </span>}
 
-        <input className={styles.submit} type="submit" />
+        <input className={styles.submit} type="submit" value="Submit." />
       </form>
       <div className={styles.additionalActionsContainer}>
         <span className={styles.actionPrompt}>Forgot password?</span>
