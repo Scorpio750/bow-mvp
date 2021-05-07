@@ -231,18 +231,15 @@ const Contact = () => (
       Please email all inquiries to: <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com</a></p>
     </div>
     <h4>Follow</h4>
-    <div>
-      <p>We will launch Body of Workers social media accounts soon. Follow us on:</p>
-     
-      <a href="https://www.instagram.com/bodyofworkers/" target="_blank" rel="noopener noreferrer">Instagram</a>
 
-      <p><b>Our Partners:</b></p>
-      
+    <a href="https://www.instagram.com/bodyofworkers/" target="_blank" rel="noopener noreferrer">Instagram</a>
+
+    {/* <p><b>Our Partners:</b></p>
+
       <p><b>Kink Out</b> <a href="https://www.instagram.com/kinkoutevents" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="https://twitter.com/kinkoutevents" target="_blank" rel="noopener noreferrer">Twitter</a>, and <a href="https://www.facebook.com/kinkoutevents" target="_blank" rel="noopener noreferrer">Facebook</a></p>
       <p><b>Veil Machine</b> <a href="https://www.instagram.com/veilmachine" target="_blank" rel="noopener noreferrer">Instagram</a> and <a href="https://twitter.com/veil_machine" target="_blank" rel="noopener noreferrer">Twitter</a></p>
       <p><b>Red Canary Song</b> <a href="https://www.instagram.com/redcanarysong" target="_blank" rel="noopener noreferrer">Instagram</a> and <a href="https://twitter.com/RedCanarySong" target="_blank" rel="noopener noreferrer">Twitter</a></p>
-      <p><b>IWD NYC Coalition</b> <a href="https://www.instagram.com/iwdnyc" target="_blank" rel="noopener noreferrer">Instagram</a> and <a href="https://twitter.com/iwdnyc" target="_blank" rel="noopener noreferrer">Twitter</a></p>
-    </div>
+      <p><b>IWD NYC Coalition</b> <a href="https://www.instagram.com/iwdnyc" target="_blank" rel="noopener noreferrer">Instagram</a> and <a href="https://twitter.com/iwdnyc" target="_blank" rel="noopener noreferrer">Twitter</a></p> */}
   </div>
 );
 
@@ -264,53 +261,53 @@ const Donate = () => (
 
 const Legals = () => {
   return (
-      <div className="info-page">
-          <h1>Legals</h1>
+    <div className="info-page">
+      <h1>Legals</h1>
 
-          <HashLink to="/legals#terms">Terms of Service</HashLink>
-          <br />
-          <HashLink to="/legals#contentLicensing">Content Licensing</HashLink>
+      <HashLink to="/legals#terms">Terms of Service</HashLink>
+      <br />
+      <HashLink to="/legals#contentLicensing">Content Licensing</HashLink>
 
-          <div id="terms" />
-          <h4>Terms of Service</h4>
-          <p><i>Last updated: February 17, 2021</i></p>
-          <p>Please read these Terms of Service (“Terms,” “Terms of Service”) carefully before using the Body of Workers website (the “Service” or the “Site”). Please also read the <a href="/privacy">Privacy Policy</a>, which is incorporated into these Terms of Service.</p>
-          <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
-          <p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, please do not access the Service.</p>
+      <div id="terms" />
+      <h4>Terms of Service</h4>
+      <p><i>Last updated: February 17, 2021</i></p>
+      <p>Please read these Terms of Service (“Terms,” “Terms of Service”) carefully before using the Body of Workers website (the “Service” or the “Site”). Please also read the <a href="/privacy">Privacy Policy</a>, which is incorporated into these Terms of Service.</p>
+      <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
+      <p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, please do not access the Service.</p>
 
-          <h4>Ability to Accept Terms of Service</h4>
-          <p>You affirm that you are at least 18 years of age or the age of majority in the jurisdiction you are accessing the Service from and are fully able to enter into and comply with the terms and conditions set forth in these Terms of Service. If you are under 18 or the applicable age of majority, please do not use the Service. You also represent that the jurisdiction from which you access the Service does not prohibit the receiving or viewing of sexually explicit content.</p>
+      <h4>Ability to Accept Terms of Service</h4>
+      <p>You affirm that you are at least 18 years of age or the age of majority in the jurisdiction you are accessing the Service from and are fully able to enter into and comply with the terms and conditions set forth in these Terms of Service. If you are under 18 or the applicable age of majority, please do not use the Service. You also represent that the jurisdiction from which you access the Service does not prohibit the receiving or viewing of sexually explicit content.</p>
 
-          <h4>Termination</h4>
-          <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
+      <h4>Termination</h4>
+      <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
 
-          <h4>The Site</h4>
-          <p>Body of Workers allows for uploading, sharing and general viewing of various types of content by registered users. Some of this content may include adult-oriented content, including sexually explicit images.</p>
-          <p>Please refer to our <a href="https://docs.google.com/document/d/1zHqcs2Xht_WO0X4cxKrvBkBJQAxj1J_Jh1KMvDWH1sA/edit" target="_blank" rel="noopener noreferrer">Community Agreements</a> to understand what content is prohibited from the Site. We may, in our sole discretion and at any time, remove any content on the Site.</p>
-          <p>You understand and acknowledge that you may be exposed to content that you find offensive, indecent, or objectionable, and you agree to waive, and hereby do waive, any legal or equitable rights or remedies you have or may have against the Site with respect thereto. You agree to indemnify and hold harmless the Site, the site operators, the Site’s  affiliates, licensors, service providers, officers, directors, employees, agents, successors and assigns to the fullest extent allowed by law regarding all matters related to your use of the Site.</p>
-          <h4>Communication Preferences</h4>
-          <p>By using the Site, you consent to receiving electronic communications from us relating to your account. This may include notices about your account, updates to the website’s Terms of Service, newsletters, offers, and other announcements. You agree that any notices, agreements, disclosures or other communications that we send to you electronically will satisfy any legal communication requirements, including that such communications be in writing.</p>
+      <h4>The Site</h4>
+      <p>Body of Workers allows for uploading, sharing and general viewing of various types of content by registered users. Some of this content may include adult-oriented content, including sexually explicit images.</p>
+      <p>Please refer to our <a href="https://docs.google.com/document/d/1zHqcs2Xht_WO0X4cxKrvBkBJQAxj1J_Jh1KMvDWH1sA/edit" target="_blank" rel="noopener noreferrer">Community Agreements</a> to understand what content is prohibited from the Site. We may, in our sole discretion and at any time, remove any content on the Site.</p>
+      <p>You understand and acknowledge that you may be exposed to content that you find offensive, indecent, or objectionable, and you agree to waive, and hereby do waive, any legal or equitable rights or remedies you have or may have against the Site with respect thereto. You agree to indemnify and hold harmless the Site, the site operators, the Site’s  affiliates, licensors, service providers, officers, directors, employees, agents, successors and assigns to the fullest extent allowed by law regarding all matters related to your use of the Site.</p>
+      <h4>Communication Preferences</h4>
+      <p>By using the Site, you consent to receiving electronic communications from us relating to your account. This may include notices about your account, updates to the website’s Terms of Service, newsletters, offers, and other announcements. You agree that any notices, agreements, disclosures or other communications that we send to you electronically will satisfy any legal communication requirements, including that such communications be in writing.</p>
 
-          <h4>Contact Us</h4>
-          <p>If you have any questions about these Terms, please contact us at <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com</a></p>
+      <h4>Contact Us</h4>
+      <p>If you have any questions about these Terms, please contact us at <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com</a></p>
 
-          <div id="contentLicensing" />
-          <h1>Content Licensing</h1>
+      <div id="contentLicensing" />
+      <h1>Content Licensing</h1>
 
-          <h4>Plain Language Explanation:</h4>
-          <p>When you upload content to Body of Workers, you retain ownership of any art that you have created. In order for us to run the site, we need your permission to host and display your intellectual property (the photos, writing, videos, and other works that you submit to the site). This license gives us that legal permission. The broad language allows us to create functionality, like our user artwork pages, that features your artwork. The permissions for “derivative works” allow Body of Workers to run various features of the site, such as creating the feed of images that users see upon login, and is not intended to give us the ability to make substantive edits to your artwork.</p>
-          <p>In using our services, you agree that you will only upload your own work, and that you have obtained the necessary legal permissions for any third-party contributions to or depictions in your artwork (for instance, obtaining a model release from the subject of a portrait).</p>
+      <h4>Plain Language Explanation:</h4>
+      <p>When you upload content to Body of Workers, you retain ownership of any art that you have created. In order for us to run the site, we need your permission to host and display your intellectual property (the photos, writing, videos, and other works that you submit to the site). This license gives us that legal permission. The broad language allows us to create functionality, like our user artwork pages, that features your artwork. The permissions for “derivative works” allow Body of Workers to run various features of the site, such as creating the feed of images that users see upon login, and is not intended to give us the ability to make substantive edits to your artwork.</p>
+      <p>In using our services, you agree that you will only upload your own work, and that you have obtained the necessary legal permissions for any third-party contributions to or depictions in your artwork (for instance, obtaining a model release from the subject of a portrait).</p>
 
-          <h4>User Content License to Body of Workers: </h4>
-          <p>You retain all ownership rights to your content, but grant Body of Workers the following license:</p>
-          <p>By sharing, posting, or otherwise providing content to Body of Workers on or through our Services, you grant us a non-exclusive, worldwide, royalty-free, sublicensable, transferable right and license to use, host, store, cache, reproduce, publish, display (publicly or otherwise), perform (publicly or otherwise), distribute, transmit, modify, adapt, translate, and create derivative works of your content in any and all media now known or later developed. The rights you grant to Body of Workers in this license are for the limited purposes of allowing us to operate our Services, improve and promote those Services, and develop new Services (consistent with your privacy and application settings).</p>
-          <p>In providing content to Body of Workers, you represent and warrant that:</p>
+      <h4>User Content License to Body of Workers: </h4>
+      <p>You retain all ownership rights to your content, but grant Body of Workers the following license:</p>
+      <p>By sharing, posting, or otherwise providing content to Body of Workers on or through our Services, you grant us a non-exclusive, worldwide, royalty-free, sublicensable, transferable right and license to use, host, store, cache, reproduce, publish, display (publicly or otherwise), perform (publicly or otherwise), distribute, transmit, modify, adapt, translate, and create derivative works of your content in any and all media now known or later developed. The rights you grant to Body of Workers in this license are for the limited purposes of allowing us to operate our Services, improve and promote those Services, and develop new Services (consistent with your privacy and application settings).</p>
+      <p>In providing content to Body of Workers, you represent and warrant that:</p>
 
-          <ol type="I">
-              <li>you own or otherwise control all rights, power, and authority necessary to grant the rights to your content described herein</li>
-              <li>the use of your content does not violate our community agreement. Because you bear sole responsibility for your content, posting or sharing content without the necessary rights can expose you to legal liability.</li>
-          </ol>
-      </div>
+      <ol type="I">
+        <li>you own or otherwise control all rights, power, and authority necessary to grant the rights to your content described herein</li>
+        <li>the use of your content does not violate our community agreement. Because you bear sole responsibility for your content, posting or sharing content without the necessary rights can expose you to legal liability.</li>
+      </ol>
+    </div>
   )
 };
 
@@ -345,7 +342,7 @@ const Privacy = () => (
     </p>
 
     <h4>How We Collect Information</h4>
-    
+
     <p>
       Whether we collect certain types of information and how we process it depends on how you use and access the Services.
       We collect information about you in the following ways when you:
@@ -376,7 +373,7 @@ const Privacy = () => (
     </ul>
 
     <h4>How We Use Your Information</h4>
-    
+
     <p>
       We may use the information we collect for any of the following purposes:
     </p>
@@ -389,7 +386,7 @@ const Privacy = () => (
     </ul>
 
     <h4>How We Share and Disclose Your Information</h4>
-    
+
     <p>
       The term “Personal Information,” as used below, is information associated with or used to identify or
       contact a specific person. Personal Information includes: (1) contact data (such as e-mail address);
@@ -427,7 +424,7 @@ const Privacy = () => (
     </p>
 
     <h4>Your Rights</h4>
-    
+
     <p>
       It is important to us that you are able to access and review the Personal Information we have about
       you and make corrections to it or delete it, as necessary. You can visit your account to manage and correct
@@ -436,7 +433,7 @@ const Privacy = () => (
     </p>
 
     <h4>Disclaimer: Not Child-Directed</h4>
-    
+
     <p>
       The Site is not intended for use by persons under the age of 18 or the applicable age of majority
       in the jurisdiction from which the Site is accessed, and we prohibit minors from using the Site.
@@ -454,7 +451,7 @@ const Privacy = () => (
     <h4>California Consumer Privacy Act</h4>
 
     <p>The California Consumer Privacy Act (“CCPA”) provides you certain rights in relation to your personal information:</p>
-    
+
     <ul>
       <li>You have the right to request disclosure of the categories of Personal Information that we have collected from you in the past 12 months.</li>
       <li>You have the right to request disclosure of the specific Personal Information that we have collected from you in the past 12 months.</li>
