@@ -67,40 +67,33 @@ export const Signup = (props) => {
             />
             {/* errors will return when field validation fails  */}
             {errors.password && <span className={styles.error}>This field is required</span>}
+              <div>
+                <label for="tos" style={{ backgroundColor: "none", margin: "0" }}>I agree to the </label>
+                <Link
+                  to="/legals"
+                  style={{
+                    fontWeight: "700",
+                    color: "Maroon",
+                    marginRight: "5px",
+                    textDecoration: "underline",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  }}
+                >
+                  Terms of Service
+                </Link>
+                <input
+                  name="tos"
+                  type="checkbox"
+                  ref={register({ required: true })}
+              />
+            </div>
+            {errors.tos && <span className={styles.error}>This field is required</span>}
             {props.response.status >= 400 &&
               <span role="alert" className={styles.error}>
                 {`${props.response.statusText}: ${props.response.data}`}
               </span>}
-            {/* <input
-            name="pronouns"
-            className={styles.input}
-            placeholder="Pronouns"
-            ref={register({ required: true })}
-          />
-          {errors.pronouns && <span className={styles.error}>This field is required</span>} */}
           </section>
-          {/* <section className={styles.formSection}>
-          <input
-            name="city"
-            className={styles.input}
-            placeholder="City"
-            ref={register()}
-          />
-
-          <input
-            name="region"
-            className={styles.input}
-            placeholder="State/Region/Province"
-            ref={register()}
-          />
-
-          <input
-            name="country"
-            className={styles.input}
-            placeholder="Country"
-            ref={register()}
-          />
-        </section> */}
         </div>
 
         <input className={styles.submit} type="submit" value="Submit" />

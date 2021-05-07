@@ -72,6 +72,7 @@ label {
 
 .error {
   width: 100%;
+  min-width:100%;
   max-width: 100%;
   font-size: 16px;
   padding: 5px 10px;
