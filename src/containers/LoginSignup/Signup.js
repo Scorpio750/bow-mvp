@@ -68,6 +68,12 @@ export const Signup = (props) => {
             {/* errors will return when field validation fails  */}
             {errors.password && <span className={styles.error}>This field is required</span>}
               <div>
+                <input
+                  name="tos"
+                  type="checkbox"
+                  style={{ marginRight: "10px" }}
+                  ref={register({ required: true })}
+                />
                 <label for="tos" style={{ backgroundColor: "none", margin: "0" }}>I agree to the </label>
                 <Link
                   to="/legals"
@@ -82,11 +88,6 @@ export const Signup = (props) => {
                 >
                   Terms of Service
                 </Link>
-                <input
-                  name="tos"
-                  type="checkbox"
-                  ref={register({ required: true })}
-              />
             </div>
             {errors.tos && <span className={styles.error}>This field is required</span>}
             {props.response.status >= 400 &&
