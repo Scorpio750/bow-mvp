@@ -16,14 +16,14 @@ export const reverseAlphaSort = (x, y) => {
 }
 
 export const newestYearSort = (x, y) => {
-  const a = String(get(x, 'year')).toUpperCase(),
-        b = String(get(y, 'year')).toUpperCase();
+  const a = Number(get(x, 'year')),
+        b = Number(get(y, 'year'));
   return a === b ? 0 : b > a ? 1 : -1;
 }
 
 export const oldestYearSort = (x, y) => {
-  const a = String(get(x, 'year')).toUpperCase(),
-        b = String(get(y, 'year')).toUpperCase();
+  const a = Number(get(x, 'year')),
+        b = Number(get(y, 'year'));
   return a === b ? 0 : a > b ? 1 : -1;
 }
 

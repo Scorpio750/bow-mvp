@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 import styles from '../../common/Form.module.css';
 import { authUser, resetResponse } from '../../store/actions/user';
 import { connect } from 'react-redux'
-
+console.log(process.env)
 Modal.setAppElement('#root');
 
 export const Login = props => {

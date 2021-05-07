@@ -20,12 +20,12 @@
 }
 
 .title {
-  height: 25%;
   word-wrap: break-word;
   width: 75%;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 10px;
+  margin-bottom: 10%;
   cursor: pointer;
 }
 
@@ -168,4 +168,6 @@
     right: 3vw !important;
     top: 1vh !important;
   }
+
 }
+

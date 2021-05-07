@@ -25,7 +25,7 @@ import {
 export const feedPosts = (state = defaultFeedPosts, action) => {
   switch (action.type) {
     case GET_ALL_POSTS:
-      return action.artworks;
+      return [...action.artworks].sort(newestYearSort);
     //TODO filter logic
     case SET_POSTS:
       return [...state, action.payload];
@@ -53,6 +53,7 @@ export const feedPosts = (state = defaultFeedPosts, action) => {
 export const artistPosts = (state = defaultArtistPosts, action) => {
   switch (action.type) {
     case GET_ARTIST_POSTS:
+
       return action.artworks;
     //TODO filter logic
     default:

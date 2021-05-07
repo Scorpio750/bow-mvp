@@ -24,7 +24,7 @@ export const SORT_REVERSE_ARTIST = 'SORT_REVERSE_ARTIST'
 
 //Actions
 export const getAllPosts = artworks => async dispatch => {
-  console.log('hitting get all ==> ', artworks)
+
   dispatch({ type: GET_ALL_POSTS, artworks });
 
   const searchablePosts = artworks.map(artwork => {
@@ -46,7 +46,6 @@ export const getAllPosts = artworks => async dispatch => {
 }
 
 export const setPosts = posts => {
-  console.log('setting ===> ', posts)
   return {
     type: 'SET_POSTS',
     payload: posts,

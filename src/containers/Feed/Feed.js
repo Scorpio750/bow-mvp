@@ -15,15 +15,18 @@ import {
 } from '../../store/actions/posts';
 
 import Post from '../Post/Post';
+import Search from '../Search/Search';
 
 import styles from './Feed.module.css';
 import { alphaSort, artistSort, newestYearSort, oldestYearSort, reverseAlphaSort, reverseArtistSort } from '../../helpers';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
+import Sort from '../Sort/Sort';
+import { result } from 'lodash';
+import NoResult from '../Search/NoResults';
 
 const Feed = props => {
   const feedPosts = useSelector(state => state.feedPosts);
   const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState(false)
 
   const { register, handleSubmit } = useForm();
 
@@ -38,27 +41,27 @@ const Feed = props => {
     let sortType = e.target.value
     switch (sortType) {
       case "artist-alpha":
-        { searchResults.length > 0 && searchResults.sort(artistSort) }
+        searchResults.length > 0 && searchResults.sort(artistSort)
         props.artistSort();
         break;
       case "artist-revese":
-        { searchResults.length > 0 && searchResults.sort(reverseArtistSort) }
+        searchResults.length > 0 && searchResults.sort(reverseArtistSort)
         props.reverseArtist();
         break;
       case "title-alpha":
-        { searchResults.length > 0 && searchResults.sort(alphaSort) }
+        searchResults.length > 0 && searchResults.sort(alphaSort)
         props.titleSort();
         break;
       case "title-reverse":
-        { searchResults.length > 0 && searchResults.sort(reverseAlphaSort) }
+        searchResults.length > 0 && searchResults.sort(reverseAlphaSort)
         props.reverseTitleSort()
         break;
       case "newest":
-        { searchResults.length > 0 && searchResults.sort(newestYearSort) }
+        searchResults.length > 0 && searchResults.sort(newestYearSort)
         props.newestYear()
         break;
       case "oldest":
-        { searchResults.length > 0 && searchResults.sort(oldestYearSort) }
+        searchResults.length > 0 && searchResults.sort(oldestYearSort)
         props.oldestYear()
         break;
       default:
@@ -81,10 +84,12 @@ const Feed = props => {
         })
       );
     }
-    setSearchResults(results);
+    if(results.length) setSearchResults(results);
+    else setError(true)
   }
 
   const clearSearchResults = () => {
+    setError(false)
     setSearchResults([]);
     document.getElementById('searchInput').value = '';
   }
@@ -93,42 +98,16 @@ const Feed = props => {
   return (
     <>
       <div className={styles.navOverlayContainer}>
-        <div className={styles.searchContainer}>
-          <FontAwesomeIcon icon={faSearch} style={{ marginRight: '10px' }} />
+        <Search handleSearch={handleSearch} handleSubmit={handleSubmit} register={register} clearSearchResults={clearSearchResults} searchResults={searchResults}
+        error={error}/>
 
-          <form onSubmit={handleSubmit(handleSearch)}>
-            <input
-              id="searchInput"
-              name="searchString"
-              autocomplete="off"
-              className={styles.searchInput}
-              placeholder="Search"
-              ref={register}
-            />
-            <input type="submit" value="SUBMIT" style={{ visibility: 'hidden' }} />
-          </form>
-
-          <div onClick={() => clearSearchResults()} style={{ visibility: searchResults.length > 0 ? 'visible' : 'hidden' }}>
-            <FontAwesomeIcon icon={faTimes} />
-          </div>
-        </div>
-
-        <div className={styles.selectContainer}>
-          <label for="sort">Sort by:</label>
-
-          <select name="sort" id="sort" onChange={(e) => handleSort(e)} className={styles.selector}>
-            <option>Select</option>
-            <option value="artist-alpha">Artist: A-Z</option>
-            <option value="artist-revese">Artist: Z-A</option>
-            <option value="title-alpha">Title: A-Z</option>
-            <option value="title-reverse">Title: Z-A</option>
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-          </select>
-        </div>
+       <Sort handleSort={handleSort}/>
       </div>
-
-      <div className={styles.feedContainer}>
+      {
+        error ? (
+          <NoResult/>
+        ) : (
+          <div className={styles.feedContainer}>
         <div className={styles.feedColumn1}>
           <div className={styles.postsList}>
             {searchResults && searchResults.length > 0
@@ -138,6 +117,10 @@ const Feed = props => {
           </div>
         </div>
       </div>
+
+        )
+      }
+
     </>
   );
 };

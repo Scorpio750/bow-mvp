@@ -62,29 +62,29 @@ export const Post = (props) => {
   );
 
   const renderPost = (isModal) => (
-    <div className={styles.postContainer}>
+
+    !props.artwork.length ? (<div className={styles.postContainer}>
       <div className={styles.artworkContainer}>{renderPostType()}</div>
       {isModal ? renderModalSubtext() : renderSubtext()}
       <div style={{ marginBottom: '2.5rem' }}></div>
-    </div>
+    </div>) : ''
   );
 
   function renderPostType() {
-    if (props.artwork.fileType === 'Video') {
+    if(Array.isArray(props.artwork)) return;
+    if (props.artwork.fileType === 'Video' && props.artwork.path) {
       return (
+
         <video
           className={styles.artwork}
           src={props.artwork.path || placeholder}
           title={props.artwork.title}
-          onClick={() => handleClick(openModal)}
           controls
         ></video>
+
       );
-    } else if (props.artwork.fileType === 'Document') {
+    } else if (props.artwork.fileType === 'Document' && props.artwork.path) {
       return (
-        <div onClick={() => handleClick(openModal)}>
-          {/* this iframe sends the user to another page */}
-          {/* <iframe src={`https://docs.google.com/gview?url=https://path.com/to/your/pdf.pdf&embedded=true`} className={styles.artwork} frameborder="0" title={props.artwork.title}></iframe> */}
 
           <embed
             className={styles.artwork}
@@ -92,7 +92,7 @@ export const Post = (props) => {
             type="application/pdf"
             title={props.artwork.title}
           />
-        </div>
+
       );
     } else {
       return (
@@ -106,7 +106,7 @@ export const Post = (props) => {
     }
   }
 
-  //TODO: this is not scalable we should put modal at root but having trouble invoking render through higher order components
+  // TODO: this is not scalable we should put modal at root but having trouble invoking render through higher order components
   return (
     <React.Fragment>
       {renderPost()}

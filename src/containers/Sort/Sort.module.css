@@ -1,0 +1,15 @@
+
+.selectContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 1.5rem;
+
+}
+
+.selector {
+  height: 30px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+}

@@ -7,6 +7,36 @@ import styles from './GalleryPost.module.css'
 
 export const GalleryPost = props => {
   const { artwork } = props;
+  const renderPostType = () => {
+    if (artwork.fileType === 'Video' && artwork.path) {
+      return (
+        <video
+          className={styles.artwork}
+          src={artwork.path || placeholder}
+          title={artwork.title}
+          controls
+        ></video>
+      );
+    } else if (artwork.fileType === 'Document' && artwork.path) {
+      return (
+          <embed
+            className={styles.artwork}
+            src={artwork.path || placeholder}
+            type="application/pdf"
+            title={artwork.title}
+          />
+      );
+    } else {
+      return (
+        <img
+          className={styles.artwork}
+          src={artwork.path || placeholder}
+          alt={artwork.title}
+        />
+      );
+    }
+  }
+
   return (
     <div className={styles.postContainer}>
       <Link
@@ -17,11 +47,7 @@ export const GalleryPost = props => {
           state: { user: artwork.user }
         }}
       >
-        <img
-          className={styles.artwork}
-          src={artwork.path || placeholder}
-          alt={artwork.title}
-        />
+       {renderPostType()}
       </Link>
       <div style={{ marginBottom: '2.5rem' }}></div>
     </div>
