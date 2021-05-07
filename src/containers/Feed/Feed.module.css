@@ -20,7 +20,7 @@
   flex-flow: row wrap;
   height: 80vh;
   align-items: center;
-  max-width: 80vw;;
+  max-width: 80vw;
 }
 
 .searchContainer {
@@ -52,4 +52,9 @@
   background: transparent;
   border: none;
   font-size: 1rem;
+}
+
+.postsList {
+  display: flex;
+  flex-direction: row;
 }

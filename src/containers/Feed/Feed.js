@@ -130,12 +130,12 @@ const Feed = props => {
 
       <div className={styles.feedContainer}>
         <div className={styles.feedColumn1}>
-          <ul className={styles.postsList}>
+          <div className={styles.postsList}>
             {searchResults && searchResults.length > 0
               ? searchResults.map(searchResult => <Post artwork={searchResult} title={searchResult.title} />)
               : (feedPosts.map(feedPost => <Post artwork={feedPost} title={feedPost.title} />))
             }
-          </ul>
+          </div>
         </div>
       </div>
     </>

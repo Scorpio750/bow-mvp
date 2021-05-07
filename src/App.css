@@ -48,15 +48,6 @@
 ::-webkit-scrollbar {
   display: none;
 }
-ul {
-  font-size: 1.2rem;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-around;
-  list-style-type: none;
-}
 
 a {
   color: #666;
@@ -85,6 +76,7 @@ footer {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  font-size: 1.2rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -97,4 +89,14 @@ footer {
 .info-page {
   text-align: left;
   padding: 0vh 9vw 15vh 9vw;
+}
+
+.indent1 {
+  list-style-type: circle;
+  margin-left: 50px;
+}
+
+.indent2 {
+  list-style-type: square;
+  margin-left: 100px;
 }
