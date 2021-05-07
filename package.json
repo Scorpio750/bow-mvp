@@ -62,7 +62,7 @@
     "server": "nodemon server",
     "start-dev": "concurrently \"npm run server\" \"npm run start\"",
     "seed": "node server/seed.js",
-    "build-do": "npm run build && sudo cp -r ./build/* /var/www/bodyofworkers/html/"
+    "build-do": "npm i && npm run build && sudo cp -r ./build/* /var/www/bodyofworkers/html/"
   },
   "eslintConfig": {
     "extends": [
