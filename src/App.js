@@ -264,29 +264,45 @@ const Legals = () => {
     <div className="info-page">
       <h1>Legals</h1>
 
-      <HashLink to="/legals#terms">Terms of Service</HashLink>
-      <br />
-      <HashLink to="/legals#contentLicensing">Content Licensing</HashLink>
-
       <div id="terms" />
       <h4>Terms of Service</h4>
-      <p><i>Last updated: February 17, 2021</i></p>
-      <p>Please read these Terms of Service (“Terms,” “Terms of Service”) carefully before using the Body of Workers website (the “Service” or the “Site”). Please also read the <a href="/privacy">Privacy Policy</a>, which is incorporated into these Terms of Service.</p>
-      <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
-      <p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, please do not access the Service.</p>
+      <p><i>Last updated: May 7, 2021</i></p>
+      <p>Please read these Terms of Service (“Terms,” “Terms of Service”) carefully before using the Body of Workers website (the “Site”). Please also read the <a href="https://bit.ly/37T2hpL" target="_blank" rel="noopener noreferrer">Community Guidelines</a> and <a href="/privacy">Privacy Policy</a>, which are incorporated into these Terms of Service.</p>
+      <p>Your access to and use of the Site is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Site.</p>
+      <p>If you do not consent to part of the Terms, please do not access the site.</p>
 
       <h4>Ability to Accept Terms of Service</h4>
       <p>You affirm that you are at least 18 years of age or the age of majority in the jurisdiction you are accessing the Service from and are fully able to enter into and comply with the terms and conditions set forth in these Terms of Service. If you are under 18 or the applicable age of majority, please do not use the Service. You also represent that the jurisdiction from which you access the Service does not prohibit the receiving or viewing of sexually explicit content.</p>
 
-      <h4>Termination</h4>
-      <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
-
       <h4>The Site</h4>
-      <p>Body of Workers allows for uploading, sharing and general viewing of various types of content by registered users. Some of this content may include adult-oriented content, including sexually explicit images.</p>
-      <p>Please refer to our <a href="https://docs.google.com/document/d/1zHqcs2Xht_WO0X4cxKrvBkBJQAxj1J_Jh1KMvDWH1sA/edit" target="_blank" rel="noopener noreferrer">Community Agreements</a> to understand what content is prohibited from the Site. We may, in our sole discretion and at any time, remove any content on the Site.</p>
-      <p>You understand and acknowledge that you may be exposed to content that you find offensive, indecent, or objectionable, and you agree to waive, and hereby do waive, any legal or equitable rights or remedies you have or may have against the Site with respect thereto. You agree to indemnify and hold harmless the Site, the site operators, the Site’s  affiliates, licensors, service providers, officers, directors, employees, agents, successors and assigns to the fullest extent allowed by law regarding all matters related to your use of the Site.</p>
+      <p>Body of Workers allows for uploading, sharing, and viewing of various types of content by users. Some of this content may include adult-oriented content, including sexually explicit images.</p>
+      <p>Please refer to our <a href="https://docs.google.com/document/d/1zHqcs2Xht_WO0X4cxKrvBkBJQAxj1J_Jh1KMvDWH1sA/edit" target="_blank" rel="noopener noreferrer">Community Guidelines</a> to understand what content is prohibited from the Site. We may, in our sole discretion and at any time, remove any content on the Site.</p>
+      <p>You understand and acknowledge that you may be exposed to content that you find offensive, indecent, or objectionable. By accessing the Site, you waive any legal or equitable rights or remedies you may have against the Site with respect to viewing such content.</p>
+
       <h4>Communication Preferences</h4>
-      <p>By using the Site, you consent to receiving electronic communications from us relating to your account. This may include notices about your account, updates to the website’s Terms of Service, newsletters, offers, and other announcements. You agree that any notices, agreements, disclosures or other communications that we send to you electronically will satisfy any legal communication requirements, including that such communications be in writing.</p>
+      <p>By using the Site, you consent to receiving electronic communications from us relating to your account. This may include notices about your account, updates to the Site’s Terms of Service, newsletters, offers, and other announcements. You agree that any notices, agreements, disclosures, or other communications that we send to you electronically will satisfy any legal communication requirements, including that such communications be in writing.</p>
+
+      <h4>Copyright and DMCA</h4>
+      <p>When you submit artistic content to the Site, including visual, audio, and/or audio/visual content (“Content”), you affirm that you own or have the necessary rights to publish that Content.</p>
+      <p>Body of Workers does not allow copyright infringement on its website and will respond efficaciously to copyright notices.</p>
+
+      <h4>Users’ Rights with Regards to Content</h4>
+      <p>Registered users of the Site are granted a non-exclusive, limited, revocable license to use the Site and view Content solely for personal use. <b>You may not modify, copy, distribute, transmit, display, perform, reproduce, publish, commercially exploit, create derivative works from, transfer, or sell any Content on the Site without the express written consent of the relevant artist.</b></p>
+
+      <h4>Disclaimer of Warranty</h4>
+      <p>Use of this Site is at your own risk. We cannot guarantee that the Site will operate without interruption or error. While we take regular security precautions, we also cannot guarantee that the Site and its server are free from viruses or other harmful technologies. Any damage to your computer system, or loss of data, that results from using the Site is your responsibility.</p>
+      <p>While we aim to ensure appropriate and accurate sharing of information, we make no warranties regarding the Content of the Site, its quality, accuracy, truthfulness, or reliability.</p>
+      <p>The Site and its Content (inclusive of user submissions) are provided on an “as-is” and “as-available” basis without any warranties of any kind. <b>Body of Workers makes no guarantees regarding the value, quality, or purpose of any items purchased through the site or purchased from artists whose work appears on the site (“warranty of merchantability” or “warranty of fitness for a particular purpose”).</b></p>
+
+      <h4>Limitation of Liability</h4>
+      <p><b>Body of Workers is not legally responsible to any user of the site for any damages resulting from your use or inability to use the site, its material, or any third-party websites linked to this site.</b></p>
+      <p><b>Body of Workers, its third-party technology platform providers, and any third party who promotes Body of Workers or provides you with a link to the Site is not liable for any errors or omissions in any content; any infringement by any content of the copyright, trademark, or other rights of a third party; or any loss or damage that results from using the Site. If you experience any problems with the Site, your sole remedy is to stop using the Site.</b></p>
+
+      <h4>Governing Law and Jurisdiction</h4>
+      <p>These Terms and all questions relating to the performance, interpretation, breach, or enforcement of these Terms, or the rights, obligations and liabilities of you and us under them are governed by the laws of the State of New York. You agree that all disputes, claims or litigation arising from or related in any way to these Terms and our relationship with you will be litigated only in a court of competent jurisdiction located in New York. You agree to be subject to personal jurisdiction and venue in that location.</p>
+
+      <h4>Termination</h4>
+      <p>We may terminate or suspend access to the Site immediately, without prior notice or liability, for any reason, including if you breach the Terms. The Limitation of Liability and Disclaimer of Warranties will survive even if your account is terminated or suspended.</p>
 
       <h4>Contact Us</h4>
       <p>If you have any questions about these Terms, please contact us at <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com</a></p>
@@ -313,17 +329,9 @@ const Legals = () => {
 
 const Privacy = () => (
   <div className="info-page">
-    <h1>Privacy</h1>
+    <h1>Privacy Policy</h1>
 
-    <p>
-      <b>We are committed to building a platform that is safe and accessible to our community.
-      We know that privacy policies and terms of services are usually wielded as weapons to hurt,
-      and not protect us. Ours will be different. The Privacy Policy you’ll find below is only a work in progress.
-      Look for an email from us soon announcing our official legal agreements,
-      and we hope to hear feedback from you about how we can make this space the virtual safehouse we hope it can become.</b>
-    </p>
-
-    <p><i>Last updated: April 8, 2021</i></p>
+    <p><i>Last updated: May 7, 2021</i></p>
 
     <p>
       Body of Workers (“Site”) is committed to protecting personal data and does not sell data it collects from users.
@@ -349,24 +357,19 @@ const Privacy = () => (
     </p>
 
     <ul>
-      <li><b>Access the Site.</b> Information we collect from visitors may include:</li>
-      <li className="indent1">Derivative Data: Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site. We delete this information after 30 days.</li>
-      <li className="indent2">f you have issues with us collecting your IP address, you might try using a VPN or the Tor web browser.</li>
-      <li className="indent1">Mobile Device Data: Device information, such as your mobile device ID, model, and manufacturer, and information about the location of your device, if you access the Site from a mobile device.</li>
-      <li className="indent1">A note on third-party cookies and other data collection tools: Body of Workers uses tokens in lieu of cookies. Tokens do not store access data with the Site’s servers.</li>
+      <li><b>Access the Site.</b> Body of Workers uses both cookies and access tokens when you access the Site. Cookies are small files stored on both your device and the Site’s servers that allow the Site to remember certain information about you, such as access data. Tokens do not store access data with the Site’s servers.</li>
 
       <br />
 
       <li><b>Create an account.</b> From persons who create an account on Body of Workers (“registered users”), we collect the following information:</li>
       <li className="indent1">The same categories of information described above for unregistered users.</li>
       <li className="indent1">Contact Information: Username and email address.</li>
-      <li className="indent1">Personal Information: Personal pronouns are required to sign up for the site. Providing other Personal Information, such as location information, is optional.</li>
 
       <br />
 
       <li><b>Complete an Artist Intake Form.</b> From artists who complete an artist intake form and are given a profile on the site, we collect the following information:</li>
       <li className="indent1">The same categories of information described above for unregistered users.</li>
-      <li className="indent1">Contact Information: Artist name and email address.</li>
+      <li className="indent1">Contact Information: Artist's public name and email address. We do not hold legal names.</li>
       <li className="indent1">User Contributions including Audio/Video Information: We provide areas on our Websites where you can post information about yourself and others and upload content (e.g., pictures, video files, etc.).</li>
       <li className="indent1">Personal Information: Our intake form requires artists to provide their email, city, state, country, and a short biography. Providing other Personal Information, such as personal pronouns, social media URLs, identity notes, and accessibility notes, is optional.</li>
       <li className="indent2">Please note: Our intake form is hosted by Airtable. You can read Airtable’s privacy policy <a href="https://airtable.com/privacy" target="_blank" rel="noopener noreferrer">here</a>.</li>
@@ -388,16 +391,18 @@ const Privacy = () => (
     <h4>How We Share and Disclose Your Information</h4>
 
     <p>
-      The term “Personal Information,” as used below, is information associated with or used to identify or
-      contact a specific person. Personal Information includes: (1) contact data (such as e-mail address);
-      (2) demographic data (such as pronouns); (3) user-generated content; and (4) certain usage data (such as IP address).
+      The term “Personal Information,” as used below, is information associated with or used to
+      identify or contact a specific person. Personal Information includes: (1) contact data
+      (such as e-mail address); (2) user-provided data (such as pronouns); (3) user-generated content
+      (such as artwork shared on the Site); and (4) certain usage data (such as information collected
+      through cookies).
     </p>
 
     <p>We may share and disclose Personal Information as follows:</p>
 
     <ul>
       <li><b>With third party service providers performing services on our behalf.</b> We share information, including Personal Information, with our service providers to perform the functions for which we engage them (such as hosting).</li>
-      <li><b>For legal purposes.</b> We also may share information that we collect from users, as needed, to enforce our rights or protect the rights or safety of others, or as needed to support external auditing, compliance and corporate governance functions. We will disclose Personal Information as we deem strictly necessary to respond to a subpoena, regulation, binding order of a data protection agency, legal process, governmental request or other legal or regulatory process. We may also share Personal Information as required to pursue available remedies or limit damages we may sustain.</li>
+      <li><b>For legal purposes.</b> We also may share information that we collect from users, as needed, to enforce our rights or protect the rights or safety of others, or as needed to support external auditing, compliance, and corporate governance functions. We will disclose Personal Information as we deem strictly necessary to respond to a subpoena, regulation, binding order of a data protection agency, legal process, governmental request or other legal or regulatory process. We may also share Personal Information as required to pursue available remedies or limit damages we may sustain.</li>
       <li><b>When you consent.</b> In all other cases, we will only share Personal Information you have shared with us when you give us your opt-in consent.</li>
     </ul>
 
@@ -412,21 +417,20 @@ const Privacy = () => (
     </p>
 
     <p>
-      We employ security measures designed to protect the security of all information submitted through the Site.
+      We use security measures designed to protect the security of all information submitted through the Site.
       However, the security of information transmitted through the internet can never be guaranteed.
-      We are not responsible for any interception or interruption of any communications through the
-      internet or for changes to or losses of data. Users of the Site are responsible for maintaining
-      the security of any password, user ID or other form of authentication involved in obtaining access to
-      password protected or secure areas of any of our digital services. In order to protect you and your data,
-      we may suspend your use of the Site, without notice, pending an investigation, if any breach of security is
-      suspected. Access to and use of password protected and/or secure areas of the Site are restricted to authorized
-      users only. Unauthorized access to such areas is prohibited.
+      We are not responsible for any interception or interruption of any communications through the internet
+      or for changes to or losses of data. Users of the Site are responsible for maintaining the security of
+      passwords, user IDs, or other forms of authentication involved in obtaining access to password protected
+      areas of the Site. In order to protect you and your data, we may suspend your use of the Site, without
+      notice, pending an investigation, if any breach of security is suspected. Access to and use of password
+      protected and/or secure areas of the Site are restricted to authorized users only.
     </p>
 
     <h4>Your Rights</h4>
 
     <p>
-      It is important to us that you are able to access and review the Personal Information we have about
+      It is important to us that you are able to access and review the personal information we have about
       you and make corrections to it or delete it, as necessary. You can visit your account to manage and correct
       the information we have on file about you. If you have any questions about how to access your Personal Information,
       please contact us at <a href="mailto:info@bodyofworkers.com">info@bodyofworkers.com.</a>
