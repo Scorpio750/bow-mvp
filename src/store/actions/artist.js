@@ -11,40 +11,16 @@ export const REMOVE_ARTIST = 'REMOVE_ARTIST'
 export const UPDATE_ARTIST = 'UPDATE_ARTIST'
 
 //Actions
-export const getUser = user => ({ type: GET_USER, user })
-export const removeUser = () => ({ type: REMOVE_USER })
+export const getArtist = artist => ({ type: GET_ARTIST, artist })
 
 //Thunks
-//for authorization
-export const authUser = (credentials) => async dispatch => {
+export const fetchArtist = id => async dispatch => {
   try{
-    await axios.post('/auth/login', credentials)
-    dispatch(fetchUser())
+    const { data } = await axios.get(`/api/user/artist/${id}`)
+    dispatch(getArtist(data || defaultUser))
   }
   catch(err) {
     console.log(err)
   }
 }
 
-//for the user object
-export const fetchUser = () => async dispatch => {
-  try{
-    const { data } = await axios.get('/api/user/login')
-    dispatch(getUser(data || defaultUser))
-    history.push('/feed')
-  }
-  catch(err) {
-    console.log(err)
-  }
-}
-
-export const logout = () => async dispatch => {
-  try{
-    await axios.post('/auth/logout')
-    dispatch(removeUser())
-    history.push('/login')
-  }
-  catch(err) {
-    console.err(err)
-  }
-}

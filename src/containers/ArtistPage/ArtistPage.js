@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import p from 'prop-types'
+import { get } from 'lodash'
 
 import { getUser } from '../../store/actions/user'
+import { fetchArtist } from '../../store/actions/artist'
 
 import personPlaceholder from '../../assets/person-placeholder.png'
 import InstagramIcon from '@material-ui/icons/Instagram'
@@ -11,7 +13,6 @@ import LocationIcon from '@material-ui/icons/LocationOn'
 import facebook from '../../assets/facebook.png'
 import twitter from '../../assets/twitter.png'
 import styles from './ArtistPage.module.css'
-
 import ArtistGallery from './ArtistGallery'
 import ArtistBio from './ArtistBio'
 
@@ -19,6 +20,12 @@ import ArtistBio from './ArtistBio'
 import { parseSocialMediaLinks } from '../../utils'
 
 export const ArtistPage = props => {
+  let [artist] = useState({})
+
+  useEffect(() => {
+    artist = props.getArtist(get(props, ['location', 'state', 'user', 'id']))
+  }, [])
+
   const { location: { state: { user } } } = props
   return (
     <div className={styles.artistProfileContainer}>
@@ -87,27 +94,16 @@ ArtistPage.defaultProps = {
 ArtistPage.propTypes = {
   location: p.object,
   getUser: p.func,
+  id: p.number,
 }
-
-ArtistPage.defaultProps = {
-  location: {
-    state: {
-      artwork: {
-        user: {
-          id: 0,
-        },
-      },
-    },
-  },
-}
-
 
 const mapStateToProps = state => ({
   artist: state.artist,
 })
 
-const mapDispatchToProps = {
-  getUser,
-}
+const mapDispatchToProps = dispatch => ({
+  getUser: () => dispatch(getUser),
+  getArtist: id => dispatch(fetchArtist(id))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage)

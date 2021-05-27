@@ -6,6 +6,20 @@ router.get('/me', (req, res, next) => {
   res.sendStatus(201)
 })
 
+router.get('/artist/:id', async (req, res, next) => {
+  try {
+    if(isNaN(Number(req.params.id))) {
+      return res.sendStatus(404);
+    }
+    const artist = await User.findByPk(req.params.id)
+    return res.send(artist)
+
+  } catch(err) {
+    next(err)
+  }
+
+})
+
 router.get('/login', async (req, res, next) =>  {
   try {
     console.log({ req })

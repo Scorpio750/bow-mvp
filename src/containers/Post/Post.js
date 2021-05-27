@@ -116,7 +116,6 @@ export const Post = (props) => {
         isOpen={modalIsOpen}
         shouldCloseOnOverlayClick={true}
         onRequestClose={closeModal}
-        contentLabel="test"
       >
         {renderPost(true)}
 
