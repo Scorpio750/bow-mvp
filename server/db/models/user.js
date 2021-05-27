@@ -55,7 +55,8 @@ const User = db.define('user', {
     type: Sequelize.BOOLEAN,
     defaultValue: false
   },
-  artistheadshot: Sequelize.STRING,
+  // cannot add camelcase to modify table
+  artist_headshot: Sequelize.STRING,
 })
 
 module.exports = User

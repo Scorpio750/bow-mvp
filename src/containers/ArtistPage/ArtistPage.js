@@ -47,7 +47,7 @@ export const ArtistProfile = props => {
       <section className={styles.artistPicMedia}>
         <img
           className={styles.artistPic}
-          src={props.artist.artistHeadshot || personPlaceholder}
+          src={props.artist.artist_headshot || personPlaceholder}
           alt='an incredibly flattering portrait'
         />
         <section className={styles.mediaLinksSection}>
