@@ -55,7 +55,7 @@ const User = db.define('user', {
     type: Sequelize.BOOLEAN,
     defaultValue: false
   },
-
+  artistheadshot: Sequelize.STRING,
 })
 
 module.exports = User
